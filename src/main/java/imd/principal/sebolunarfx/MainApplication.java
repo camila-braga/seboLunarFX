@@ -22,8 +22,8 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("telaIntro.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 720, 640);
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Intro.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Bem-Vindo ao Sebo Lunar!");
 
         stage.setScene(scene);

@@ -1,58 +1,46 @@
 package imd.principal.sebolunarfx;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
-import javafx.scene.image.Image;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class IntroController {
 
     @FXML
-    private SplitPane introScene;
+    private VBox vBox1;
 
     @FXML
-    private AnchorPane anchorPane;
+    private HBox hBox1;
 
     @FXML
-    private Label BemVindo;
+    private HBox hBox2;
 
     @FXML
-    private Button acessar;
+    private HBox hBox3;
 
     @FXML
-    private Button sair;
+    private Label introText;
 
     @FXML
-    public void initialize() {
+    private Button introButton;
 
-        Image image = new Image("/luaIntro.jpg");
+    @FXML
+    private Button introExitButton;
 
-        // create a background image
-        BackgroundSize backgroundSize = new BackgroundSize(1, 1, true, true, false, false);
-        BackgroundImage backgroundimage = new BackgroundImage(image,
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundPosition.CENTER,
-                backgroundSize);
-
-        // create Background
-        Background background = new Background(backgroundimage);
-
-        introScene.setBackground(background);
-
-
-        acessar.setStyle("-fx-border-color: #f2e175; -fx-background-color: #c9bb5c;");
+    @FXML
+    protected void onIntroButton() {
+        introText.setText("Funcionou!");
     }
 
     @FXML
-    protected void ButtonIntroController() {
-        BemVindo.setText("FUNCIONOU!");
+    protected void onIntroExitButton() {
+        introText.setText("Teste para sair!");
     }
+
+
+
 }
-
