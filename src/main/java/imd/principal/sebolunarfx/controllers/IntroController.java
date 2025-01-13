@@ -1,4 +1,4 @@
-package imd.principal.sebolunarfx;
+package imd.principal.sebolunarfx.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
