@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="verticalBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.MenuController">
+    <children>
+        <HBox fx:id="horizontalBox" alignment="CENTER" prefHeight="24.0" prefWidth="600.0">
+            <children>
+                <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="607.0" HBox.hgrow="ALWAYS">
+                    <menus>
+                        <Menu fx:id="cadastrar" mnemonicParsing="false" text="Cadastrar">
+                            <items>
+                                <MenuItem fx:id="livro" mnemonicParsing="false" text="Livro" />
+                                <MenuItem fx:id="disco" mnemonicParsing="false" text="Disco" />
+                            </items>
+                        </Menu>
+                        <Menu fx:id="exibir" mnemonicParsing="false" text="Exibir">
+                            <items>
+                                <MenuItem fx:id="porTitulo" mnemonicParsing="false" text="Por título" />
+                                <MenuItem fx:id="porAutor" mnemonicParsing="false" text="Por autor" />
+                                <MenuItem fx:id="porCantor" mnemonicParsing="false" text="Por cantor" />
+                                <MenuItem fx:id="porTipo" mnemonicParsing="false" text="Por tipo" />
+                            </items>
+                        </Menu>
+                        <Menu fx:id="remover" mnemonicParsing="false" text="Remover" />
+                        <Menu fx:id="frete" mnemonicParsing="false" text="Frete" />
+
+                    </menus>
+                </MenuBar>
+            </children>
+        </HBox>
+        <HBox fx:id="horizontalBox2" alignment="CENTER" prefHeight="389.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+            <children>
+                <VBox fx:id="verticalBox2" alignment="CENTER" prefHeight="375.0" prefWidth="606.0" HBox.hgrow="ALWAYS" />
+                <VBox fx:id="verticalBox3" alignment="CENTER" prefHeight="375.0" prefWidth="23.0">
+                    <children>
+                        <ScrollBar fx:id="scrollBar" orientation="VERTICAL" prefHeight="375.0" prefWidth="18.0" VBox.vgrow="ALWAYS" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</VBox>

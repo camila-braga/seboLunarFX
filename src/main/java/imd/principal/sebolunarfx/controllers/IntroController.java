@@ -1,20 +1,25 @@
 package imd.principal.sebolunarfx.controllers;
 
+import imd.principal.sebolunarfx.MainApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class IntroController {
 
     @FXML
     private VBox vBox1;
 
-    @FXML
-    private HBox hBox1;
 
     @FXML
     private HBox hBox2;
@@ -28,12 +33,19 @@ public class IntroController {
     @FXML
     private Button introButton;
 
-    @FXML
-    private Button introExitButton;
 
     @FXML
-    protected void onIntroButton() {
-        introText.setText("Funcionou!");
+    protected void onIntroButton(ActionEvent event) throws IOException  {
+
+        //Carrega o tela do menu
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Menu.fxml"));
+
+        //Cria uma nova cena com o menu
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+
+        //Pega o a janela atual (stage) e altera para a cena do menu
+        Stage stage = (Stage) introButton.getScene().getWindow();
+        stage.setScene(scene);
     }
 
     //Fazer o programa encerrar!
@@ -62,7 +74,7 @@ public class IntroController {
 
 
         introButton.setStyle("-fx-border-color: #c3603a; -fx-background-color: #ff9061;");
-        introExitButton.setStyle("-fx-border-color: #c3603a; -fx-background-color: #ff9061;");
+
     }
 
 

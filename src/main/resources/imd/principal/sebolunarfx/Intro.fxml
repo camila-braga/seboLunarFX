@@ -10,20 +10,11 @@
 
 <VBox fx:id="vBox1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.IntroController">
    <children>
-      <HBox fx:id="hBox1" alignment="CENTER_RIGHT" prefHeight="65.0" prefWidth="600.0">
+      <HBox fx:id="hBox2" alignment="TOP_CENTER" prefHeight="330.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="introExitButton" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#onIntroExitButton" text="X" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="introText" alignment="TOP_CENTER" contentDisplay="CENTER" text="Bem-vindo ao Sebo Lunar! " textAlignment="CENTER" textFill="#fae461" wrapText="true" HBox.hgrow="ALWAYS">
                <font>
-                  <Font name="Book Antiqua" size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
-      <HBox fx:id="hBox2" alignment="TOP_CENTER" prefHeight="330.0" prefWidth="600.0">
-         <children>
-            <Label fx:id="introText" alignment="TOP_CENTER" contentDisplay="CENTER" text="Bem-vindo ao Sebo Lunar! " textAlignment="CENTER" textFill="#fab45f" wrapText="true">
-               <font>
-                  <Font name="Leelawadee" size="38.0" />
+                  <Font name="Leelawadee UI" size="38.0" />
                </font>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -39,7 +30,7 @@
       </HBox>
       <HBox fx:id="hBox3" alignment="CENTER" prefHeight="110.0" prefWidth="600.0">
          <children>
-            <Button fx:id="introButton" alignment="CENTER" mnemonicParsing="false" onAction="#onIntroButton" text="Acessar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="introButton" alignment="CENTER" mnemonicParsing="false" onAction="#onIntroButton" text="Acessar" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Leelawadee" size="18.0" />
                </font>
