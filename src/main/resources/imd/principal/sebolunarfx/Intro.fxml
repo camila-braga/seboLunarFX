@@ -12,7 +12,7 @@
    <children>
       <HBox fx:id="hBox1" alignment="CENTER_RIGHT" prefHeight="65.0" prefWidth="600.0">
          <children>
-            <Button fx:id="introExitButton" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#onIntroExitButton" text="X" textAlignment="CENTER" textFill="RED">
+            <Button fx:id="introExitButton" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#onIntroExitButton" text="X" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="14.0" />
                </font>
@@ -21,7 +21,7 @@
       </HBox>
       <HBox fx:id="hBox2" alignment="TOP_CENTER" prefHeight="330.0" prefWidth="600.0">
          <children>
-            <Label fx:id="introText" alignment="TOP_CENTER" contentDisplay="CENTER" text="Bem-vindo ao Sebo Lunar!" textAlignment="CENTER" textFill="#fff260" wrapText="true">
+            <Label fx:id="introText" alignment="TOP_CENTER" contentDisplay="CENTER" text="Bem-vindo ao Sebo Lunar! " textAlignment="CENTER" textFill="#fab45f" wrapText="true">
                <font>
                   <Font name="Leelawadee" size="38.0" />
                </font>
