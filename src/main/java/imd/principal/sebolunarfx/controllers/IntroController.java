@@ -48,12 +48,6 @@ public class IntroController {
         stage.setScene(scene);
     }
 
-    //Fazer o programa encerrar!
-    @FXML
-    protected void onIntroExitButton() {
-        introText.setText("Teste para sair!");
-    }
-
     @FXML
     public void initialize() {
 
