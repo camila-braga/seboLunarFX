@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <HBox fx:id="hBoxCentral" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="vBoxCentral" alignment="CENTER" prefHeight="400.0" prefWidth="633.0">
+               <children>
+                  <Label fx:id="labelCadastro" text="CADASTRO DE LIVRO" />
+                  <Label fx:id="labelNome" text="Qual o nome do autor?" />
+                  <TextField fx:id="texto1" prefHeight="0.0" prefWidth="225.0" />
+                  <Label fx:id="labelTitulo" text="Qual o título?" />
+                  <TextField fx:id="texto2" prefHeight="0.0" prefWidth="225.0" />
+                  <Label fx:id="labelClassificacao" text="Qual a classificação do peso do livro (A a F)?" />
+                  <TextField fx:id="texto3" prefHeight="0.0" prefWidth="225.0" />
+                  <Label fx:id="labelConservacao" text="Qual o estado de conservação (NOVO, SEMINOVO, USADO)?" />
+                  <TextField fx:id="texto4" prefHeight="0.0" prefWidth="225.0" />
+                  <Label fx:id="labelEditora" text="Qual a editora?" />
+                  <TextField fx:id="texto5" prefHeight="0.0" prefWidth="225.0" />
+                  <Label fx:id="labelPaginas" text="Qual o número de páginas?" />
+                  <TextField fx:id="texto6" prefHeight="0.0" prefWidth="225.0" />
+                  <Label fx:id="labelAno" text="Qual o ano de publicação?" />
+                  <TextField fx:id="texto7" prefHeight="0.0" prefWidth="225.0" />
+                  <Label fx:id="labelGenero" text="Qual o gênero literário?" />
+                  <TextField fx:id="texto8" prefHeight="0.0" prefWidth="225.0" />
+               </children>
+            </VBox>
+            <VBox fx:id="vBoxBarra" prefHeight="400.0" prefWidth="14.0">
+               <children>
+                  <ScrollBar fx:id="scrollBar" orientation="VERTICAL" prefHeight="414.0" prefWidth="14.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <top>
+      <MenuBar fx:id="manuBar" prefWidth="614.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="cadastrar" mnemonicParsing="false" text="Cadastrar">
+            <items>
+              <MenuItem fx:id="livro" mnemonicParsing="false" text="Livro" />
+                  <MenuItem fx:id="disco" mnemonicParsing="false" text="Disco" />
+            </items>
+          </Menu>
+          <Menu fx:id="exibir" mnemonicParsing="false" text="Exibir">
+            <items>
+              <MenuItem fx:id="porTitulo" mnemonicParsing="false" text="Por título" />
+                  <MenuItem fx:id="porAutor" mnemonicParsing="false" text="Por autor" />
+                  <MenuItem fx:id="porCantor" mnemonicParsing="false" text="Por cantor" />
+                  <MenuItem fx:id="porTipo" mnemonicParsing="false" text="Por Tipo" />
+            </items>
+          </Menu>
+          <Menu fx:id="remover" mnemonicParsing="false" text="Remover" />
+            <Menu fx:id="frete" mnemonicParsing="false" text="Frete" />
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox fx:id="vBoxEsquerda" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox fx:id="vBoxDireita" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <HBox fx:id="hBoxInferior" prefHeight="31.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox fx:id="hBox0" prefHeight="31.0" prefWidth="428.0">
+               <children>
+                  <HBox fx:id="hBox1" prefHeight="31.0" prefWidth="378.0" />
+                  <Label fx:id="labelAviso" alignment="CENTER" prefHeight="34.0" prefWidth="30.0" text="Aviso" textAlignment="CENTER" />
+               </children>
+            </HBox>
+            <Button fx:id="buttonCadastrar" mnemonicParsing="false" text="Cadastrar" />
+         </children></HBox>
+   </bottom>
+</BorderPane>
