@@ -22,11 +22,11 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CadastroDisco.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Intro.fxml"));
+        Scene sceneIntro = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Bem-Vindo ao Sebo Lunar!");
 
-        stage.setScene(scene);
+        stage.setScene(sceneIntro);
         stage.show();
     }
 

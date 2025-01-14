@@ -1,48 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox fx:id="verticalBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.MenuController">
-    <children>
-        <HBox fx:id="horizontalBox" alignment="CENTER" prefHeight="24.0" prefWidth="600.0">
-            <children>
-                <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="607.0" HBox.hgrow="ALWAYS">
-                    <menus>
-                        <Menu fx:id="cadastrar" mnemonicParsing="false" text="Cadastrar">
-                            <items>
-                                <MenuItem fx:id="livro" mnemonicParsing="false" text="Livro" />
-                                <MenuItem fx:id="disco" mnemonicParsing="false" text="Disco" />
-                            </items>
-                        </Menu>
-                        <Menu fx:id="exibir" mnemonicParsing="false" text="Exibir">
-                            <items>
-                                <MenuItem fx:id="porTitulo" mnemonicParsing="false" text="Por título" />
-                                <MenuItem fx:id="porAutor" mnemonicParsing="false" text="Por autor" />
-                                <MenuItem fx:id="porCantor" mnemonicParsing="false" text="Por cantor" />
-                                <MenuItem fx:id="porTipo" mnemonicParsing="false" text="Por tipo" />
-                            </items>
-                        </Menu>
-                        <Menu fx:id="remover" mnemonicParsing="false" text="Remover" />
-                        <Menu fx:id="frete" mnemonicParsing="false" text="Frete" />
-
-                    </menus>
-                </MenuBar>
-            </children>
-        </HBox>
-        <HBox fx:id="horizontalBox2" alignment="CENTER" prefHeight="389.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
-            <children>
-                <VBox fx:id="verticalBox2" alignment="CENTER" prefHeight="375.0" prefWidth="606.0" HBox.hgrow="ALWAYS" />
-                <VBox fx:id="verticalBox3" alignment="CENTER" prefHeight="375.0" prefWidth="23.0">
-                    <children>
-                        <ScrollBar fx:id="scrollBar" orientation="VERTICAL" prefHeight="375.0" prefWidth="18.0" VBox.vgrow="ALWAYS" />
-                    </children>
-                </VBox>
-            </children>
-        </HBox>
-    </children>
-</VBox>
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.MenuController">
+      <top>
+            <MenuBar fx:id="menuBar" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="1026.0" BorderPane.alignment="CENTER">
+                <menus>
+                    <Menu fx:id="menuCadastrar" mnemonicParsing="false" text="Cadastrar">
+                        <items>
+                            <MenuItem fx:id="menuItemCadLivro" mnemonicParsing="false" text="Livro" />
+                            <MenuItem fx:id="menuItemCadDisco" mnemonicParsing="false" text="Disco" />
+                        </items>
+                    </Menu>
+                    <Menu fx:id="menuExibir" mnemonicParsing="false" text="Exibir">
+                        <items>
+                            <Menu fx:id="menuTipo" mnemonicParsing="false" text="Por tipo">
+                                <items>
+                                    <MenuItem fx:id="menuItemExTipoLivro" mnemonicParsing="false" text="Livro" />
+                                    <MenuItem fx:id="menuItemExTipoDisco" mnemonicParsing="false" text="Disco" />
+                                </items>
+                            </Menu>
+                            <MenuItem fx:id="menuItemExAutor" mnemonicParsing="false" text="Por autor" />
+                            <MenuItem fx:id="menuItemExCantor" mnemonicParsing="false" text="Por cantor" />
+                            <MenuItem fx:id="menuItemExTitulo" mnemonicParsing="false" text="Por título" />
+                        </items>
+                    </Menu>
+                    <Menu fx:id="menuRemover" mnemonicParsing="false" text="Remover" />
+                    <Menu fx:id="menuFrete" mnemonicParsing="false" text="Frete">
+                        <items>
+                            <MenuItem fx:id="menuItemFreteLivro" mnemonicParsing="false" text="Livro" />
+                            <MenuItem fx:id="menuItemFreteDisco" mnemonicParsing="false" text="Disco" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+      </top>
+      <center>
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="592.0" prefWidth="624.0">
+                <content>
+                    <VBox fx:id="vBox4" alignment="CENTER" prefHeight="592.0" prefWidth="608.0">
+                        <children>
+                            <Label fx:id="msgInicial" alignment="CENTER" prefHeight="100.0" prefWidth="629.0" text="Bem-vindo ao Sebo Lunar!" textAlignment="CENTER" textFill="#b9d9fc" wrapText="true" VBox.vgrow="ALWAYS">
+                                <font>
+                                    <Font name="Book Antiqua" size="40.0" />
+                                </font>
+                                <VBox.margin>
+                                    <Insets left="50.0" right="50.0" />
+                                </VBox.margin>
+                            </Label>
+                        </children>
+                    </VBox>
+                </content>
+            </ScrollPane>
+      </center>
+   <left>
+      <VBox fx:id="vBox1" alignment="CENTER" prefHeight="587.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="luaLeftPic" fitHeight="587.0" fitWidth="200.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
+               <image>
+                  <Image url="@../../../luaLeft200por587.png" />
+               </image>
+            </ImageView>
+         </children></VBox>
+   </left>
+   <right>
+      <VBox fx:id="vBox2" alignment="CENTER" prefHeight="587.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="luaRightPic" fitHeight="587.0" fitWidth="200.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
+               <image>
+                  <Image url="@../../../luaRight200por587.png" />
+               </image>
+            </ImageView>
+         </children></VBox>
+   </right>
+   <bottom>
+      <HBox fx:id="hBox1" prefHeight="29.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="luaBottomPic" fitHeight="29.0" fitWidth="1024.0" pickOnBounds="true" HBox.hgrow="ALWAYS">
+               <image>
+                  <Image url="@../../../luaBottom1024por29.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </bottom>
+  </BorderPane>

@@ -1,64 +1,61 @@
 package imd.principal.sebolunarfx.controllers;
 
+import imd.principal.sebolunarfx.MainApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+
 import imd.principal.sebolunarfx.utils.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MenuController {
 
     @FXML
-    private VBox verticalBox;
+    private VBox vBox1, vBox2, vBox3;
 
     @FXML
-    private VBox verticalBox2;
+    private BorderPane borderPane;
 
     @FXML
-    private VBox verticalBox3;
-
-    @FXML
-    private ScrollBar scrollBar;
-
-    @FXML
-    private HBox horizontalBox;
-
-    @FXML
-    private HBox horizontalBox2;
+    private HBox hBox1;
 
     @FXML
     private MenuBar menuBar;
 
     @FXML
-    private Menu cadastrar;
+    private Menu menuCadastrar, menuExibir, menuTipo, menuRemover, menuFrete;
 
     @FXML
-    private MenuItem livro;
-
-
+    private MenuItem menuItemCadLivro, menuItemCadDisco, menuItemExAutor, menuItemExCantor, menuItemExTitulo, menuItemExTipoLivro, menuItemExTipoDisco, menuItemFreteLivro, menuItemFreteDisco;
 
     @FXML
-    private MenuItem disco;
+    private ImageView luaLeftPic, luaRightPic, luaBottomPic;
 
     @FXML
-    private Menu exibir;
+    private ScrollPane scrollPane;
 
     @FXML
-    private MenuItem porTitulo;
+    private Label msgInicial;
 
-    @FXML
-    private MenuItem porAutor;
+   /* @FXML
+    protected void menuCadLivro(ActionEvent event) throws IOException {
 
-    @FXML
-    private MenuItem porCantor;
+        //Carrega o tela do menu
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("CadastroLivroCamila.fxml"));
 
-    @FXML
-    private MenuItem porTipo;
+        //Cria uma nova cena para cadastrar livro
+        Scene cadLivro = new Scene(fxmlLoader.load(), 1024, 640);
 
-    @FXML
-    private Menu remover;
-
-    @FXML
-    private Menu frete;
-
+        //Pega o a janela atual (stage) e altera para a cena do menu
+        Stage stage = (Stage) menuItemCadLivro.getWindow();
+        stage.setScene(cadLivro);
+    }*/
 
 }

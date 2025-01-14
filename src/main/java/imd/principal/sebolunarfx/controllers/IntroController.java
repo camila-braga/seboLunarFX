@@ -41,11 +41,11 @@ public class IntroController {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Menu.fxml"));
 
         //Cria uma nova cena com o menu
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene sceneMenu = new Scene(fxmlLoader.load(), 1024, 640);
 
         //Pega o a janela atual (stage) e altera para a cena do menu
         Stage stage = (Stage) introButton.getScene().getWindow();
-        stage.setScene(scene);
+        stage.setScene(sceneMenu);
     }
 
     @FXML
