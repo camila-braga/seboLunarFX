@@ -19,28 +19,31 @@
                 <menus>
                     <Menu fx:id="menuCadastrar" mnemonicParsing="false" text="Cadastrar">
                         <items>
-                            <MenuItem fx:id="menuItemCadLivro" mnemonicParsing="false" text="Livro" />
-                            <MenuItem fx:id="menuItemCadDisco" mnemonicParsing="false" text="Disco" />
+                            <MenuItem fx:id="menuItemCadLivro" mnemonicParsing="false" onAction="#onCadLivroClick" text="Livro" />
+                            <MenuItem fx:id="menuItemCadDisco" mnemonicParsing="false" onAction="#onCadDiscoClick" text="Disco" />
                         </items>
                     </Menu>
                     <Menu fx:id="menuExibir" mnemonicParsing="false" text="Exibir">
                         <items>
                             <Menu fx:id="menuTipo" mnemonicParsing="false" text="Por tipo">
                                 <items>
-                                    <MenuItem fx:id="menuItemExTipoLivro" mnemonicParsing="false" text="Livro" />
-                                    <MenuItem fx:id="menuItemExTipoDisco" mnemonicParsing="false" text="Disco" />
+                                    <MenuItem fx:id="menuItemExTipoLivro" mnemonicParsing="false" onAction="#onExTipoLivroClick" text="Livro" />
+                                    <MenuItem fx:id="menuItemExTipoDisco" mnemonicParsing="false" onAction="#onExTipoDiscoClick" text="Disco" />
                                 </items>
                             </Menu>
-                            <MenuItem fx:id="menuItemExAutor" mnemonicParsing="false" text="Por autor" />
-                            <MenuItem fx:id="menuItemExCantor" mnemonicParsing="false" text="Por cantor" />
-                            <MenuItem fx:id="menuItemExTitulo" mnemonicParsing="false" text="Por título" />
+                            <MenuItem fx:id="menuItemExAutor" mnemonicParsing="false" onAction="#onExAutorClick" text="Por autor" />
+                            <MenuItem fx:id="menuItemExCantor" mnemonicParsing="false" onAction="#onExCantorClick" text="Por cantor" />
+                            <MenuItem fx:id="menuItemExTitulo" mnemonicParsing="false" onAction="#onExTituloClick" text="Por título" />
                         </items>
                     </Menu>
-                    <Menu fx:id="menuRemover" mnemonicParsing="false" text="Remover" />
+                    <Menu fx:id="menuRemover" mnemonicParsing="false" text="Remover">
+               <items>
+                  <MenuItem fx:id="menuItemRemover" mnemonicParsing="false" onAction="#onRemoverClick" text="Remover produto" />
+               </items></Menu>
                     <Menu fx:id="menuFrete" mnemonicParsing="false" text="Frete">
                         <items>
-                            <MenuItem fx:id="menuItemFreteLivro" mnemonicParsing="false" text="Livro" />
-                            <MenuItem fx:id="menuItemFreteDisco" mnemonicParsing="false" text="Disco" />
+                            <MenuItem fx:id="menuItemFreteLivro" mnemonicParsing="false" onAction="#onFreteLivroClick" text="Livro" />
+                            <MenuItem fx:id="menuItemFreteDisco" mnemonicParsing="false" onAction="#onFreteDiscoClick" text="Disco" />
                         </items>
                     </Menu>
                 </menus>

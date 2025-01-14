@@ -1,6 +1,7 @@
 module imd.principal.sebolunarfx {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens imd.principal.sebolunarfx to javafx.fxml;

@@ -1,87 +1,352 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <HBox fx:id="hBoxCentral" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox fx:id="vBoxCentral" alignment="CENTER" prefHeight="400.0" prefWidth="633.0">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.CadastroLivroController">
+      <top>
+         <MenuBar fx:id="menuBar" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="1026.0" BorderPane.alignment="CENTER">
+            <menus>
+               <Menu fx:id="menuCadastrar" mnemonicParsing="false" text="Cadastrar">
+                  <items>
+                     <MenuItem fx:id="menuItemCadLivro" mnemonicParsing="false" onAction="#onCadLivroClick" text="Livro" />
+                     <MenuItem fx:id="menuItemCadDisco" mnemonicParsing="false" onAction="#onCadDiscoClick" text="Disco" />
+                  </items>
+               </Menu>
+               <Menu fx:id="menuExibir" mnemonicParsing="false" text="Exibir">
+                  <items>
+                     <Menu fx:id="menuTipo" mnemonicParsing="false" text="Por tipo">
+                        <items>
+                           <MenuItem fx:id="menuItemExTipoLivro" mnemonicParsing="false" onAction="#onExTipoLivroClick" text="Livro" />
+                           <MenuItem fx:id="menuItemExTipoDisco" mnemonicParsing="false" onAction="#onExTipoDiscoClick" text="Disco" />
+                        </items>
+                     </Menu>
+                     <MenuItem fx:id="menuItemExAutor" mnemonicParsing="false" onAction="#onExAutorClick" text="Por autor" />
+                     <MenuItem fx:id="menuItemExCantor" mnemonicParsing="false" onAction="#onExCantorClick" text="Por cantor" />
+                     <MenuItem fx:id="menuItemExTitulo" mnemonicParsing="false" onAction="#onExTituloClick" text="Por título" />
+                  </items>
+               </Menu>
+               <Menu fx:id="menuRemover" mnemonicParsing="false" text="Remover" />
+               <Menu fx:id="menuFrete" mnemonicParsing="false" text="Frete">
+                  <items>
+                     <MenuItem fx:id="menuItemFreteLivro" mnemonicParsing="false" onAction="#onFreteLivroClick" text="Livro" />
+                     <MenuItem fx:id="menuItemFreteDisco" mnemonicParsing="false" onAction="#onFreteDiscoClick" text="Disco" />
+                  </items>
+               </Menu>
+            </menus>
+         </MenuBar>
+      </top>
+      <center>
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="592.0" prefWidth="624.0">
+                <content>
+                    <VBox fx:id="vBox3" alignment="CENTER" prefHeight="592.0" prefWidth="608.0">
                <children>
-                  <Label fx:id="labelCadastro" text="CADASTRO DE LIVRO" />
-                  <Label fx:id="labelNome" text="Qual o nome do autor?" />
-                  <TextField fx:id="texto1" prefHeight="0.0" prefWidth="225.0" />
-                  <Label fx:id="labelTitulo" text="Qual o título?" />
-                  <TextField fx:id="texto2" prefHeight="0.0" prefWidth="225.0" />
-                  <Label fx:id="labelClassificacao" text="Qual a classificação do peso do livro (A a F)?" />
-                  <TextField fx:id="texto3" prefHeight="0.0" prefWidth="225.0" />
-                  <Label fx:id="labelConservacao" text="Qual o estado de conservação (NOVO, SEMINOVO, USADO)?" />
-                  <TextField fx:id="texto4" prefHeight="0.0" prefWidth="225.0" />
-                  <Label fx:id="labelEditora" text="Qual a editora?" />
-                  <TextField fx:id="texto5" prefHeight="0.0" prefWidth="225.0" />
-                  <Label fx:id="labelPaginas" text="Qual o número de páginas?" />
-                  <TextField fx:id="texto6" prefHeight="0.0" prefWidth="225.0" />
-                  <Label fx:id="labelAno" text="Qual o ano de publicação?" />
-                  <TextField fx:id="texto7" prefHeight="0.0" prefWidth="225.0" />
-                  <Label fx:id="labelGenero" text="Qual o gênero literário?" />
-                  <TextField fx:id="texto8" prefHeight="0.0" prefWidth="225.0" />
+                  <HBox fx:id="hBox2" alignment="CENTER" prefHeight="67.0" prefWidth="609.0">
+                     <children>
+                        <Label fx:id="lbCadLivro" alignment="CENTER" contentDisplay="CENTER" text="Cadastro de Livro" textAlignment="CENTER" textFill="#e4a069" wrapText="true">
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox fx:id="hBox3" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="vBox4" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbaAutor" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="170.0" text="Qual o nome do autor?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="txtAutor" promptText="Nome do autor" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="80.0" right="80.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hBox4" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="vBox5" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbTitulo" alignment="CENTER" contentDisplay="CENTER" text="Qual o título?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtTitulo" promptText="Título do livro" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="80.0" right="80.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hBox5" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="vBox6" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbPeso" alignment="CENTER" contentDisplay="CENTER" text="Qual a classificação do peso do livro (A a F)?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPeso" promptText="Classificação do peso" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="80.0" right="80.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hBox6" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="vBox7" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbConservacao" alignment="CENTER" contentDisplay="CENTER" text="Qual o estado de conservação (NOVO, SEMINOVO, USADO)?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="txtConservacao" promptText="Estado de Conservação" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="80.0" right="80.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hBox7" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="vBox8" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbEditora" alignment="CENTER" contentDisplay="CENTER" text="Qual a editora?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="txtEditora" promptText="Nome da editora" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="80.0" right="80.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hBox8" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="vBox9" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbPaginas" alignment="CENTER" contentDisplay="CENTER" text="Qual o número de páginas?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="txtPaginas" promptText="Número de Páginas" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="80.0" right="80.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hBox9" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="vBox10" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbAnoPublicacao" alignment="CENTER" contentDisplay="CENTER" text="Qual o ano de publicação?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtAnoPublicacao" promptText="Ano de publicação do livro" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="80.0" right="80.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hBox10" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="vBox11" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbGeneroLiterario" alignment="CENTER" contentDisplay="CENTER" text="Qual o gênero literário?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="txtGeneroLiterario" promptText="Gênero literário" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets left="80.0" right="80.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hBox11" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lbMensagemSucesso" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="#6cb0da" wrapText="true" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Book Antiqua" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnCadastrarLivro" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Cadastrar" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Book Antiqua" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" top="20.0" />
+                     </padding>
+                  </HBox>
                </children>
-            </VBox>
-            <VBox fx:id="vBoxBarra" prefHeight="400.0" prefWidth="14.0">
-               <children>
-                  <ScrollBar fx:id="scrollBar" orientation="VERTICAL" prefHeight="414.0" prefWidth="14.0" />
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-   </center>
-   <top>
-      <MenuBar fx:id="manuBar" prefWidth="614.0" BorderPane.alignment="CENTER">
-        <menus>
-          <Menu fx:id="cadastrar" mnemonicParsing="false" text="Cadastrar">
-            <items>
-              <MenuItem fx:id="livro" mnemonicParsing="false" text="Livro" />
-                  <MenuItem fx:id="disco" mnemonicParsing="false" text="Disco" />
-            </items>
-          </Menu>
-          <Menu fx:id="exibir" mnemonicParsing="false" text="Exibir">
-            <items>
-              <MenuItem fx:id="porTitulo" mnemonicParsing="false" text="Por título" />
-                  <MenuItem fx:id="porAutor" mnemonicParsing="false" text="Por autor" />
-                  <MenuItem fx:id="porCantor" mnemonicParsing="false" text="Por cantor" />
-                  <MenuItem fx:id="porTipo" mnemonicParsing="false" text="Por Tipo" />
-            </items>
-          </Menu>
-          <Menu fx:id="remover" mnemonicParsing="false" text="Remover" />
-            <Menu fx:id="frete" mnemonicParsing="false" text="Frete" />
-        </menus>
-      </MenuBar>
-   </top>
+                    </VBox>
+                </content>
+            </ScrollPane>
+      </center>
    <left>
-      <VBox fx:id="vBoxEsquerda" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+      <VBox fx:id="vBox1" alignment="CENTER" prefHeight="587.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="luaLeftPic" fitHeight="587.0" fitWidth="200.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
+               <image>
+                  <Image url="@../../../luaLeft200por587.png" />
+               </image>
+            </ImageView>
+         </children></VBox>
    </left>
    <right>
-      <VBox fx:id="vBoxDireita" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+      <VBox fx:id="vBox2" alignment="CENTER" prefHeight="587.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="luaRightPic" fitHeight="587.0" fitWidth="200.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
+               <image>
+                  <Image url="@../../../luaRight200por587.png" />
+               </image>
+            </ImageView>
+         </children></VBox>
    </right>
    <bottom>
-      <HBox fx:id="hBoxInferior" prefHeight="31.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox fx:id="hBox1" prefHeight="29.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox fx:id="hBox0" prefHeight="31.0" prefWidth="428.0">
-               <children>
-                  <HBox fx:id="hBox1" prefHeight="31.0" prefWidth="378.0" />
-                  <Label fx:id="labelAviso" alignment="CENTER" prefHeight="34.0" prefWidth="30.0" text="Aviso" textAlignment="CENTER" />
-               </children>
-            </HBox>
-            <Button fx:id="buttonCadastrar" mnemonicParsing="false" text="Cadastrar" />
-         </children></HBox>
+            <ImageView fx:id="luaBottomPic" fitHeight="29.0" fitWidth="1024.0" pickOnBounds="true" HBox.hgrow="ALWAYS">
+               <image>
+                  <Image url="@../../../luaBottom1024por29.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
    </bottom>
-</BorderPane>
+  </BorderPane>
