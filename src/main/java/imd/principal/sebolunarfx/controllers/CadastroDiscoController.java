@@ -6,44 +6,29 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.*;
 
-public class CadastroDiscoController {
+public class CadastroDiscoController extends MenuController{
 
     @FXML
-    private BorderPane borderPane;
+    private VBox vBox4, vBox5, vBox6, vBox7, vBox8, vBox9, vBox10;
 
     @FXML
-    private MenuBar menuBar;
+    private HBox hBox2, hBox3, hBox4, hBox5, hBox6, hBox7, hBox8, hBox9, hBox10;
 
     @FXML
-    private Menu cadastrar, exibir, remover, frete;
+    private Label lbCadDisco, lbCantor, lbTitulo, lbPeso, lbConservacao, lbFaixas, lbAnoGravacao, lbFormato, lbMensagemSucesso;
 
     @FXML
-    private MenuItem livro, disco;
+    private TextField txtCantor, txtTitulo, txtPeso, txtConservacao, txtFaixas, txtAnoGravacao, txtFormato;
 
     @FXML
-    private MenuItem porTitulo, porAutor, porCantor, porTipo;
+    private Button btnCadastrarDisco;
 
     @FXML
-    private MenuItem freteLivro, freteDisco;
+    protected void onBtnCadastrarDisco(){
+        //Colocar um if
+        lbMensagemSucesso.setText("TESTE");
 
-    @FXML
-    private VBox vBoxEsquerda, vBoxCentral, vBoxCentral2, vBoxBarra, vBoxDireita;
-
-    @FXML
-    private HBox hBoxCentral, hBoxCentral2, hBoxCentral3, hBoxCentral4, hBoxInferior;
-
-    @FXML
-    private Label labelCadastro, labelNome, labelTitulo, labelClassificacao, labelConservacao, labelFaixas, labelAnoGravacao, labelFormato, labelMensagem;
-
-    @FXML
-    private TextField texto1, texto2, texto3, texto4, texto5, texto6, texto7;
-
-    @FXML
-    private Button ButtonCadastrar;
-
-    @FXML
-    private ScrollPane scrollPane;
-
+    };
 
 
 }

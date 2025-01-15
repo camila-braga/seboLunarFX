@@ -49,7 +49,7 @@
          </MenuBar>
       </top>
       <center>
-            <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="592.0" prefWidth="624.0">
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" hvalue="0.4" prefHeight="592.0" prefWidth="624.0" vvalue="0.4">
                 <content>
                     <VBox fx:id="vBox3" alignment="CENTER" prefHeight="592.0" prefWidth="608.0">
                <children>
@@ -75,7 +75,7 @@
                      <children>
                         <VBox fx:id="vBox4" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label fx:id="lbaAutor" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="170.0" text="Qual o nome do autor?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
+                              <Label fx:id="lbAutor" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="170.0" text="Qual o nome do autor?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -170,7 +170,7 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <TextField fx:id="txtConservacao" promptText="Estado de Conservação" VBox.vgrow="ALWAYS">
+                              <TextField fx:id="txtConservacao" promptText="Estado de conservação" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets left="80.0" right="80.0" />
                                  </VBox.margin>
@@ -224,7 +224,7 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <TextField fx:id="txtPaginas" promptText="Número de Páginas" VBox.vgrow="ALWAYS">
+                              <TextField fx:id="txtPaginas" promptText="Número de páginas" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets left="80.0" right="80.0" />
                                  </VBox.margin>
@@ -295,12 +295,12 @@
                   </HBox>
                   <HBox fx:id="hBox11" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label fx:id="lbMensagemSucesso" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="#6cb0da" wrapText="true" HBox.hgrow="ALWAYS">
+                        <Label fx:id="lbMensagemSucesso" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="#6cb0da" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Book Antiqua" size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btnCadastrarLivro" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Cadastrar" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                        <Button fx:id="btnCadastrarLivro" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtnCadastrarLivro" text="Cadastrar" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Book Antiqua" size="14.0" />
                            </font>

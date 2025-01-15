@@ -13,7 +13,8 @@ import java.io.IOException;
 public class MainApplication extends Application {
 
     //Scenes e stages
-    private static Scene sceneIntro, sceneMenu, sceneCadLivro;
+    private static Scene sceneIntro, sceneMenu, sceneCadLivro, sceneCadDisco;
+    private static Scene sceneExibirTipoLivro;
     private static Stage primaryStage;
 
     public static void main(String[] args) {
@@ -29,14 +30,21 @@ public class MainApplication extends Application {
         FXMLLoader intro = new FXMLLoader(getClass().getResource("Intro.fxml"));
         FXMLLoader menu = new FXMLLoader(getClass().getResource("Menu.fxml"));
         FXMLLoader cadLivro = new FXMLLoader(getClass().getResource("CadastroLivro.fxml"));
+        FXMLLoader cadDisco = new FXMLLoader(getClass().getResource("CadastroDisco.fxml"));
+        FXMLLoader exTipoLivro = new FXMLLoader(getClass().getResource("ExibirTipoLivro.fxml"));
+
 
         Parent parentIntro = intro.load();
         Parent parentMenu = menu.load();
         Parent parentCadLivro = cadLivro.load();
+        Parent parentCadDisco = cadDisco.load();
+        Parent parentExTipoLivro = exTipoLivro.load();
 
         sceneIntro = new Scene(parentIntro, 800, 600);
         sceneMenu = new Scene(parentMenu, 1024, 640);
         sceneCadLivro = new Scene(parentCadLivro, 1024, 640);
+        sceneCadDisco = new Scene(parentCadDisco, 1024, 640);
+        sceneExibirTipoLivro = new Scene(parentExTipoLivro, 1024, 640);
 
         primaryStage.setScene(sceneIntro);
         primaryStage.show();
@@ -55,9 +63,17 @@ public class MainApplication extends Application {
                 primaryStage.setScene(sceneCadLivro);
                 break;
             case 2:
+                primaryStage.setScene(sceneCadDisco);
+                break;
+            case 3:
+                primaryStage.setScene(sceneExibirTipoLivro);
+                break;
+
+            case 20:
                 //teste
                 primaryStage.setScene(sceneIntro);
                 break;
+
         }
     }
 

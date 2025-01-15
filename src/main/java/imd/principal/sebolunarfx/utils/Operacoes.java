@@ -386,6 +386,15 @@ public class Operacoes {
         }
     }
 
+    public static Produto exibirLivrosFX() {
+        for (Produto p : banco.getArrayProduto()) {
+            if (p instanceof Livro) {
+                return p;
+            }
+        }
+        return null;
+    }
+
     /***
      * Método para exibir discos.
      *

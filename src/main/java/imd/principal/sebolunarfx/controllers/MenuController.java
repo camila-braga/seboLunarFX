@@ -59,41 +59,41 @@ public class MenuController {
 
     @FXML
     protected void onExTipoLivroClick(ActionEvent e){
-        MainApplication.mudarScene(2);
+        MainApplication.mudarScene(3);
     }
 
     @FXML
     protected void onExTipoDiscoClick(ActionEvent e){
-        MainApplication.mudarScene(2);
+        MainApplication.mudarScene(20);
     }
 
     @FXML
     protected void onExAutorClick(ActionEvent e){
-        MainApplication.mudarScene(2);
+        MainApplication.mudarScene(20);
     }
 
     @FXML
     protected void onExCantorClick(ActionEvent e){
-        MainApplication.mudarScene(2);
+        MainApplication.mudarScene(20);
     }
 
     @FXML
     protected void onExTituloClick(ActionEvent e){
-        MainApplication.mudarScene(2);
+        MainApplication.mudarScene(20);
     }
     @FXML
     protected void onRemoverClick(ActionEvent e){
-        MainApplication.mudarScene(2);
+        MainApplication.mudarScene(20);
     }
 
     @FXML
     protected void onFreteLivroClick(ActionEvent e){
-        MainApplication.mudarScene(2);
+        MainApplication.mudarScene(20);
     }
 
     @FXML
     protected void onFreteDiscoClick(ActionEvent e){
-        MainApplication.mudarScene(2);
+        MainApplication.mudarScene(20);
     }
 
 

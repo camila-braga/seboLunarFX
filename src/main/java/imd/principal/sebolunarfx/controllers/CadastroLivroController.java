@@ -15,7 +15,7 @@ public class CadastroLivroController extends MenuController {
     private HBox hBox2, hBox3, hBox4, hBox5, hBox6, hBox7, hBox8, hBox9, hBox10, hBox11;
 
     @FXML
-    private Label lbCadLivro, lbaAutor, lbTitulo, lbPeso, lbConservacao, lbEditora, lbPaginas, lbAnoPublicacao, lbGeneroLiterario, lbMensagemSucesso;
+    private Label lbCadLivro, lbAutor, lbTitulo, lbPeso, lbConservacao, lbEditora, lbPaginas, lbAnoPublicacao, lbGeneroLiterario, lbMensagemSucesso;
 
     @FXML
     private TextField txtAutor, txtTitulo, txtPeso, txtConservacao, txtEditora, txtPaginas, txtAnoPublicacao, txtGeneroLiterario;
@@ -24,11 +24,13 @@ public class CadastroLivroController extends MenuController {
     private Button btnCadastrarLivro;
 
     @FXML
-    protected void onBtnCadastrarLivro(ActionEvent e){
-        System.out.println("Clicooou!");
+    protected void onBtnCadastrarLivro(){
+        //Colocar um if
         lbMensagemSucesso.setText("TESTE");
 
-    };
+    }
+
+
 
 
 
