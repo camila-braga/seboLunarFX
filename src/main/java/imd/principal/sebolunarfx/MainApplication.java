@@ -14,7 +14,7 @@ public class MainApplication extends Application {
 
     //Scenes e stages
     private static Scene sceneIntro, sceneMenu, sceneCadLivro, sceneCadDisco;
-    private static Scene sceneExibirTipoLivro, sceneExibirTipoDisco, sceneExibirAutor;
+    private static Scene sceneExibirTipoLivro, sceneExibirTipoDisco, sceneExibirAutor, sceneExibirCantor, sceneExibirTitulo;
     private static Stage primaryStage;
 
     public static void main(String[] args) {
@@ -34,6 +34,8 @@ public class MainApplication extends Application {
         FXMLLoader exTipoLivro = new FXMLLoader(getClass().getResource("ExibirTipoLivro.fxml"));
         FXMLLoader exTipoDisco = new FXMLLoader(getClass().getResource("ExibirTipoDisco.fxml"));
         FXMLLoader exAutor = new FXMLLoader(getClass().getResource("ExibirAutor.fxml"));
+        FXMLLoader exCantor = new FXMLLoader(getClass().getResource("ExibirCantor.fxml"));
+        FXMLLoader exTitulo = new FXMLLoader(getClass().getResource("ExibirPorTitulo.fxml"));
 
 
         Parent parentIntro = intro.load();
@@ -43,6 +45,8 @@ public class MainApplication extends Application {
         Parent parentExTipoLivro = exTipoLivro.load();
         Parent parentExTipoDisco = exTipoDisco.load();
         Parent parentExAutor = exAutor.load();
+        Parent parentExCantor = exCantor.load();
+        Parent parentExTitulo = exTitulo.load();
 
         sceneIntro = new Scene(parentIntro, 800, 600);
         sceneMenu = new Scene(parentMenu, 1024, 640);
@@ -51,6 +55,8 @@ public class MainApplication extends Application {
         sceneExibirTipoLivro = new Scene(parentExTipoLivro, 1024, 640);
         sceneExibirTipoDisco = new Scene(parentExTipoDisco, 1024, 640);
         sceneExibirAutor = new Scene(parentExAutor, 1024, 640);
+        sceneExibirCantor = new Scene(parentExCantor, 1024, 640);
+        sceneExibirTitulo = new Scene(parentExTitulo, 1024, 640);
 
         primaryStage.setScene(sceneIntro);
         primaryStage.show();
@@ -79,6 +85,12 @@ public class MainApplication extends Application {
                 break;
             case 5:
                 primaryStage.setScene(sceneExibirAutor);
+                break;
+            case 6:
+                primaryStage.setScene(sceneExibirCantor);
+                break;
+            case 7:
+                primaryStage.setScene(sceneExibirTitulo);
                 break;
 
             case 20:

@@ -74,13 +74,14 @@ public class MenuController {
 
     @FXML
     protected void onExCantorClick(ActionEvent e){
-        MainApplication.mudarScene(20);
+        MainApplication.mudarScene(6);
     }
 
     @FXML
     protected void onExTituloClick(ActionEvent e){
-        MainApplication.mudarScene(20);
+        MainApplication.mudarScene(7);
     }
+
     @FXML
     protected void onRemoverClick(ActionEvent e){
         MainApplication.mudarScene(20);
