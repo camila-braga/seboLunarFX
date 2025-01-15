@@ -1,15 +1,11 @@
 package imd.principal.sebolunarfx.controllers;
 
-import imd.principal.sebolunarfx.MainApplication;
-import imd.principal.sebolunarfx.model.EstadoConservacao;
-import imd.principal.sebolunarfx.model.FormatoDisco;
-import imd.principal.sebolunarfx.model.PesoProduto;
-import javafx.event.ActionEvent;
+import imd.principal.sebolunarfx.utils.Operacoes;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.*;
 
 import java.io.IOException;
 
@@ -31,12 +27,19 @@ public class CadastroDiscoController extends MenuController{
     private Button btnCadastrarDisco;
 
     @FXML
+    protected void limparCampos(){
+        txtCantor.setText("");
+        txtTitulo.setText("");
+        txtPeso.setText("");
+        txtConservacao.setText("");
+        txtFaixas.setText("");
+        txtAnoGravacao.setText("");
+        txtFormato.setText("");
+    }
+
+    @FXML
     protected void onBtnCadastrarDisco() throws IOException{
-        String cantor, titulo;
-        String conservacao;
-        String faixas, anoGravacao;
-        String formato;
-        String peso;
+        String cantor, titulo, conservacao, faixas, anoGravacao, formato, peso;
 
         cantor = txtCantor.getText();
         titulo = txtTitulo.getText();
@@ -46,10 +49,13 @@ public class CadastroDiscoController extends MenuController{
         anoGravacao = txtAnoGravacao.getText();
         formato = txtFormato.getText();
 
-        if(!cantor.isEmpty() && !titulo.isEmpty() &&!peso.isEmpty() && !conservacao.isEmpty() && !faixas.isEmpty() && !anoGravacao.isEmpty() &&!formato.isEmpty()){
-            //Faz o cadastro
+        boolean check = checagem(cantor, titulo, peso, conservacao, faixas, anoGravacao, formato);
 
-            //Limpando os campos de preenchimento:
+        if(check){
+            //Faz o cadastro
+            Operacoes.cadastrarDisco(cantor, titulo, peso, conservacao, faixas, anoGravacao, formato);
+
+            //Limpa os campos de preenchimento:
             limparCampos();
 
             //Mensagem de sucesso
@@ -64,20 +70,29 @@ public class CadastroDiscoController extends MenuController{
     }
 
     @FXML
-    protected void limparCampos(){
-        txtCantor.setText("");
-        txtTitulo.setText("");
-        txtPeso.setText("");
-        txtConservacao.setText("");
-        txtFaixas.setText("");
-        txtAnoGravacao.setText("");
-        txtFormato.setText("");
+    protected boolean checagem( String cantor, String titulo, String peso, String conservacao, String faixas, String anoGravacao, String formato){
+        boolean resultado = false;
+        if(!cantor.isEmpty()){
+            if(!titulo.isEmpty()){
+                if(!peso.isEmpty()){
+                    if(!conservacao.isEmpty()){
+                        if(!faixas.isEmpty()){
+                            if(!anoGravacao.isEmpty()){
+                                if(!formato.isEmpty()){
+                                    resultado = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return resultado;
     }
 
     @FXML
     protected void initialize(){
         btnCadastrarDisco.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
     }
-
 
 }

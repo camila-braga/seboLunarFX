@@ -19,7 +19,7 @@ public class ExibirFreteDiscoController extends MenuController{
     private VBox vBox4, vBox5;
 
     @FXML
-    private Label lbValorFrete, lbTituloFrete, lbZona, lbMsgSucesso;
+    private Label lbValorFrete, lbTituloFrete, lbZona, lbMsgErro;
 
     @FXML
     private TextField txtTituloFrete, txtZona;
@@ -38,7 +38,7 @@ public class ExibirFreteDiscoController extends MenuController{
             //Verifica se existe no banco de dados
 
             //Se não existe, exibe mensagem de erro:
-            lbMsgSucesso.setText("Produto não encontrado!");
+            lbMsgErro.setText("Produto não encontrado!");
 
             //reseta os campos
             txtTituloFrete.setText("");

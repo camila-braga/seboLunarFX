@@ -12,13 +12,13 @@ public class Livro extends Produto {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer numeroPaginas;
+    private String numeroPaginas;
     private String editora;
-    private Integer anoPublicacao;
+    private String anoPublicacao;
     private String generoLiterario;
 
     public Livro(String autorCantor, String titulo, PesoProduto peso, EstadoConservacao estadoConservacao,
-                 Integer numeroPaginas, String editora, Integer anoPublicacao, String generoLiterario) {
+                 String numeroPaginas, String editora, String anoPublicacao, String generoLiterario) {
         super(autorCantor, titulo, peso, estadoConservacao, 10.0);
         this.numeroPaginas = numeroPaginas;
         this.editora = editora;
@@ -27,11 +27,11 @@ public class Livro extends Produto {
         setPrecoBase(calculaPreco());
     }
 
-    public Integer getNumeroPaginas() {
+    public String getNumeroPaginas() {
         return numeroPaginas;
     }
 
-    public void setNumeroPaginas(Integer numeroPaginas) {
+    public void setNumeroPaginas(String numeroPaginas) {
         this.numeroPaginas = numeroPaginas;
     }
 
@@ -43,11 +43,11 @@ public class Livro extends Produto {
         this.editora = editora;
     }
 
-    public Integer getAnoPublicacao() {
+    public String getAnoPublicacao() {
         return anoPublicacao;
     }
 
-    public void setAnoPublicacao(Integer anoPublicacao) {
+    public void setAnoPublicacao(String anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
     }
 

@@ -1,12 +1,15 @@
 package imd.principal.sebolunarfx.controllers;
 
-import imd.principal.sebolunarfx.model.Livro;
+import imd.principal.sebolunarfx.model.Produto;
+import imd.principal.sebolunarfx.utils.Operacoes;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ExibirCantorController extends MenuController{
 
@@ -17,7 +20,7 @@ public class ExibirCantorController extends MenuController{
     private VBox vBox4, vBox5;
 
     @FXML
-    private Label lbExibirCantor, lbCantor, lbListaCantor, lbMsgSucesso;
+    private Label lbExibirCantor, lbCantor, lbListaCantor, lbMsgErro;
 
     @FXML
     private TextField txtCantor;
@@ -26,20 +29,29 @@ public class ExibirCantorController extends MenuController{
     private Button btnBuscarCantor;
 
     @FXML
-    private ListView <Livro> listViewCantor;
+    private ListView <Produto> listViewCantor;
 
     @FXML
     protected void btnBuscarCantorClick() throws IOException {
-        String autor;
+        String cantor;
 
-        autor = txtCantor.getText();
+        cantor = txtCantor.getText();
 
-        if(!autor.isEmpty()){
+        if(!cantor.isEmpty()){
             //Verifica se existe no banco de dados
+            ArrayList<Produto> encontrados = new ArrayList<>();
 
-            //Se não existe, exibe mensagem de erro
-            lbMsgSucesso.setText("Produto não encontrado!");
+            encontrados = Operacoes.exibirPorAutorCantorTitulo(cantor, "tipoAutorCantor");
 
+            if(encontrados.isEmpty()){
+                lbMsgErro.setText("Produto não encontrado!");
+            }else{
+                listViewCantor = new ListView<>();
+
+                for(Produto p : encontrados){
+                    listViewCantor.getItems().add(p);
+                }
+            }
             //Reseta o campo
             txtCantor.setText("");
 

@@ -106,7 +106,7 @@
                                     <Insets />
                                  </VBox.margin>
                               </HBox>
-                              <Label fx:id="lbMsgSucesso" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
+                              <Label fx:id="lbMsgErro" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>

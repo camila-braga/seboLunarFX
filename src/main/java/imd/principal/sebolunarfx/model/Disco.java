@@ -12,13 +12,13 @@ public class Disco extends Produto {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer numeroFaixas;
-    private Integer anoGravacao;
+    private String numeroFaixas;
+    private String anoGravacao;
     private FormatoDisco formato;
 
     // Construtor parametrizado
     public Disco(String autorCantor, String titulo, PesoProduto peso, EstadoConservacao estadoConservacao,
-                 Integer numeroFaixas, Integer anoGravacao, FormatoDisco formato) {
+                 String numeroFaixas, String anoGravacao, FormatoDisco formato) {
         super(autorCantor, titulo, peso, estadoConservacao, 10.0);
         this.numeroFaixas = numeroFaixas;
         this.anoGravacao = anoGravacao;
@@ -27,19 +27,19 @@ public class Disco extends Produto {
     }
 
     // Métodos get/set
-    public Integer getNumeroFaixas() {
+    public String getNumeroFaixas() {
         return numeroFaixas;
     }
 
-    public void setNumeroFaixas(Integer numeroFaixas) {
+    public void setNumeroFaixas(String numeroFaixas) {
         this.numeroFaixas = numeroFaixas;
     }
 
-    public Integer getAnoGravacao() {
+    public String getAnoGravacao() {
         return anoGravacao;
     }
 
-    public void setAnoGravacao(Integer anoGravacao) {
+    public void setAnoGravacao(String anoGravacao) {
         this.anoGravacao = anoGravacao;
     }
 

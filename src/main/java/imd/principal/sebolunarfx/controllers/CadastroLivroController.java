@@ -1,6 +1,7 @@
 package imd.principal.sebolunarfx.controllers;
 
-import javafx.event.ActionEvent;
+import imd.principal.sebolunarfx.utils.Operacoes;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
@@ -27,10 +28,7 @@ public class CadastroLivroController extends MenuController {
 
     @FXML
     protected void onBtnCadastrarLivro() throws IOException {
-        String autor, titulo, editora, genero;
-        String conservacao;
-        String paginas, anoPublicacao;
-        String peso;
+        String autor, titulo, editora, genero, conservacao, paginas, anoPublicacao, peso;
 
         autor = txtAutor.getText();
         titulo = txtTitulo.getText();
@@ -41,10 +39,13 @@ public class CadastroLivroController extends MenuController {
         anoPublicacao = txtAnoPublicacao.getText();
         genero = txtGeneroLiterario.getText();
 
-        if(!autor.isEmpty() && !titulo.isEmpty() &&!peso.isEmpty() && !conservacao.isEmpty() && !editora.isEmpty() && !paginas.isEmpty() &&!anoPublicacao.isEmpty() &&!genero.isEmpty()){
-            //Faz o cadastro
+        boolean check = checagem(autor, titulo, peso, conservacao, editora, paginas, anoPublicacao, genero);
 
-            //Limpando os campos de preenchimento:
+        if(check){
+            //Faz o cadastro
+            Operacoes.cadastrarLivro(autor, titulo, peso, conservacao, editora, paginas, anoPublicacao, genero);
+
+            //Limpa os campos de preenchimento:
             limparCampos();
 
             //Mensagem de sucesso
@@ -56,6 +57,30 @@ public class CadastroLivroController extends MenuController {
             alert.setHeaderText("Preencha todos os campos!");
             alert.showAndWait();
         }
+
+    }
+
+    @FXML
+    protected boolean checagem( String autor, String titulo, String peso, String conservacao, String editora, String paginas, String anoPublicacao, String genero){
+        boolean resultado = false;
+        if(!autor.isEmpty()){
+            if(!titulo.isEmpty()){
+                if(!peso.isEmpty()){
+                    if(!conservacao.isEmpty()){
+                        if(!editora.isEmpty()){
+                            if(!paginas.isEmpty()){
+                                if(!anoPublicacao.isEmpty()){
+                                    if(!genero.isEmpty()){
+                                        resultado = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return resultado;
     }
 
     @FXML
@@ -74,9 +99,5 @@ public class CadastroLivroController extends MenuController {
     protected void initialize(){
         btnCadastrarLivro.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
     }
-
-
-
-
 
 }

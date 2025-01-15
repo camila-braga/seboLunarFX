@@ -1,5 +1,6 @@
 package imd.principal.sebolunarfx.utils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.text.DecimalFormat;
@@ -8,7 +9,7 @@ import imd.principal.sebolunarfx.DAO.BancoDAO;
 import imd.principal.sebolunarfx.model.*;
 
 /***
- * Classe contendo métodos auxiliares para os opções mostradas no menu da classe
+ * Classe contendo métodos auxiliares para as opções mostradas no menu da classe
  * Main.
  *
  * @author Camila Braga e Antonio Walter
@@ -18,13 +19,122 @@ public class Operacoes {
 
     private static BancoDAO banco = BancoDAO.getInstance();
 
+    //Usado no cadastro de produto
+    public static PesoProduto tratamentoPeso(String peso){
+        PesoProduto pesoProduto = PesoProduto.A;
+        pesoProduto = switch (peso) {
+            case "B" -> PesoProduto.B;
+            case "C" -> PesoProduto.C;
+            case "D" -> PesoProduto.D;
+            case "E" -> PesoProduto.E;
+            case "F" -> PesoProduto.F;
+            default -> pesoProduto;
+        };
+        return pesoProduto;
+    }
+
+    //Usado no cadastro de produto
+    public static EstadoConservacao tratamentoConservacao(String conservacao){
+        EstadoConservacao estado = EstadoConservacao.NOVO;
+        estado = switch (conservacao) {
+            case "SEMINOVO" -> EstadoConservacao.SEMINOVO;
+            case "USADO" -> EstadoConservacao.USADO;
+            default -> estado;
+        };
+        return estado;
+    }
+
+    //Usado no cadastro de produto
+    public static FormatoDisco tratamentoFormato(String formato){
+        FormatoDisco formatoDisco = FormatoDisco.LP;
+        formatoDisco = switch (formato) {
+            case "EP" -> FormatoDisco.EP;
+            case "SINGLE" -> FormatoDisco.SINGLE;
+            default -> formatoDisco;
+        };
+        return formatoDisco;
+    }
+
+    //Usado no cadastro de produto
+    public static Disco cadastrarDisco(String cantor_, String titulo_, String peso_, String estado_, String faixas_, String ano_, String formato_ ) {
+        String cantor = cantor_;
+        String titulo = titulo_;
+        PesoProduto peso = tratamentoPeso(peso_);
+        EstadoConservacao estadoConservacao = tratamentoConservacao(estado_);
+        String numeroFaixas = faixas_;
+        String anoGravacao = ano_;
+        FormatoDisco formato = tratamentoFormato(formato_);
+
+        Disco novoDisco = new Disco(cantor, titulo, peso, estadoConservacao,
+                numeroFaixas, anoGravacao, formato);
+
+        return novoDisco;
+    }
+
+    //Usado no cadastro de produto
+    public static Livro cadastrarLivro(String autor_, String titulo_, String peso_, String estado_, String paginas_, String ano_, String editora_, String genero_ ) {
+        String autor = autor_;
+        String titulo = titulo_;
+        PesoProduto peso = tratamentoPeso(peso_);
+        EstadoConservacao estadoConservacao = tratamentoConservacao(estado_);
+        String numeroPaginas = paginas_;
+        String anoPublicacao = ano_;
+        String editora = editora_;
+        String genero = genero_;
+
+        Livro novoLivro = new Livro(autor, titulo, peso, estadoConservacao,
+                numeroPaginas, editora, anoPublicacao, genero);
+
+        return novoLivro;
+    }
+
+    //Usado para exibir autor/cantor/titulo
+    public static ArrayList<Produto> exibirPorAutorCantorTitulo(String nome_, String tipo) {
+        ArrayList<Produto> resultados = new ArrayList<>();
+
+        for (Produto p : banco.getArrayProduto()) {
+            if(tipo.equals("tipoAutorCantor")){
+                if (p.getAutorCantor().equals(nome_)) {
+                    resultados.add(p);
+                }
+            }else if(tipo.equals("tipoTitulo")){
+                if (p.getTitulo().equals(nome_)) {
+                    resultados.add(p);
+                }
+            }
+        }
+        return resultados;
+    }
+
+    //Usado para exibir produtos
+    public static ArrayList<Produto> exibirProdutos(String tipo) {
+        ArrayList<Produto> resultados = new ArrayList<>();
+
+        for (Produto p : banco.getArrayProduto()) {
+            if ((p instanceof Livro) && tipo.equals("Livro")) {
+                resultados.add(p);
+            }else if((p instanceof Disco) && tipo.equals("Disco")){
+                resultados.add(p);
+            }
+        }
+        return resultados;
+    }
+
+
+
+
+
+
+
+
+
     /***
      * Método para ler os dados de um produto e chamar a função de calcular frete.
      * Verifica se o produto existe e imprime na tela o valor do frete referente a ele.
      * Caso não exista, imprime uma mensagem de produto inexistente.
      *
      */
-    public static void lerFrete() {
+    /*public static void lerFrete() {
         Scanner scan = new Scanner(System.in);
         System.out.println("============================ Frete ============================");
         System.out.print("Qual o tipo do produto (Livro/Disco)?");
@@ -95,7 +205,7 @@ public class Operacoes {
 
         System.out.println("===============================================================");
         System.out.println();
-    }
+    }*/
 
 
     /***
@@ -106,14 +216,14 @@ public class Operacoes {
      * @param titulo - titulo do produto
      * @return boolean - "true" caso exista um produto com o título buscado, "false" caso contrário.
      */
-    private static boolean buscarPorTitulo(String titulo) {
+    /*private static boolean buscarPorTitulo(String titulo) {
         for (Produto p : banco.getArrayProduto()) {
             if (p.getTitulo().equals(titulo)) {
                 return true;
             }
         }
         return false;
-    }
+    }*/
 
 
     /***
@@ -126,7 +236,7 @@ public class Operacoes {
      * @param scan - variável para leitura
      * @return PesoProduto - classificação do peso de um produto
      */
-    private static PesoProduto lerPeso(Scanner scan) {
+   /* private static PesoProduto lerPeso(Scanner scan) {
         PesoProduto peso = PesoProduto.A;
         boolean obtendoDados = true;
         while (obtendoDados) {
@@ -141,7 +251,7 @@ public class Operacoes {
             }
         }
         return peso;
-    }
+    }*/
 
     /***
      * Método para ler o estado de conservação do produto.
@@ -153,7 +263,7 @@ public class Operacoes {
      * @param scan - variável para leitura
      * @return EstadoConservacao- estado de conservação de um produto
      */
-    private static EstadoConservacao lerEstadoConservacao(Scanner scan) {
+    /*private static EstadoConservacao lerEstadoConservacao(Scanner scan) {
         EstadoConservacao estado = EstadoConservacao.NOVO;
         boolean obtendoDados = true;
         while (obtendoDados) {
@@ -168,7 +278,7 @@ public class Operacoes {
             }
         }
         return estado;
-    }
+    }*/
 
     /***
      * Método para ler o formato de um disco.
@@ -180,7 +290,7 @@ public class Operacoes {
      * @param scan - variável para leitura
      * @return FormatoDisco- formato de um disco
      */
-    private static FormatoDisco lerFormadoDisco(Scanner scan) {
+    /*private static FormatoDisco lerFormadoDisco(Scanner scan) {
         FormatoDisco formato = FormatoDisco.LP;
         boolean obtendoDados = true;
         while (obtendoDados) {
@@ -195,7 +305,7 @@ public class Operacoes {
             }
         }
         return formato;
-    }
+    }*/
 
     /***
      * Método para ler a zona da cidade.
@@ -231,7 +341,7 @@ public class Operacoes {
      * @param scan - variável para leitura
      * @return Livro - objeto do tipo livro
      */
-    public static Livro lerLivro(Scanner scan) {
+    /*public static Livro lerLivro(Scanner scan) {
         String autor;
         String titulo;
         PesoProduto peso;
@@ -272,7 +382,7 @@ public class Operacoes {
                 numeroPaginas, editora, anoPublicacao, generoLiterario);
         return novoLivro;
 
-    }
+    }*/
 
     /***
      * Método para ler dados de um disco.
@@ -281,7 +391,7 @@ public class Operacoes {
      * @param scan - variável para leitura
      * @return Disco - Objeto do tipo disco
      */
-    public static Disco lerDisco(Scanner scan) {
+    /*public static Disco lerDisco(Scanner scan) {
         String Cantor;
         String titulo;
         PesoProduto peso;
@@ -320,14 +430,14 @@ public class Operacoes {
         return novoDisco;
 
 
-    }
+    }*/
 
     /***
      * Método para cadastrar um produto.
      * Realiza a leitura dos dados de um livro ou de um disco, cadastra um produto e
      * armazena o objeto cadastrado no banco de dados.
      */
-    public static void cadastrarProduto() {
+    /*public static void cadastrarProduto() {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("================= Cadastrando um Produto ======================");
@@ -366,14 +476,14 @@ public class Operacoes {
         System.out.println("===============================================================");
         System.out.println();
 
-    }
+    }*/
 
     /***
      * Método para exibir livros.
      * Imprime na tela todos os produtos que sejam um livro ou um aviso de que não existem
      * livros cadastrados.
      */
-    public static void exibirLivros() {
+    /*public static void exibirLivros() {
         boolean existeAlgumProduto = false;
         for (Produto p : banco.getArrayProduto()) {
             if (p instanceof Livro) {
@@ -384,16 +494,8 @@ public class Operacoes {
         if(!existeAlgumProduto) {
             System.out.println("Não existem livros cadastrados!");
         }
-    }
+    }*/
 
-    public static Produto exibirLivrosFX() {
-        for (Produto p : banco.getArrayProduto()) {
-            if (p instanceof Livro) {
-                return p;
-            }
-        }
-        return null;
-    }
 
     /***
      * Método para exibir discos.
@@ -420,7 +522,7 @@ public class Operacoes {
      * imprime todos os produtos que tenham o mesmo título ou um aviso de que não existe
      * um produto com o título desejado.
      */
-    public static void exibirPorTitulo(Scanner scan) {
+    /*public static void exibirPorTitulo(Scanner scan) {
         boolean existe = false;
         String tituloProduto = "";
         scan.nextLine();
@@ -443,7 +545,7 @@ public class Operacoes {
         }
         System.out.println("===============================================================");
         System.out.println();
-    }
+    }*/
 
     /***
      * Método para exibir produtos por autor ou cantor.
@@ -452,7 +554,7 @@ public class Operacoes {
      * um produto com o autor/cantor desejado.
      * fornecido.
      */
-    public static void exibirPorAutorCantor() {
+    /*public static void exibirPorAutorCantor() {
         Scanner scan = new Scanner(System.in);
         boolean encontrado = false;
 
@@ -473,7 +575,7 @@ public class Operacoes {
             System.out.println("===============================================================");
             System.out.println();
         }
-    }
+    }*/
 
     /***
      * Método para exibir todos os produtos de acordo com o tipo escolhido.
@@ -481,7 +583,7 @@ public class Operacoes {
      * imprime todos os produtos que tenham o mesmo título ou um aviso de que não existe
      * um produto com o título desejado.
      */
-    public static void exibirPorTipo(Scanner scan) {
+   /* public static void exibirPorTipo(Scanner scan) {
         scan.nextLine();
         System.out.println();
         System.out.print("Qual o tipo do produto (Livro/Disco)?");
@@ -506,14 +608,14 @@ public class Operacoes {
                 System.out.println();
                 break;
         }
-    }
+    }*/
 
     /***
      * Método para remover um produto do banco de dados.
      * Realiza a leitura do título do produto, verifica se existe no banco de dados e
      * o remove de lá.
      */
-    public static void removerProduto(Scanner scan) {
+   /* public static void removerProduto(Scanner scan) {
         System.out.println("==================== Removendo um Produto =====================");
 
         scan.nextLine();
@@ -550,7 +652,7 @@ public class Operacoes {
         }
         System.out.println("===============================================================");
         System.out.println();
-    }
+    }*/
 
 
 
