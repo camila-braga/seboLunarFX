@@ -112,7 +112,7 @@
                                           <Insets left="150.0" />
                                        </HBox.margin>
                                     </TextField>
-                                    <Button fx:id="btnCalcularFreteLivro" mnemonicParsing="false" onAction="#btnCalcularFreteLivroClick" text="Calcular" HBox.hgrow="ALWAYS">
+                                    <Button fx:id="btnCalcularFreteLivro" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnCalcularFreteLivroClick" text="Calcular" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets right="150.0" />
                                        </HBox.margin>

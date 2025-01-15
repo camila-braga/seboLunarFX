@@ -46,6 +46,8 @@ public class IntroController {
         //Pega o a janela atual (stage) e altera para a cena do menu
         Stage stage = (Stage) introButton.getScene().getWindow();
         stage.setScene(sceneMenu);
+
+
     }
 
     @FXML

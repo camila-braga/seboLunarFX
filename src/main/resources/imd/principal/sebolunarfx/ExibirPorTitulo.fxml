@@ -90,7 +90,7 @@
                                           <Insets left="150.0" />
                                        </HBox.margin>
                                     </TextField>
-                                    <Button fx:id="btnBuscarPorTitulo" mnemonicParsing="false" onAction="#btnBuscarPorTituloClick" text="Buscar" HBox.hgrow="ALWAYS">
+                                    <Button fx:id="btnBuscarPorTitulo" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnBuscarPorTituloClick" text="Buscar" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets right="150.0" />
                                        </HBox.margin>

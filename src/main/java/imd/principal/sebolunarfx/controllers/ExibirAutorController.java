@@ -2,12 +2,11 @@ package imd.principal.sebolunarfx.controllers;
 
 import imd.principal.sebolunarfx.model.Livro;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import java.io.IOException;
 
 public class ExibirAutorController extends MenuController{
 
@@ -30,8 +29,31 @@ public class ExibirAutorController extends MenuController{
     private ListView <Livro> listViewAutor;
 
     @FXML
-    protected void btnBuscarAutorClick(){
-        //Colocar um if
-        lbMsgSucesso.setText("TESTE");
+    protected void btnBuscarAutorClick() throws IOException {
+        String autor;
+
+        autor = txtAutor.getText();
+
+        if(!autor.isEmpty()){
+            //Verifica se existe no banco de dados
+
+            //Se não existe, exibe mensagem de erro
+            lbMsgSucesso.setText("Produto não encontrado!");
+
+            //reseta os campos
+            txtAutor.setText("");
+
+
+        }else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atenção!");
+            alert.setHeaderText("Preencha o campo!");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    protected void initialize(){
+        btnBuscarAutor.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
     }
 }

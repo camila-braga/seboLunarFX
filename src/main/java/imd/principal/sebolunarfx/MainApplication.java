@@ -12,9 +12,10 @@ import java.io.IOException;
 
 public class MainApplication extends Application {
 
-    //Scenes e stages
+    //Scenes
     private static Scene sceneIntro, sceneMenu, sceneCadLivro, sceneCadDisco;
-    private static Scene sceneExibirTipoLivro, sceneExibirTipoDisco, sceneExibirAutor, sceneExibirCantor, sceneExibirTitulo, sceneExibirFreteLivro, sceneExibirFreteDisco;
+    private static Scene sceneExibirTipoLivro, sceneExibirTipoDisco, sceneExibirAutor, sceneExibirCantor, sceneExibirTitulo;
+    private static Scene sceneExibirFreteLivro, sceneExibirFreteDisco;
     private static Stage primaryStage;
 
     public static void main(String[] args) {
@@ -27,6 +28,7 @@ public class MainApplication extends Application {
         primaryStage = stage;
         primaryStage.setTitle("Bem-Vindo ao Sebo Lunar!");
 
+        //Carregamento das telas
         FXMLLoader intro = new FXMLLoader(getClass().getResource("Intro.fxml"));
         FXMLLoader menu = new FXMLLoader(getClass().getResource("Menu.fxml"));
         FXMLLoader cadLivro = new FXMLLoader(getClass().getResource("CadastroLivro.fxml"));
@@ -39,7 +41,7 @@ public class MainApplication extends Application {
         FXMLLoader exFreteLivro = new FXMLLoader(getClass().getResource("ExibirFreteLivro.fxml"));
         FXMLLoader exFreteDisco = new FXMLLoader(getClass().getResource("ExibirFreteDisco.fxml"));
 
-
+        //Criação das cenas
         Parent parentIntro = intro.load();
         Parent parentMenu = menu.load();
         Parent parentCadLivro = cadLivro.load();
@@ -74,35 +76,44 @@ public class MainApplication extends Application {
         stage.setScene(sceneIntro);
         stage.show();*/
     }
-
+    //Alternância das cenas pelo menu
     public static void mudarScene(int opcao){
         switch (opcao){
             case 1:
                 primaryStage.setScene(sceneCadLivro);
+                primaryStage.setTitle("Cadastro de livro");
                 break;
             case 2:
                 primaryStage.setScene(sceneCadDisco);
+                primaryStage.setTitle("Cadastro de disco");
                 break;
             case 3:
                 primaryStage.setScene(sceneExibirTipoLivro);
+                primaryStage.setTitle("Exibir por tipo - livro");
                 break;
             case 4:
                 primaryStage.setScene(sceneExibirTipoDisco);
+                primaryStage.setTitle("Exibir por tipo - disco");
                 break;
             case 5:
                 primaryStage.setScene(sceneExibirAutor);
+                primaryStage.setTitle("Exibir por autor");
                 break;
             case 6:
                 primaryStage.setScene(sceneExibirCantor);
+                primaryStage.setTitle("Exibir por cantor");
                 break;
             case 7:
                 primaryStage.setScene(sceneExibirTitulo);
+                primaryStage.setTitle("Exibir por título");
                 break;
             case 8:
                 primaryStage.setScene(sceneExibirFreteLivro);
+                primaryStage.setTitle("Frete de livro");
                 break;
             case 9:
                 primaryStage.setScene(sceneExibirFreteDisco);
+                primaryStage.setTitle("Frete de disco");
                 break;
 
             case 20:

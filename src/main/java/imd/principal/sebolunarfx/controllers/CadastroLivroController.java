@@ -6,6 +6,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
+
 public class CadastroLivroController extends MenuController {
 
     @FXML
@@ -24,9 +26,53 @@ public class CadastroLivroController extends MenuController {
     private Button btnCadastrarLivro;
 
     @FXML
-    protected void onBtnCadastrarLivro(){
-        //Colocar um if
-        lbMensagemSucesso.setText("TESTE");
+    protected void onBtnCadastrarLivro() throws IOException {
+        String autor, titulo, editora, genero;
+        String conservacao;
+        String paginas, anoPublicacao;
+        String peso;
+
+        autor = txtAutor.getText();
+        titulo = txtTitulo.getText();
+        peso = txtPeso.getText();
+        conservacao = txtConservacao.getText();
+        editora = txtEditora.getText();
+        paginas = txtPaginas.getText();
+        anoPublicacao = txtAnoPublicacao.getText();
+        genero = txtGeneroLiterario.getText();
+
+        if(!autor.isEmpty() && !titulo.isEmpty() &&!peso.isEmpty() && !conservacao.isEmpty() && !editora.isEmpty() && !paginas.isEmpty() &&!anoPublicacao.isEmpty() &&!genero.isEmpty()){
+            //Faz o cadastro
+
+            //Limpando os campos de preenchimento:
+            limparCampos();
+
+            //Mensagem de sucesso
+            lbMensagemSucesso.setText("Livro cadastrado!");
+
+        }else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atenção!");
+            alert.setHeaderText("Preencha todos os campos!");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    protected void limparCampos(){
+        txtAutor.setText("");
+        txtTitulo.setText("");
+        txtPeso.setText("");
+        txtConservacao.setText("");
+        txtEditora.setText("");
+        txtPaginas.setText("");
+        txtAnoPublicacao.setText("");
+        txtGeneroLiterario.setText("");
+    }
+
+    @FXML
+    protected void initialize(){
+        btnCadastrarLivro.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
     }
 
 

@@ -50,7 +50,7 @@
             </MenuBar>
       </top>
       <center>
-            <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="592.0" prefWidth="624.0">
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" hvalue="0.4" prefHeight="592.0" prefWidth="624.0" vvalue="0.4">
                 <content>
                     <VBox fx:id="vBox4" alignment="CENTER" prefHeight="592.0" prefWidth="608.0">
                         <children>

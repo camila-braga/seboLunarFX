@@ -1,11 +1,14 @@
 package imd.principal.sebolunarfx.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import java.io.IOException;
 
 public class ExibirFreteDiscoController extends MenuController{
 
@@ -25,8 +28,32 @@ public class ExibirFreteDiscoController extends MenuController{
     private Button btnCalcularFreteLivro;
 
     @FXML
-    protected void btnCalcularFreteLivroClick(){
-        //Colocar um if
-        lbMsgSucesso.setText("TESTE");
+    protected void btnCalcularFreteLivroClick() throws IOException {
+        String titulo, zona;
+
+        titulo = txtTituloFrete.getText();
+        zona = txtZona.getText();
+
+        if(!titulo.isEmpty() && !zona.isEmpty() ){
+            //Verifica se existe no banco de dados
+
+            //Se não existe, exibe mensagem de erro:
+            lbMsgSucesso.setText("Produto não encontrado!");
+
+            //reseta os campos
+            txtTituloFrete.setText("");
+            txtZona.setText("");
+
+        }else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atenção!");
+            alert.setHeaderText("Preencha todos os campos!");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    protected void initialize(){
+        btnCalcularFreteLivro.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
     }
 }
