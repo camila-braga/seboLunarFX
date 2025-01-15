@@ -89,12 +89,12 @@ public class MenuController {
 
     @FXML
     protected void onFreteLivroClick(ActionEvent e){
-        MainApplication.mudarScene(20);
+        MainApplication.mudarScene(8);
     }
 
     @FXML
     protected void onFreteDiscoClick(ActionEvent e){
-        MainApplication.mudarScene(20);
+        MainApplication.mudarScene(9);
     }
 
 
