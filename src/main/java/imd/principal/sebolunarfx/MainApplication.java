@@ -14,7 +14,7 @@ public class MainApplication extends Application {
 
     //Scenes e stages
     private static Scene sceneIntro, sceneMenu, sceneCadLivro, sceneCadDisco;
-    private static Scene sceneExibirTipoLivro;
+    private static Scene sceneExibirTipoLivro, sceneExibirTipoDisco, sceneExibirAutor;
     private static Stage primaryStage;
 
     public static void main(String[] args) {
@@ -32,6 +32,8 @@ public class MainApplication extends Application {
         FXMLLoader cadLivro = new FXMLLoader(getClass().getResource("CadastroLivro.fxml"));
         FXMLLoader cadDisco = new FXMLLoader(getClass().getResource("CadastroDisco.fxml"));
         FXMLLoader exTipoLivro = new FXMLLoader(getClass().getResource("ExibirTipoLivro.fxml"));
+        FXMLLoader exTipoDisco = new FXMLLoader(getClass().getResource("ExibirTipoDisco.fxml"));
+        FXMLLoader exAutor = new FXMLLoader(getClass().getResource("ExibirAutor.fxml"));
 
 
         Parent parentIntro = intro.load();
@@ -39,12 +41,16 @@ public class MainApplication extends Application {
         Parent parentCadLivro = cadLivro.load();
         Parent parentCadDisco = cadDisco.load();
         Parent parentExTipoLivro = exTipoLivro.load();
+        Parent parentExTipoDisco = exTipoDisco.load();
+        Parent parentExAutor = exAutor.load();
 
         sceneIntro = new Scene(parentIntro, 800, 600);
         sceneMenu = new Scene(parentMenu, 1024, 640);
         sceneCadLivro = new Scene(parentCadLivro, 1024, 640);
         sceneCadDisco = new Scene(parentCadDisco, 1024, 640);
         sceneExibirTipoLivro = new Scene(parentExTipoLivro, 1024, 640);
+        sceneExibirTipoDisco = new Scene(parentExTipoDisco, 1024, 640);
+        sceneExibirAutor = new Scene(parentExAutor, 1024, 640);
 
         primaryStage.setScene(sceneIntro);
         primaryStage.show();
@@ -67,6 +73,12 @@ public class MainApplication extends Application {
                 break;
             case 3:
                 primaryStage.setScene(sceneExibirTipoLivro);
+                break;
+            case 4:
+                primaryStage.setScene(sceneExibirTipoDisco);
+                break;
+            case 5:
+                primaryStage.setScene(sceneExibirAutor);
                 break;
 
             case 20:

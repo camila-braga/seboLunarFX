@@ -38,7 +38,10 @@
                      <MenuItem fx:id="menuItemExTitulo" mnemonicParsing="false" onAction="#onExTituloClick" text="Por título" />
                   </items>
                </Menu>
-               <Menu fx:id="menuRemover" mnemonicParsing="false" text="Remover" />
+               <Menu fx:id="menuRemover" mnemonicParsing="false" text="Remover">
+                  <items>
+                     <MenuItem fx:id="menuItemRemover" mnemonicParsing="false" onAction="#onRemoverClick" text="Remover produto" />
+                  </items></Menu>
                <Menu fx:id="menuFrete" mnemonicParsing="false" text="Frete">
                   <items>
                      <MenuItem fx:id="menuItemFreteLivro" mnemonicParsing="false" onAction="#onFreteLivroClick" text="Livro" />

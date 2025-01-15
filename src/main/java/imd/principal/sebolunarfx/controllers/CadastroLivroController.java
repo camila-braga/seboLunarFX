@@ -27,7 +27,6 @@ public class CadastroLivroController extends MenuController {
     protected void onBtnCadastrarLivro(){
         //Colocar um if
         lbMensagemSucesso.setText("TESTE");
-
     }
 
 

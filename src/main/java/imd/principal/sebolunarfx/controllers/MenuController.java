@@ -64,12 +64,12 @@ public class MenuController {
 
     @FXML
     protected void onExTipoDiscoClick(ActionEvent e){
-        MainApplication.mudarScene(20);
+        MainApplication.mudarScene(4);
     }
 
     @FXML
     protected void onExAutorClick(ActionEvent e){
-        MainApplication.mudarScene(20);
+        MainApplication.mudarScene(5);
     }
 
     @FXML
