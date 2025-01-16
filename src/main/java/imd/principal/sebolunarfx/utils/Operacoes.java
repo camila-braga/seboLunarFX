@@ -47,23 +47,29 @@ public class Operacoes {
         return novoLivro;
     }
 
-    //Usado para exibir autor/cantor/titulo
-    public static ArrayList<Produto> exibirPorAutorCantorTitulo(String nome_, String tipo) {
+    //Usado para exibir autor/cantor
+    public static ArrayList<Produto> exibirPorAutorCantor(String nome_) {
         ArrayList<Produto> resultados = new ArrayList<>();
-
         for (Produto p : banco.getArrayProduto()) {
-            if(tipo.equals("tipoAutorCantor")){
-                if (p.getAutorCantor().equals(nome_)) {
-                    resultados.add(p);
-                }
-            }else if(tipo.equals("tipoTitulo")){
-                if (p.getTitulo().equals(nome_)) {
-                    resultados.add(p);
-                }
+            if (p.getAutorCantor().equals(nome_)) {
+                resultados.add(p);
             }
         }
         return resultados;
     }
+
+    //Usado para exibir titulo
+    public static ArrayList<Produto> exibirPorTitulo(String nome_) {
+        ArrayList<Produto> resultados = new ArrayList<>();
+        for (Produto p : banco.getArrayProduto()) {
+            if (p.getTitulo().equals(nome_)) {
+                resultados.add(p);
+            }
+        }
+        return resultados;
+    }
+
+
 
     //Usado para exibir produtos
     public static ArrayList<Produto> exibirProdutos(String tipo) {

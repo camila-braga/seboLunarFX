@@ -22,20 +22,17 @@ public class ExibirTipoDiscoController extends MenuController{
 
     public void initialize() {
         items = FXCollections.observableArrayList();
-
         listView.setItems(items);
-
     }
 
     public void atualizarDados() {
-        ArrayList<Produto> encontrados = Operacoes.exibirProdutos("Disco");
+        ArrayList<Produto> encontrados = Operacoes.exibirProdutosDisco();
 
         if (encontrados.isEmpty()) {
-            lbMsgErro.setText("Produto não encontrado!");
+            lbMsgErro.setText("Não existem discos cadastrados!");
         } else {
             items.clear();
             for (Produto p : encontrados) {
-                System.out.println(p);
                 items.add(p.toString());
             }
         }

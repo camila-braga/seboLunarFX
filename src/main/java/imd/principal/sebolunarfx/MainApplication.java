@@ -1,11 +1,14 @@
 package imd.principal.sebolunarfx;
 
 import imd.principal.sebolunarfx.DAO.BancoDAO;
+import imd.principal.sebolunarfx.controllers.ExibirCantorController;
 import imd.principal.sebolunarfx.controllers.ExibirTipoDiscoController;
+import imd.principal.sebolunarfx.controllers.ExibirTipoLivroController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -28,8 +31,6 @@ public class MainApplication extends Application {
         encerrar();
     }
 
-    private static FXMLLoader exTipoDisco;
-
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -41,7 +42,7 @@ public class MainApplication extends Application {
         FXMLLoader cadLivro = new FXMLLoader(getClass().getResource("CadastroLivro.fxml"));
         FXMLLoader cadDisco = new FXMLLoader(getClass().getResource("CadastroDisco.fxml"));
         FXMLLoader exTipoLivro = new FXMLLoader(getClass().getResource("ExibirTipoLivro.fxml"));
-        exTipoDisco = new FXMLLoader(getClass().getResource("ExibirTipoDisco.fxml"));
+        FXMLLoader exTipoDisco = new FXMLLoader(getClass().getResource("ExibirTipoDisco.fxml"));
         FXMLLoader exAutor = new FXMLLoader(getClass().getResource("ExibirAutor.fxml"));
         FXMLLoader exCantor = new FXMLLoader(getClass().getResource("ExibirCantor.fxml"));
         FXMLLoader exTitulo = new FXMLLoader(getClass().getResource("ExibirPorTitulo.fxml"));
@@ -55,12 +56,12 @@ public class MainApplication extends Application {
         Parent parentCadLivro = cadLivro.load();
         Parent parentCadDisco = cadDisco.load();
         Parent parentExTipoLivro = exTipoLivro.load();
+        parentExTipoLivro.setUserData(exTipoLivro);
         Parent parentExTipoDisco = exTipoDisco.load();
         parentExTipoDisco.setUserData(exTipoDisco);
-
-
         Parent parentExAutor = exAutor.load();
         Parent parentExCantor = exCantor.load();
+        parentExCantor.setUserData(exCantor);
         Parent parentExTitulo = exTitulo.load();
         Parent parentExFreteLivro = exFreteLivro.load();
         Parent parentExFreteDisco = exFreteDisco.load();
@@ -89,6 +90,8 @@ public class MainApplication extends Application {
     }
     //Alternância das cenas pelo menu
     public static void mudarScene(int opcao) {
+
+        FXMLLoader loader;
         switch (opcao){
             case 1:
                 primaryStage.setScene(sceneCadLivro);
@@ -101,16 +104,17 @@ public class MainApplication extends Application {
                 primaryStage.setTitle("Cadastro de disco");
                 break;
             case 3:
+                loader = (FXMLLoader) sceneExibirTipoLivro.getRoot().getUserData();
+                ExibirTipoLivroController controllerLivro= loader.getController();
+                controllerLivro.atualizarDados();
                 primaryStage.setScene(sceneExibirTipoLivro);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Exibir por tipo - livro");
                 break;
             case 4:
-                FXMLLoader loader = (FXMLLoader) sceneExibirTipoDisco.getRoot().getUserData();
-                ExibirTipoDiscoController controller = loader.getController();
-                controller.atualizarDados();
-
-
+                loader = (FXMLLoader) sceneExibirTipoDisco.getRoot().getUserData();
+                ExibirTipoDiscoController controllerDisco = loader.getController();
+                controllerDisco.atualizarDados();
                 primaryStage.setScene(sceneExibirTipoDisco);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Exibir por tipo - disco");
@@ -121,6 +125,9 @@ public class MainApplication extends Application {
                 primaryStage.setTitle("Exibir por autor");
                 break;
             case 6:
+                loader = (FXMLLoader) sceneExibirCantor.getRoot().getUserData();
+                ExibirCantorController controllerCantor = loader.getController();
+                controllerCantor.atualizarDados();
                 primaryStage.setScene(sceneExibirCantor);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Exibir por cantor");
@@ -158,7 +165,6 @@ public class MainApplication extends Application {
     /***
      * Método para carregar o banco de dados a partir de um arquivo binário de nome
      * NOME_ARQUIVO.
-     *
      * Restaura o estado do banco de dados a partir das informações presentes no
      * arquivo, porém, se acontecer algum erro de entrada e saída, o banco de dados
      * não será alterado (continuará vazio).
@@ -176,7 +182,11 @@ public class MainApplication extends Application {
                 BancoDAO.banco = (BancoDAO) input.readObject();
 
             } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Atenção!");
+                alert.setHeaderText("Banco de dados não pôde ser carregado.");
+                alert.showAndWait();
             } finally {
                 fluxoDados.close();
             }
@@ -184,7 +194,11 @@ public class MainApplication extends Application {
         } catch (FileNotFoundException e) {
             // cria um banco de dados vazio
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atenção!");
+            alert.setHeaderText("Banco de dados não pôde ser carregado.");
+            alert.showAndWait();
         }
     }
 
@@ -205,13 +219,21 @@ public class MainApplication extends Application {
                 output = new ObjectOutputStream(fluxoDados);
                 output.writeObject(BancoDAO.banco);
             } catch (IOException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Atenção!");
+                alert.setHeaderText("Banco de dados não pôde ser gravado.");
+                alert.showAndWait();
             } finally {
                 fluxoDados.close();
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atenção!");
+            alert.setHeaderText("Banco de dados não pôde ser fechado.");
+            alert.showAndWait();
         }
 
     }

@@ -2,41 +2,36 @@ package imd.principal.sebolunarfx.controllers;
 
 import imd.principal.sebolunarfx.model.Produto;
 import imd.principal.sebolunarfx.utils.Operacoes;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-
 import java.util.ArrayList;
 
 public class ExibirTipoLivroController extends MenuController{
     @FXML
-    private HBox hBox3, hBox4;
+    private Label lbMsgErro;
 
     @FXML
-    private VBox vBox1;
+    private ListView <String> listView;
 
-    @FXML
-    private Label lbLivrosCadastrados, lbMsgErro;
+    private ObservableList<String> items;
 
-    @FXML
-    private ListView <Produto> listView;
+    public void initialize() {
+        items = FXCollections.observableArrayList();
+        listView.setItems(items);
+    }
 
+    public void atualizarDados() {
+        ArrayList<Produto> encontrados = Operacoes.exibirProdutosLivro();
 
-    private void exibirLivros(){
-        ArrayList<Produto> encontrados = new ArrayList<>();
-
-        encontrados = Operacoes.exibirProdutos("Livro");
-
-        if(encontrados.isEmpty()){
-            lbMsgErro.setText("Produto não encontrado!");
-        }else{
-            listView = new ListView<>();
-
-            for(Produto p : encontrados){
-                listView.getItems().add(p);
+        if (encontrados.isEmpty()) {
+            lbMsgErro.setText("Não existem livros cadastrados!");
+        } else {
+            items.clear();
+            for (Produto p : encontrados) {
+                items.add(p.toString());
             }
         }
     }

@@ -2,11 +2,10 @@ package imd.principal.sebolunarfx.controllers;
 
 import imd.principal.sebolunarfx.model.Produto;
 import imd.principal.sebolunarfx.utils.Operacoes;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class ExibirCantorController extends MenuController{
@@ -21,32 +20,48 @@ public class ExibirCantorController extends MenuController{
     private Button btnBuscarCantor;
 
     @FXML
-    private ListView <Produto> listViewCantor;
+    private ListView <String> listViewCantor;
+
+    private ObservableList<String> items;
 
     @FXML
-    protected void btnBuscarCantorClick() throws IOException {
+    protected void initialize(){
+        btnBuscarCantor.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
+        items = FXCollections.observableArrayList();
+        listViewCantor.setItems(items);
+    }
+
+    public boolean atualizarDados() {
+        String cantor;
+        cantor = txtCantor.getText();
+
+        ArrayList<Produto> encontrados = Operacoes.exibirPorAutorCantor(cantor);
+
+        items.clear();
+        if (encontrados.isEmpty()) {
+            return false;
+        } else {
+            for (Produto p : encontrados) {
+                items.add(p.toString());
+            }
+            return true;
+        }
+    }
+
+    @FXML
+    protected void btnBuscarCantorClick(){
         String cantor;
 
         cantor = txtCantor.getText();
 
         if(!cantor.isEmpty()){
-            //Verifica se existe no banco de dados
-            ArrayList<Produto> encontrados = new ArrayList<>();
-
-            encontrados = Operacoes.exibirPorAutorCantorTitulo(cantor, "tipoAutorCantor");
-
-            if(encontrados.isEmpty()){
+            if(!atualizarDados()){
                 lbMsgErro.setText("Produto não encontrado!");
-            }else{
-                listViewCantor = new ListView<>();
-
-                for(Produto p : encontrados){
-                    listViewCantor.getItems().add(p);
-                }
+            } else {
+                lbMsgErro.setText("");
             }
             //Reseta o campo
             txtCantor.setText("");
-
 
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -55,10 +70,4 @@ public class ExibirCantorController extends MenuController{
             alert.showAndWait();
         }
     }
-
-    @FXML
-    protected void initialize(){
-        btnBuscarCantor.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
-    }
-
 }

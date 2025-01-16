@@ -33,7 +33,7 @@ public class ExibirAutorController extends MenuController{
             //Verifica se existe no banco de dados
             ArrayList<Produto> encontrados = new ArrayList<>();
 
-            encontrados = Operacoes.exibirPorAutorCantorTitulo(autor, "tipoAutorCantor");
+            encontrados = Operacoes.exibirPorAutorCantor(autor);
 
             if(encontrados.isEmpty()){
                 lbMsgErro.setText("Produto não encontrado!");

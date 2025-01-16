@@ -41,7 +41,7 @@ public class ExibirPorTituloController extends MenuController{
             //Verifica se existe no banco de dados
             ArrayList<Produto> encontrados = new ArrayList<>();
 
-            encontrados = Operacoes.exibirPorAutorCantorTitulo(titulo, "tipoTitulo");
+            encontrados = Operacoes.exibirPorAutorCantor(titulo);
 
             if(encontrados.isEmpty()){
                 lbMsgErro.setText("Produto não encontrado!");
