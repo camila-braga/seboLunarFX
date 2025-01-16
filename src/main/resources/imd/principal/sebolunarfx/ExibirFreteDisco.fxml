@@ -2,7 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -40,7 +42,8 @@
                 </Menu>
                 <Menu fx:id="menuRemover" mnemonicParsing="false" text="Remover">
                     <items>
-                        <MenuItem fx:id="menuItemRemover" mnemonicParsing="false" onAction="#onRemoverClick" text="Remover produto" />
+                        <MenuItem fx:id="menuItemRemoverLivro" mnemonicParsing="false" onAction="#onRemoverLivroClick" text="Livro" />
+                        <MenuItem fx:id="menuItemRemoverDisco" mnemonicParsing="false" onAction="#onRemoverDiscoClick" text="Disco" />
                     </items></Menu>
                 <Menu fx:id="menuFrete" mnemonicParsing="false" text="Frete">
                     <items>
@@ -56,12 +59,12 @@
             <content>
                 <VBox fx:id="vBox3" alignment="CENTER" prefHeight="592.0" prefWidth="608.0">
                <children>
-                  <HBox fx:id="hBox2" alignment="CENTER" prefHeight="176.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
+                  <HBox fx:id="hBox2" alignment="CENTER" prefHeight="265.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <VBox fx:id="vBox4" alignment="CENTER" prefHeight="142.0" prefWidth="609.0" HBox.hgrow="ALWAYS">
+                        <VBox fx:id="vBox4" alignment="CENTER" prefHeight="233.0" prefWidth="609.0" spacing="5.0" HBox.hgrow="ALWAYS">
                            <children>
                               <Label fx:id="lbValorFrete" alignment="CENTER" contentDisplay="CENTER" text="Valor do frete" textAlignment="CENTER" textFill="#e4a069" wrapText="true" VBox.vgrow="ALWAYS">
                                  <font>
@@ -79,72 +82,41 @@
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Label>
+                              <TextField fx:id="txtTituloFrete" promptText="Título" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="110.0" right="110.0" />
+                                 </VBox.margin>
+                              </TextField>
                               <HBox fx:id="hBox3" alignment="CENTER" prefHeight="65.0" prefWidth="609.0" spacing="50.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <TextField fx:id="txtTituloFrete" promptText="Título" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="Book Antiqua" size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets left="150.0" right="264.0" />
-                                       </HBox.margin>
-                                    </TextField>
-                                 </children>
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
+                                 <children>
+                                    <Label fx:id="lbZona" alignment="CENTER" contentDisplay="CENTER" text="Informe a zona a ser entregue:" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font name="Book Antiqua" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="cboxZona" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                 </children>
                               </HBox>
-                              <Label fx:id="lbZona" alignment="CENTER" contentDisplay="CENTER" layoutX="272.0" layoutY="54.0" text="Qual a zona a ser entregue (Norte ou Sul)?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true">
+                              <Button fx:id="btnCalcularFreteDisco" alignment="CENTER" mnemonicParsing="false" onAction="#btnCalcularFreteDiscoClick" text="Calcular" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Book Antiqua" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="lbMsgErro" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox fx:id="hBox5" alignment="CENTER" prefHeight="58.0" prefWidth="609.0" spacing="40.0">
-                                 <children>
-                                    <TextField fx:id="txtZona" promptText="Zona" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="Book Antiqua" size="14.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets left="150.0" />
-                                       </HBox.margin>
-                                    </TextField>
-                                    <Button fx:id="btnCalcularFreteLivro" alignment="CENTER" mnemonicParsing="false" onAction="#btnCalcularFreteLivroClick" text="Calcular" textAlignment="CENTER" HBox.hgrow="ALWAYS">
-                                       <HBox.margin>
-                                          <Insets right="150.0" />
-                                       </HBox.margin>
-                                       <padding>
-                                          <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Book Antiqua" size="14.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </HBox>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="20.0" />
-                           </HBox.margin>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <HBox fx:id="hBox4" alignment="CENTER" prefHeight="494.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <VBox fx:id="vBox5" alignment="CENTER" prefHeight="139.0" prefWidth="609.0" spacing="10.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label fx:id="lbMsgErro" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="#2f80b5">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="-370.0" />
+                                    <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
                            </children>
@@ -152,6 +124,15 @@
                               <Insets />
                            </HBox.margin>
                         </VBox>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hBox4" alignment="CENTER" prefHeight="348.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ListView fx:id="listFreteDisco" fixedCellSize="10.0" prefHeight="330.0" prefWidth="609.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </ListView>
                      </children>
                   </HBox>
                </children>

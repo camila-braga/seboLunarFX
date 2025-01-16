@@ -41,7 +41,8 @@
                 </Menu>
                 <Menu fx:id="menuRemover" mnemonicParsing="false" text="Remover">
                     <items>
-                        <MenuItem fx:id="menuItemRemover" mnemonicParsing="false" onAction="#onRemoverClick" text="Remover produto" />
+                        <MenuItem fx:id="menuItemRemoverLivro" mnemonicParsing="false" onAction="#onRemoverLivroClick" text="Livro" />
+                        <MenuItem fx:id="menuItemRemoverDisco" mnemonicParsing="false" onAction="#onRemoverDiscoClick" text="Disco" />
                     </items></Menu>
                 <Menu fx:id="menuFrete" mnemonicParsing="false" text="Frete">
                     <items>
@@ -90,7 +91,7 @@
                                           <Insets left="150.0" />
                                        </HBox.margin>
                                     </TextField>
-                                    <Button fx:id="btnBuscarPorTitulo" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnBuscarPorTituloClick" text="Buscar" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                    <Button fx:id="btnBuscarPorTitulo" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnBuscarPorTituloClick" text="Buscar" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets right="150.0" />
                                        </HBox.margin>

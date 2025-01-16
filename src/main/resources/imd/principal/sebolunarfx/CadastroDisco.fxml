@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -41,7 +42,8 @@
             </Menu>
             <Menu fx:id="menuRemover" mnemonicParsing="false" text="Remover">
                <items>
-                  <MenuItem fx:id="menuItemRemover" mnemonicParsing="false" onAction="#onRemoverClick" text="Remover produto" />
+                  <MenuItem fx:id="menuItemRemoverLivro" mnemonicParsing="false" onAction="#onRemoverLivroClick" text="Livro" />
+                  <MenuItem fx:id="menuItemRemoverDisco" mnemonicParsing="false" onAction="#onRemoverDiscoClick" text="Disco" />
                </items></Menu>
             <Menu fx:id="menuFrete" mnemonicParsing="false" text="Frete">
                <items>
@@ -57,7 +59,7 @@
          <content>
             <VBox fx:id="vBox3" alignment="CENTER" prefHeight="592.0" prefWidth="608.0">
                <children>
-                  <HBox fx:id="hBox2" alignment="CENTER" prefHeight="67.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
+                  <HBox fx:id="hBox2" alignment="CENTER" prefHeight="60.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
                      <children>
                         <Label fx:id="lbCadDisco" alignment="CENTER" contentDisplay="CENTER" text="Cadastro de Disco " textAlignment="CENTER" textFill="#e4a069" wrapText="true" HBox.hgrow="ALWAYS">
                            <font>
@@ -72,7 +74,7 @@
                         </Label>
                      </children>
                      <VBox.margin>
-                        <Insets />
+                        <Insets bottom="10.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox fx:id="hBox3" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
@@ -135,63 +137,29 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox fx:id="hBox5" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                  <HBox fx:id="hBox5" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox fx:id="vBox6" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label fx:id="lbPeso" alignment="CENTER" contentDisplay="CENTER" text="Qual a classificação do peso do disco (A a F)?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="txtPeso" promptText="Classificação do peso" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="80.0" right="80.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </TextField>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" />
-                           </padding>
-                        </VBox>
+                        <Label fx:id="lbPeso" alignment="CENTER" contentDisplay="CENTER" text="Qual a classificação do peso do disco?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Book Antiqua" size="14.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="cboxPeso" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
-                  <HBox fx:id="hBox6" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                  <HBox fx:id="hBox6" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="65.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox fx:id="vBox7" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label fx:id="lbConservacao" alignment="CENTER" contentDisplay="CENTER" text="Qual o estado de conservação (NOVO, SEMINOVO, USADO)?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <TextField fx:id="txtConservacao" promptText="Estado de conservação" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="80.0" right="80.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </TextField>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" />
-                           </padding>
-                        </VBox>
+                        <Label fx:id="lbConservacao" alignment="CENTER" contentDisplay="CENTER" text="Qual o estado de conservação?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Book Antiqua" size="14.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="cboxEstado" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
                   <HBox fx:id="hBox7" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox fx:id="vBox8" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                        <VBox fx:id="vBox6" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
                               <Label fx:id="lbFaixas" alignment="CENTER" contentDisplay="CENTER" text="Qual o número de faixas?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
                                  <font>
@@ -218,7 +186,7 @@
                   </HBox>
                   <HBox fx:id="hBox8" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox fx:id="vBox9" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                        <VBox fx:id="vBox7" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
                               <Label fx:id="lbAnoGravacao" alignment="CENTER" contentDisplay="CENTER" text="Qual o ano de gravação?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
                                  <font>
@@ -243,31 +211,14 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox fx:id="hBox9" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                  <HBox fx:id="hBox9" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="85.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox fx:id="vBox10" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label fx:id="lbFormato" alignment="CENTER" contentDisplay="CENTER" text="Qual o formato do disco?" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="txtFormato" promptText="Formato do disco" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets left="80.0" right="80.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </TextField>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" />
-                           </padding>
-                        </VBox>
+                        <Label fx:id="lbFormato" alignment="CENTER" contentDisplay="CENTER" text="Informe o formato do disco:" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Book Antiqua" size="14.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="cboxFormato" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
                   <HBox fx:id="hBox10" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" VBox.vgrow="ALWAYS">
@@ -282,7 +233,7 @@
                               <Font name="Book Antiqua" size="14.0" />
                            </font>
                            <padding>
-                              <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
+                              <Insets bottom="4.0" left="10.0" right="10.0" top="4.0" />
                            </padding>
                            <cursor>
                               <Cursor fx:constant="DEFAULT" />

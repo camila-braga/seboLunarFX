@@ -1,6 +1,7 @@
 package imd.principal.sebolunarfx.controllers;
 
 import imd.principal.sebolunarfx.model.Livro;
+import imd.principal.sebolunarfx.model.Produto;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -12,16 +13,22 @@ import java.io.IOException;
 public class ExibirFreteLivroController extends MenuController{
 
     @FXML
-    private HBox hBox2, hBox3, hBox4, hBox5;
+    private HBox hBox2, hBox3, hBox4;
 
     @FXML
-    private VBox vBox4, vBox5;
+    private VBox vBox4;
 
     @FXML
     private Label lbValorFrete, lbTituloFrete, lbZona, lbMsgErro;
 
     @FXML
-    private TextField txtTituloFrete, txtZona;
+    private TextField txtTituloFrete;
+
+    @FXML
+    private ChoiceBox<String> cboxZona;
+
+    @FXML
+    private ListView <Produto> listFreteLivro;
 
     @FXML
     private Button btnCalcularFreteLivro;
@@ -31,7 +38,7 @@ public class ExibirFreteLivroController extends MenuController{
         String titulo, zona;
 
         titulo = txtTituloFrete.getText();
-        zona = txtZona.getText();
+        zona = cboxZona.getSelectionModel().getSelectedItem();
 
         if(!titulo.isEmpty() && !zona.isEmpty() ){
             //Verifica se existe no banco de dados
@@ -41,7 +48,7 @@ public class ExibirFreteLivroController extends MenuController{
 
             //reseta os campos
             txtTituloFrete.setText("");
-            txtZona.setText("");
+            //cboxZona.setText("");
 
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -54,5 +61,6 @@ public class ExibirFreteLivroController extends MenuController{
     @FXML
     protected void initialize(){
         btnCalcularFreteLivro.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
+        cboxZona.getItems().addAll("SUL", "NORTE");
     }
 }

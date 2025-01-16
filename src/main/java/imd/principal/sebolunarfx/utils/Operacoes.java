@@ -55,35 +55,35 @@ public class Operacoes {
         return formatoDisco;
     }
 
+    //Usado no frete
+    public static Zona tratamentoZona(String zona_){
+        Zona zona = Zona.SUL;
+        zona = switch (zona_) {
+            case "NORTE" -> Zona.NORTE;
+            default -> zona;
+        };
+        return zona;
+    }
+
     //Usado no cadastro de produto
     public static Disco cadastrarDisco(String cantor_, String titulo_, String peso_, String estado_, String faixas_, String ano_, String formato_ ) {
-        String cantor = cantor_;
-        String titulo = titulo_;
         PesoProduto peso = tratamentoPeso(peso_);
         EstadoConservacao estadoConservacao = tratamentoConservacao(estado_);
-        String numeroFaixas = faixas_;
-        String anoGravacao = ano_;
         FormatoDisco formato = tratamentoFormato(formato_);
 
-        Disco novoDisco = new Disco(cantor, titulo, peso, estadoConservacao,
-                numeroFaixas, anoGravacao, formato);
+        Disco novoDisco = new Disco(cantor_, titulo_, peso, estadoConservacao,
+                faixas_, ano_, formato);
 
         return novoDisco;
     }
 
     //Usado no cadastro de produto
     public static Livro cadastrarLivro(String autor_, String titulo_, String peso_, String estado_, String paginas_, String ano_, String editora_, String genero_ ) {
-        String autor = autor_;
-        String titulo = titulo_;
         PesoProduto peso = tratamentoPeso(peso_);
         EstadoConservacao estadoConservacao = tratamentoConservacao(estado_);
-        String numeroPaginas = paginas_;
-        String anoPublicacao = ano_;
-        String editora = editora_;
-        String genero = genero_;
 
-        Livro novoLivro = new Livro(autor, titulo, peso, estadoConservacao,
-                numeroPaginas, editora, anoPublicacao, genero);
+        Livro novoLivro = new Livro(autor_, titulo_, peso, estadoConservacao,
+                paginas_, editora_, ano_, genero_);
 
         return novoLivro;
     }
@@ -120,7 +120,25 @@ public class Operacoes {
         return resultados;
     }
 
+    //Usado para verificar se um livro existe
+    public static boolean existeLivro(String autor_, String titulo_, String estado_, String ano_, String editora_ ) {
+        boolean encontrado = false;
+        EstadoConservacao estadoConservacao = tratamentoConservacao(estado_);
 
+        for(Produto p : banco.getArrayProduto()){
+            if(p.getAutorCantor().equals(autor_)){
+                if(p.getTitulo().equals(titulo_)){
+                    if(p.getEstadoConservacao().equals(estadoConservacao)){
+                        if(p.get.equals(titulo_)){
+                            if(p.getAutorCantor().equals(titulo_)){
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 
 

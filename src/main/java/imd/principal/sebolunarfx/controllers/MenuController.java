@@ -35,7 +35,7 @@ public class MenuController {
     private Menu menuCadastrar, menuExibir, menuTipo, menuRemover, menuFrete;
 
     @FXML
-    private MenuItem menuItemCadLivro, menuItemCadDisco, menuItemExAutor, menuItemExCantor, menuItemExTitulo, menuItemExTipoLivro, menuItemExTipoDisco, menuItemRemover, menuItemFreteLivro, menuItemFreteDisco;
+    private MenuItem menuItemCadLivro, menuItemCadDisco, menuItemExAutor, menuItemExCantor, menuItemExTitulo, menuItemExTipoLivro, menuItemExTipoDisco, menuItemRemoverLivro, menuItemRemoverDisco, menuItemFreteLivro, menuItemFreteDisco;
 
     @FXML
     private ImageView luaLeftPic, luaRightPic, luaBottomPic;
@@ -47,35 +47,22 @@ public class MenuController {
     private Label msgInicial;
 
     @FXML
-    protected void onCadLivroClick(ActionEvent e){
-        MainApplication.mudarScene(1);
-    }
-
-    //teste. É pra ir pra pag intro
-    @FXML
-    protected void onCadDiscoClick(ActionEvent e){
-        MainApplication.mudarScene(2);
-    }
+    protected void onCadLivroClick(ActionEvent e){ MainApplication.mudarScene(1); }
 
     @FXML
-    protected void onExTipoLivroClick(ActionEvent e){
-        MainApplication.mudarScene(3);
-    }
+    protected void onCadDiscoClick(ActionEvent e){ MainApplication.mudarScene(2); }
 
     @FXML
-    protected void onExTipoDiscoClick(ActionEvent e){
-        MainApplication.mudarScene(4);
-    }
+    protected void onExTipoLivroClick(ActionEvent e){ MainApplication.mudarScene(3); }
 
     @FXML
-    protected void onExAutorClick(ActionEvent e){
-        MainApplication.mudarScene(5);
-    }
+    protected void onExTipoDiscoClick(ActionEvent e){ MainApplication.mudarScene(4); }
 
     @FXML
-    protected void onExCantorClick(ActionEvent e){
-        MainApplication.mudarScene(6);
-    }
+    protected void onExAutorClick(ActionEvent e){ MainApplication.mudarScene(5); }
+
+    @FXML
+    protected void onExCantorClick(ActionEvent e){ MainApplication.mudarScene(6); }
 
     @FXML
     protected void onExTituloClick(ActionEvent e){
@@ -83,8 +70,13 @@ public class MenuController {
     }
 
     @FXML
-    protected void onRemoverClick(ActionEvent e){
-        MainApplication.mudarScene(20);
+    protected void onRemoverLivroClick(ActionEvent e){
+        MainApplication.mudarScene(10);
+    }
+
+    @FXML
+    protected void onRemoverDiscoClick(ActionEvent e){
+        MainApplication.mudarScene(11);
     }
 
     @FXML

@@ -12,7 +12,7 @@ import java.io.IOException;
 public class CadastroLivroController extends MenuController {
 
     @FXML
-    private VBox vBox4, vBox5, vBox6, vBox7, vBox8, vBox9, vBox10, vBox11;
+    private VBox vBox4, vBox5, vBox6, vBox7, vBox8, vBox9;
 
     @FXML
     private HBox hBox2, hBox3, hBox4, hBox5, hBox6, hBox7, hBox8, hBox9, hBox10, hBox11;
@@ -21,7 +21,10 @@ public class CadastroLivroController extends MenuController {
     private Label lbCadLivro, lbAutor, lbTitulo, lbPeso, lbConservacao, lbEditora, lbPaginas, lbAnoPublicacao, lbGeneroLiterario, lbMensagemSucesso;
 
     @FXML
-    private TextField txtAutor, txtTitulo, txtPeso, txtConservacao, txtEditora, txtPaginas, txtAnoPublicacao, txtGeneroLiterario;
+    private TextField txtAutor, txtTitulo, txtEditora, txtPaginas, txtAnoPublicacao, txtGeneroLiterario;
+
+    @FXML
+    private ChoiceBox<String> cboxPeso, cboxEstado;
 
     @FXML
     private Button btnCadastrarLivro;
@@ -32,8 +35,8 @@ public class CadastroLivroController extends MenuController {
 
         autor = txtAutor.getText();
         titulo = txtTitulo.getText();
-        peso = txtPeso.getText();
-        conservacao = txtConservacao.getText();
+        peso = cboxPeso.getSelectionModel().getSelectedItem();
+        conservacao = cboxEstado.getSelectionModel().getSelectedItem();
         editora = txtEditora.getText();
         paginas = txtPaginas.getText();
         anoPublicacao = txtAnoPublicacao.getText();
@@ -87,8 +90,8 @@ public class CadastroLivroController extends MenuController {
     protected void limparCampos(){
         txtAutor.setText("");
         txtTitulo.setText("");
-        txtPeso.setText("");
-        txtConservacao.setText("");
+       // cboxPeso.setText("");
+        //cboxEstado.setText("");
         txtEditora.setText("");
         txtPaginas.setText("");
         txtAnoPublicacao.setText("");
@@ -98,6 +101,8 @@ public class CadastroLivroController extends MenuController {
     @FXML
     protected void initialize(){
         btnCadastrarLivro.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
+        cboxPeso.getItems().addAll("A", "B", "C", "D", "E", "F");
+        cboxEstado.getItems().addAll("NOVO", "SEMINOVO", "USADO");
     }
 
 }

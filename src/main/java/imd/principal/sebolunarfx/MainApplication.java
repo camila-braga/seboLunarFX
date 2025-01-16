@@ -16,6 +16,7 @@ public class MainApplication extends Application {
     private static Scene sceneIntro, sceneMenu, sceneCadLivro, sceneCadDisco;
     private static Scene sceneExibirTipoLivro, sceneExibirTipoDisco, sceneExibirAutor, sceneExibirCantor, sceneExibirTitulo;
     private static Scene sceneExibirFreteLivro, sceneExibirFreteDisco;
+    private static Scene sceneRemoverLivro, sceneRemoverDisco;
     private static Stage primaryStage;
 
     public static void main(String[] args) {
@@ -40,6 +41,8 @@ public class MainApplication extends Application {
         FXMLLoader exTitulo = new FXMLLoader(getClass().getResource("ExibirPorTitulo.fxml"));
         FXMLLoader exFreteLivro = new FXMLLoader(getClass().getResource("ExibirFreteLivro.fxml"));
         FXMLLoader exFreteDisco = new FXMLLoader(getClass().getResource("ExibirFreteDisco.fxml"));
+        FXMLLoader removerLivro = new FXMLLoader(getClass().getResource("RemoverLivro.fxml"));
+        FXMLLoader removerDisco = new FXMLLoader(getClass().getResource("RemoverDisco.fxml"));
 
         //Criação das cenas
         Parent parentIntro = intro.load();
@@ -53,6 +56,8 @@ public class MainApplication extends Application {
         Parent parentExTitulo = exTitulo.load();
         Parent parentExFreteLivro = exFreteLivro.load();
         Parent parentExFreteDisco = exFreteDisco.load();
+        Parent parentRemoverLivro = removerLivro.load();
+        Parent parentRemoverDisco = removerDisco.load();
 
         sceneIntro = new Scene(parentIntro, 800, 600);
         sceneMenu = new Scene(parentMenu, 1024, 640);
@@ -65,6 +70,9 @@ public class MainApplication extends Application {
         sceneExibirTitulo = new Scene(parentExTitulo, 1024, 640);
         sceneExibirFreteLivro = new Scene(parentExFreteLivro, 1024, 640);
         sceneExibirFreteDisco = new Scene(parentExFreteDisco, 1024, 640);
+        sceneRemoverLivro = new Scene(parentRemoverLivro, 1024, 640);
+        sceneRemoverDisco = new Scene(parentRemoverDisco, 1024, 640);
+
 
         primaryStage.setScene(sceneIntro);
         primaryStage.show();
@@ -115,10 +123,13 @@ public class MainApplication extends Application {
                 primaryStage.setScene(sceneExibirFreteDisco);
                 primaryStage.setTitle("Frete de disco");
                 break;
-
-            case 20:
-                //teste
-                primaryStage.setScene(sceneIntro);
+            case 10:
+                primaryStage.setScene(sceneRemoverLivro);
+                primaryStage.setTitle("Remover Livro");
+                break;
+            case 11:
+                primaryStage.setScene(sceneRemoverDisco);
+                primaryStage.setTitle("Remover Disco");
                 break;
 
         }

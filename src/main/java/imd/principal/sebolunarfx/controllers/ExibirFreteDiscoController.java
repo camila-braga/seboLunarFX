@@ -1,10 +1,8 @@
 package imd.principal.sebolunarfx.controllers;
 
+import imd.principal.sebolunarfx.model.Produto;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -13,26 +11,32 @@ import java.io.IOException;
 public class ExibirFreteDiscoController extends MenuController{
 
     @FXML
-    private HBox hBox2, hBox3, hBox4, hBox5;
+    private HBox hBox2, hBox3, hBox4;
 
     @FXML
-    private VBox vBox4, vBox5;
+    private VBox vBox4;
 
     @FXML
     private Label lbValorFrete, lbTituloFrete, lbZona, lbMsgErro;
 
     @FXML
-    private TextField txtTituloFrete, txtZona;
+    private TextField txtTituloFrete;
 
     @FXML
-    private Button btnCalcularFreteLivro;
+    private ChoiceBox<String> cboxZona;
 
     @FXML
-    protected void btnCalcularFreteLivroClick() throws IOException {
+    private ListView <Produto> listFreteDisco;
+
+    @FXML
+    private Button btnCalcularFreteDisco;
+
+    @FXML
+    protected void btnCalcularFreteDiscoClick() throws IOException {
         String titulo, zona;
 
         titulo = txtTituloFrete.getText();
-        zona = txtZona.getText();
+        zona = cboxZona.getSelectionModel().getSelectedItem();
 
         if(!titulo.isEmpty() && !zona.isEmpty() ){
             //Verifica se existe no banco de dados
@@ -42,7 +46,7 @@ public class ExibirFreteDiscoController extends MenuController{
 
             //reseta os campos
             txtTituloFrete.setText("");
-            txtZona.setText("");
+            //cboxZona.setText("");
 
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -54,6 +58,7 @@ public class ExibirFreteDiscoController extends MenuController{
 
     @FXML
     protected void initialize(){
-        btnCalcularFreteLivro.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
+        btnCalcularFreteDisco.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
+        cboxZona.getItems().addAll("SUL", "NORTE");
     }
 }

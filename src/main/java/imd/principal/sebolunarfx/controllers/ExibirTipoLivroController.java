@@ -24,6 +24,7 @@ public class ExibirTipoLivroController extends MenuController{
     @FXML
     private ListView <Produto> listView;
 
+
     private void exibirLivros(){
         ArrayList<Produto> encontrados = new ArrayList<>();
 

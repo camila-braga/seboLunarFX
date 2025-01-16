@@ -1,6 +1,7 @@
 package imd.principal.sebolunarfx.model;
 
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 /**
  * Classe que representa um livro vendido no sebo.
@@ -103,5 +104,15 @@ public class Livro extends Produto {
         return builder.toString();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Livro livro = (Livro) o;
+        return Objects.equals(getNumeroPaginas(), livro.getNumeroPaginas()) && Objects.equals(getEditora(), livro.getEditora()) && Objects.equals(getAnoPublicacao(), livro.getAnoPublicacao()) && Objects.equals(getGeneroLiterario(), livro.getGeneroLiterario());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNumeroPaginas(), getEditora(), getAnoPublicacao(), getGeneroLiterario());
+    }
 }
