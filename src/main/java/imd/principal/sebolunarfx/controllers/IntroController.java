@@ -9,16 +9,23 @@ import javafx.scene.layout.VBox;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
+/***
+ * Classe controller da tela de introdução.
+ *
+ * @author Camila Braga e Antonio Walter
+ */
 public class IntroController {
     @FXML
     private VBox vBox1;
-
     @FXML
     private Button introButton;
 
+    /**
+     * Método associado ao botão Entrar.
+     * Carrega a tela do menu, cria uma nova cena para ele e altera a janela atual para a cena do menu.
+     */
     @FXML
     protected void onIntroButton() throws IOException  {
         //Carrega o tela do menu
@@ -34,11 +41,16 @@ public class IntroController {
         stage.centerOnScreen();
     }
 
+    /**
+     * Método para inicializar a tela com algumas especificações.
+     * Muda a cor do botão, carrega uma imagem de fundo e cria um background com essa imagem.
+     */
     @FXML
     public void initialize() {
+        //Carrega uma imagem
         Image image = new Image("/luaIntro.jpg");
 
-        // create a background image
+        // Cria um background com uma imagem
         BackgroundSize backgroundSize = new BackgroundSize(1, 1, true, true, false, false);
         BackgroundImage backgroundimage = new BackgroundImage(image,
                 BackgroundRepeat.NO_REPEAT,
@@ -46,7 +58,6 @@ public class IntroController {
                 BackgroundPosition.CENTER,
                 backgroundSize);
 
-        // create Background
         Background background = new Background(backgroundimage);
 
         vBox1.setBackground(background);

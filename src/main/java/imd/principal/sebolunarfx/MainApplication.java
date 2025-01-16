@@ -8,12 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-
 import java.io.*;
 
-
+/***
+ * Classe Aplicação Main
+ *
+ * @author Camila Braga e Antonio Walter
+ */
 public class MainApplication extends Application {
-
+    //Arquivo
     private static final String NOME_ARQUIVO = "produtosSeboLunar.data";
 
     //Scenes
@@ -23,12 +26,18 @@ public class MainApplication extends Application {
     private static Scene sceneRemoverLivro, sceneRemoverDisco;
     private static Stage primaryStage;
 
+    /**
+     * Método main.
+     */
     public static void main(String[] args) {
         iniciar();
         launch(args);
         encerrar();
     }
 
+    /**
+     * Método para criação das telas.
+     */
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -86,7 +95,6 @@ public class MainApplication extends Application {
         parentRemoverDisco.setUserData(removerDisco);
 
 
-
         Scene sceneIntro = new Scene(parentIntro, 800, 600);
         sceneCadLivro = new Scene(parentCadLivro, 1024, 640);
         sceneCadDisco = new Scene(parentCadDisco, 1024, 640);
@@ -104,12 +112,15 @@ public class MainApplication extends Application {
         primaryStage.setScene(sceneIntro);
         primaryStage.centerOnScreen();
         primaryStage.show();
-
     }
-    //Alternância das cenas pelo menu
+
+    /**
+     * Método para alternar as telas do menu
+     */
     public static void mudarScene(int opcao) {
 
         FXMLLoader loader;
+
         switch (opcao){
             case 1:
                 loader = (FXMLLoader) sceneCadLivro.getRoot().getUserData();
@@ -213,7 +224,6 @@ public class MainApplication extends Application {
 
         }
     }
-
 
     /***
      * Método para carregar o banco de dados a partir de um arquivo binário de nome

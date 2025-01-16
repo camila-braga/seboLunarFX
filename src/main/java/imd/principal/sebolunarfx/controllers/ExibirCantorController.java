@@ -46,9 +46,9 @@ public class ExibirCantorController extends MenuController{
     /**
      * Método para realizar a busca por objetos que possuam o mesmo nome de cantor.
      * Faz a leitura do campo de preenchimento, cria um ArrayList do tipo Produto, chama
-     * o método Operacoes.exibirPorCantor(String cantor) pertencente à classe Operacoes e armazena seu
+     * o método exibirPorCantor(String cantor) pertencente à classe Operacoes e armazena seu
      * retorno ao array list. Caso não haja produtos com essa especificação, retorna false.
-     * Caso haja, adiciona os objetos armazenados, convertidos em strings, no ObservableList
+     * Caso haja, adiciona os objetos armazenados previamente, convertidos em strings, no ObservableList
      * para serem exibidos na list view.
      * @return true caso tenha objetos armazenados e false, caso contrário.
      */

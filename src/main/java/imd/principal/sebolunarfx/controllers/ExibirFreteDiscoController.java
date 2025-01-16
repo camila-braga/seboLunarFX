@@ -60,13 +60,16 @@ public class ExibirFreteDiscoController extends MenuController{
     }
 
     /**
-     * Método para realizar a busca por objetos que possuam o mesmo nome de cantor.
-     * Faz a leitura do campo de preenchimento, cria um ArrayList do tipo Produto, chama
-     * o método Operacoes.exibirPorCantor(String cantor) pertencente à classe Operacoes e armazena seu
-     * retorno ao array list. Caso não haja produtos com essa especificação, retorna false.
-     * Caso haja, adiciona os objetos armazenados, convertidos em strings, no ObservableList
-     * para serem exibidos na list view.
-     * @return true caso tenha objetos armazenados e false, caso contrário.
+     * Método para realizar a busca por objetos que possuam o mesmo título desejado.
+     * Faz a leitura dos campos de preenchimentos, cria um ArrayList do tipo Disco, chama o método
+     * exibirProdutosDisco() pertencente à classe Operacoes e armazena seu retorno ao array list.
+     * Verifica se o campo zona foi preenchido corretamente e, caso contrário, retorna false.
+     * Caso positivo, adiciona na ObservableList o valor do frete calculado junto com os detalhes de
+     * seu objeto para serem exibidos na list view e retorna true se essa lista estiver preenchida ou false,
+     * se estiver vazia.
+     * @return boolean - false caso o campo zona não estiver preenchido ou true se a ObservableList contiver
+     * informações ou false se estiver vazia.
+     *
      */
     public boolean atualizarDados() {
         ArrayList<Disco> encontrados = Operacoes.exibirProdutosDisco();
@@ -90,6 +93,13 @@ public class ExibirFreteDiscoController extends MenuController{
         return !items.isEmpty();
     }
 
+    /**
+     * Método associado ao botão calcular frete.
+     * Verifica se algum campo de preenchimento está vazio e exibe um alerta. Caso contrário,
+     * chama o método atualizarDados() e, se for false, exibe uma mensagem de que não há produtos encontrados
+     * com as características buscadas. Se for true, reseta a mensagem de erro.
+     * Limpa o campo de preenchimento.
+     */
     @FXML
     protected void btnCalcularFreteDiscoClick(){
         if(!validarDados()){
@@ -106,8 +116,11 @@ public class ExibirFreteDiscoController extends MenuController{
         }
     }
 
-
-
+    /**
+     * Método para inicializar a tela com algumas especificações.
+     * Muda a cor do botão, exibe o menu à frente das imagens do layout, define as opções
+     * da choice box zona e permite que a list view exiba os resultados encontrados.
+     */
     @FXML
     protected void initialize(){
         menu.toFront();

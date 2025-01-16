@@ -6,23 +6,42 @@ import imd.principal.sebolunarfx.utils.Operacoes;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class RemoverDiscoController extends MenuController{
 
+/***
+ * Classe controller da tela de remover um disco do banco de dados.
+ *
+ * @author Camila Braga e Antonio Walter
+ */
+public class RemoverDiscoController extends MenuController{
     @FXML
     private TextField txtCantor, txtTitulo;
-
     @FXML
     private Spinner<Integer> anoGravacao;
-
     @FXML
     private ChoiceBox<String> cboxEstado, cboxFormato;
-
     @FXML
     private Button btnRemoverDisco;
-
     @FXML
     private Label lbMsg;
 
+    /**
+     * Método para limpar os campos de preenchimento das telas.
+     */
+    @FXML
+    public void limparCampos(){
+        txtCantor.setText("");
+        txtTitulo.setText("");
+        cboxEstado.setValue("");
+        anoGravacao.getValueFactory().setValue(2025);
+        cboxFormato.setValue("");
+        lbMsg.setText("");
+    }
+
+    /**
+     * Método para checar se os campos de preenchimento estão preenchidos.
+     * Retorna true em caso positivo e false, caso contrário.
+     * @return valCantor && valTitulo && valEnums - booleans dos campos de preenchimento
+     */
     public boolean validarDados(){
         String cantor = txtCantor.getText();
         String titulo = txtTitulo.getText();
@@ -43,6 +62,13 @@ public class RemoverDiscoController extends MenuController{
         return valCantor && valTitulo && valEnums;
     }
 
+    /**
+     * Método associado ao botão remover.
+     * Realiza as leituras dos campos, checa se todos foram preenchidos. Caso contrário, exibe um
+     * alerta de campo vazio. Caso positivo, chama o método
+     * removeDisco(String cantor, String titulo, String conservacao, int ano, String formato) da classe
+     * Operacoes e, caso seu retorno seja true, exibe mensagem de sucesso ou então, de fracasso em caso contrário.
+     */
     @FXML
     protected void onBtnRemoverDisco() {
         String cantor, titulo, conservacao, formato;
@@ -71,16 +97,11 @@ public class RemoverDiscoController extends MenuController{
         }
     }
 
-    @FXML
-    public void limparCampos(){
-        txtCantor.setText("");
-        txtTitulo.setText("");
-        cboxEstado.setValue("");
-        anoGravacao.getValueFactory().setValue(2025);
-        cboxFormato.setValue("");
-        lbMsg.setText("");
-    }
-
+    /**
+     * Método para inicializar a tela com algumas especificações.
+     * Muda a cor do botão, exibe o menu à frente das imagens do layout e define as opções das choice boxs
+     * referentes ao estado de conservação e ao formato do disco.
+     */
     @FXML
     protected void initialize(){
         menu.toFront();

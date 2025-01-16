@@ -48,7 +48,7 @@ public class ExibirAutorController extends MenuController{
      * Faz a leitura do campo de preenchimento, cria um ArrayList do tipo Produto, chama
      * o método exibirPorAutor(String autor) pertencente à classe Operacoes e armazena seu retorno ao array
      * list. Caso não haja produtos com essa especificação, retorna false. Caso haja, adiciona os objetos
-     * armazenados, convertidos em strings, no ObservableList para serem exibidos na list view.
+     * armazenados previamente, convertidos em strings, no ObservableList para serem exibidos na list view.
      * @return true caso tenha objetos armazenados e false, caso contrário.
      */
     public boolean atualizarDados() {
