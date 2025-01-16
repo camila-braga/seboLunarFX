@@ -3,6 +3,8 @@ package imd.principal.sebolunarfx.controllers;
 import imd.principal.sebolunarfx.model.Produto;
 import imd.principal.sebolunarfx.utils.Operacoes;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
@@ -29,43 +31,54 @@ public class ExibirPorTituloController extends MenuController{
     private Button btnBuscarPorTitulo;
 
     @FXML
-    private ListView <Produto> listViewPorTitulo;
+    private ListView <String> listViewPorTitulo;
+
+    private ObservableList<String> items;
 
     @FXML
-    protected void btnBuscarPorTituloClick() throws IOException {
+    protected void initialize(){
+        btnBuscarPorTitulo.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
+        items = FXCollections.observableArrayList();
+        listViewPorTitulo.setItems(items);
+    }
+
+    public boolean atualizarDados() {
+        String titulo;
+        titulo = txtPorTitulo.getText();
+
+        ArrayList<Produto> encontrados = Operacoes.exibirPorTitulo(titulo);
+
+        items.clear();
+        if (encontrados.isEmpty()) {
+            return false;
+        } else {
+            for (Produto p : encontrados) {
+                items.add(p.toString());
+            }
+            return true;
+        }
+    }
+
+    @FXML
+    protected void btnBuscarPorTituloClick(){
         String titulo;
 
         titulo = txtPorTitulo.getText();
 
         if(!titulo.isEmpty()){
-            //Verifica se existe no banco de dados
-            ArrayList<Produto> encontrados = new ArrayList<>();
-
-            encontrados = Operacoes.exibirPorAutorCantor(titulo);
-
-            if(encontrados.isEmpty()){
+            if(!atualizarDados()){
                 lbMsgErro.setText("Produto não encontrado!");
-            }else{
-                listViewPorTitulo = new ListView<>();
-
-                for(Produto p : encontrados){
-                    listViewPorTitulo.getItems().add(p);
-                }
+            } else{
+                lbMsgErro.setText("");
             }
             //Reseta o campo
             txtPorTitulo.setText("");
 
-
-        }else{
+        } else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção!");
             alert.setHeaderText("Preencha o campo!");
             alert.showAndWait();
         }
-    }
-
-    @FXML
-    protected void initialize(){
-        btnBuscarPorTitulo.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
     }
 }

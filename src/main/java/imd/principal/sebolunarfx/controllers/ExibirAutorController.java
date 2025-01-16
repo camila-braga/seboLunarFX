@@ -2,11 +2,10 @@ package imd.principal.sebolunarfx.controllers;
 
 import imd.principal.sebolunarfx.model.Produto;
 import imd.principal.sebolunarfx.utils.Operacoes;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class ExibirAutorController extends MenuController{
@@ -21,43 +20,54 @@ public class ExibirAutorController extends MenuController{
     private Button btnBuscarAutor;
 
     @FXML
-    private ListView <Produto> listViewAutor;
+    private ListView <String> listViewAutor;
+
+    private ObservableList<String> items;
 
     @FXML
-    protected void btnBuscarAutorClick() throws IOException {
+    protected void initialize(){
+        btnBuscarAutor.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
+        items = FXCollections.observableArrayList();
+        listViewAutor.setItems(items);
+    }
+
+    public boolean atualizarDados() {
+        String autor;
+        autor = txtAutor.getText();
+
+        ArrayList<Produto> encontrados = Operacoes.exibirPorAutorCantor(autor);
+
+        items.clear();
+        if (encontrados.isEmpty()) {
+            return false;
+        } else {
+            for (Produto p : encontrados) {
+                items.add(p.toString());
+            }
+            return true;
+        }
+    }
+
+    @FXML
+    protected void btnBuscarAutorClick(){
         String autor;
 
         autor = txtAutor.getText();
 
         if(!autor.isEmpty()){
-            //Verifica se existe no banco de dados
-            ArrayList<Produto> encontrados = new ArrayList<>();
-
-            encontrados = Operacoes.exibirPorAutorCantor(autor);
-
-            if(encontrados.isEmpty()){
+            if(!atualizarDados()){
                 lbMsgErro.setText("Produto não encontrado!");
-            }else{
-                listViewAutor = new ListView<>();
-
-                for(Produto p : encontrados){
-                    listViewAutor.getItems().add(p);
-                }
+            } else{
+                lbMsgErro.setText("");
             }
-            //reseta os campos
+            //Reseta o campo
             txtAutor.setText("");
 
-
-        }else{
+        } else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção!");
             alert.setHeaderText("Preencha o campo!");
             alert.showAndWait();
         }
-    }
-
-    @FXML
-    protected void initialize(){
-        btnBuscarAutor.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
     }
 }

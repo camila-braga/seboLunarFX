@@ -1,9 +1,11 @@
 package imd.principal.sebolunarfx;
 
 import imd.principal.sebolunarfx.DAO.BancoDAO;
+import imd.principal.sebolunarfx.controllers.ExibirAutorController;
 import imd.principal.sebolunarfx.controllers.ExibirCantorController;
 import imd.principal.sebolunarfx.controllers.ExibirTipoDiscoController;
 import imd.principal.sebolunarfx.controllers.ExibirTipoLivroController;
+import imd.principal.sebolunarfx.controllers.ExibirPorTituloController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -60,9 +62,11 @@ public class MainApplication extends Application {
         Parent parentExTipoDisco = exTipoDisco.load();
         parentExTipoDisco.setUserData(exTipoDisco);
         Parent parentExAutor = exAutor.load();
+        parentExAutor.setUserData(exAutor);
         Parent parentExCantor = exCantor.load();
         parentExCantor.setUserData(exCantor);
         Parent parentExTitulo = exTitulo.load();
+        parentExTitulo.setUserData(exTitulo);
         Parent parentExFreteLivro = exFreteLivro.load();
         Parent parentExFreteDisco = exFreteDisco.load();
         Parent parentRemoverLivro = removerLivro.load();
@@ -120,6 +124,9 @@ public class MainApplication extends Application {
                 primaryStage.setTitle("Exibir por tipo - disco");
                 break;
             case 5:
+                loader = (FXMLLoader) sceneExibirAutor.getRoot().getUserData();
+                ExibirAutorController controllerAutor = loader.getController();
+                controllerAutor.atualizarDados();
                 primaryStage.setScene(sceneExibirAutor);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Exibir por autor");
@@ -133,6 +140,9 @@ public class MainApplication extends Application {
                 primaryStage.setTitle("Exibir por cantor");
                 break;
             case 7:
+                loader = (FXMLLoader) sceneExibirTitulo.getRoot().getUserData();
+                ExibirPorTituloController controllerPorTitulo = loader.getController();
+                controllerPorTitulo.atualizarDados();
                 primaryStage.setScene(sceneExibirTitulo);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Exibir por título");

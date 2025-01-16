@@ -131,7 +131,7 @@
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
                               </Label>
-                              <ListView fx:id="listViewAutor" fixedCellSize="10.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                              <ListView fx:id="listViewAutor" fixedCellSize="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets left="10.0" right="10.0" />
                                  </VBox.margin>
