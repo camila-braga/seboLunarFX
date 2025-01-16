@@ -1,5 +1,8 @@
 package imd.principal.sebolunarfx.controllers;
 
+import imd.principal.sebolunarfx.model.EstadoConservacao;
+import imd.principal.sebolunarfx.model.FormatoDisco;
+import imd.principal.sebolunarfx.model.PesoProduto;
 import imd.principal.sebolunarfx.utils.Operacoes;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -21,7 +24,7 @@ public class CadastroDiscoController extends MenuController{
     private Button btnCadastrarDisco;
 
     @FXML
-    protected void limparCampos(){
+    public void limparCampos(){
         txtCantor.setText("");
         txtTitulo.setText("");
         cboxPeso.setValue("");
@@ -29,6 +32,28 @@ public class CadastroDiscoController extends MenuController{
         cboxFormato.setValue("");
         numFaixas.getValueFactory().setValue(1);
         anoGravacao.getValueFactory().setValue(2025);
+        lbMensagemSucesso.setText("");
+    }
+    public boolean validarDados(){
+        String cantor = txtCantor.getText();
+        String titulo = txtTitulo.getText();
+        String peso = cboxPeso.getSelectionModel().getSelectedItem();
+        String conservacao = cboxEstado.getSelectionModel().getSelectedItem();
+        String formato = cboxFormato.getSelectionModel().getSelectedItem();
+
+        boolean valCantor = !cantor.isBlank();
+        boolean valTitulo = !titulo.isBlank();
+        boolean valEnums = false;
+
+        try {
+            PesoProduto.valueOf(peso);
+            EstadoConservacao.valueOf(conservacao);
+            FormatoDisco.valueOf(formato);
+            valEnums = true;
+        } catch (IllegalArgumentException _){
+        }
+
+        return valCantor && valTitulo && valEnums;
     }
 
     @FXML
@@ -40,11 +65,16 @@ public class CadastroDiscoController extends MenuController{
         peso = cboxPeso.getSelectionModel().getSelectedItem();
         conservacao = cboxEstado.getSelectionModel().getSelectedItem();
         formato = cboxFormato.getSelectionModel().getSelectedItem();
-
         Integer faixas = numFaixas.getValue();
         int ano =  anoGravacao.getValue();
 
-        if(!cantor.isEmpty() && !titulo.isEmpty()){
+        if(!validarDados()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atenção!");
+            alert.setHeaderText("Preencha todos os campos!");
+            alert.showAndWait();
+
+        }else{
             //Faz o cadastro
             Operacoes.cadastrarDisco(cantor, titulo, peso, conservacao, faixas, ano, formato);
 
@@ -53,20 +83,18 @@ public class CadastroDiscoController extends MenuController{
 
             //Mensagem de sucesso
             lbMensagemSucesso.setText("Disco cadastrado!");
-
-        }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Atenção!");
-            alert.setHeaderText("Preencha todos os campos!");
-            alert.showAndWait();
         }
+
+
     }
 
     @FXML
     protected void initialize(){
         btnCadastrarDisco.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
+        menu.toFront();
         cboxPeso.getItems().addAll("A", "B", "C", "D", "E", "F");
         cboxEstado.getItems().addAll("NOVO", "SEMINOVO", "USADO");
         cboxFormato.getItems().addAll("LP", "EP", "SINGLE");
     }
 }
+

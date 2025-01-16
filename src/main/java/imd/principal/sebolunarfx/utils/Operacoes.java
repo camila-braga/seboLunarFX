@@ -22,6 +22,9 @@ public class Operacoes {
 
     //Usado no cadastro de produto
     public static Disco cadastrarDisco(String cantor_, String titulo_, String peso_, String estado_, int faixas_, int ano_, String formato_ ) {
+
+
+
         PesoProduto peso = PesoProduto.valueOf(peso_);
         EstadoConservacao estadoConservacao = EstadoConservacao.valueOf(estado_);
         FormatoDisco formato = FormatoDisco.valueOf(formato_);
@@ -35,7 +38,12 @@ public class Operacoes {
     }
 
     //Usado no cadastro de produto
-    public static Livro cadastrarLivro(String autor_, String titulo_, String peso_, String estado_, int paginas_, int ano_, String editora_, String genero_ ) {
+    public static void cadastrarLivro(String autor_, String titulo_, String peso_, String estado_, int paginas_, int ano_, String editora_, String genero_ ) {
+
+        /*if(peso_ == null || peso_.isEmpty() || estado_ == null || estado_.isEmpty()){
+            return;
+        }*/
+
         PesoProduto peso = PesoProduto.valueOf(peso_);
         EstadoConservacao estadoConservacao = EstadoConservacao.valueOf(estado_);
 
@@ -44,15 +52,29 @@ public class Operacoes {
 
         banco.getArrayProduto().add(novoLivro);
 
-        return novoLivro;
     }
 
-    //Usado para exibir autor/cantor
-    public static ArrayList<Produto> exibirPorAutorCantor(String nome_) {
+    //Usado para exibir cantor
+    public static ArrayList<Produto> exibirPorCantor(String nome_) {
         ArrayList<Produto> resultados = new ArrayList<>();
         for (Produto p : banco.getArrayProduto()) {
-            if (p.getAutorCantor().equals(nome_)) {
-                resultados.add(p);
+            if(p instanceof Disco){
+                if (p.getAutorCantor().equals(nome_)) {
+                    resultados.add(p);
+                }
+            }
+        }
+        return resultados;
+    }
+
+    //Usado para exibir autor
+    public static ArrayList<Produto> exibirPorAutor(String nome_) {
+        ArrayList<Produto> resultados = new ArrayList<>();
+        for (Produto p : banco.getArrayProduto()) {
+            if(p instanceof Livro){
+                if (p.getAutorCantor().equals(nome_)) {
+                    resultados.add(p);
+                }
             }
         }
         return resultados;
@@ -68,61 +90,32 @@ public class Operacoes {
         }
         return resultados;
     }
-
-
-
-    //Usado para exibir produtos
-    public static ArrayList<Produto> exibirProdutos(String tipo) {
-        ArrayList<Produto> resultados = new ArrayList<>();
-
-        for (Produto p : banco.getArrayProduto()) {
-            if ((p instanceof Livro) && tipo.equals("Livro")) {
-                resultados.add(p);
-            }else if((p instanceof Disco) && tipo.equals("Disco")){
-                resultados.add(p);
-            }
-        }
-        return resultados;
-    }
-
-    public static ArrayList<Produto> exibirProdutosLivro() {
-        ArrayList<Produto> resultados = new ArrayList<>();
+    //Usado para exibir livros
+    public static ArrayList<Livro> exibirProdutosLivro() {
+        ArrayList<Livro> resultados = new ArrayList<>();
 
         for (Produto p : banco.getArrayProduto()) {
             if ((p instanceof Livro)) {
-                resultados.add(p);
+                resultados.add((Livro) p);
             }
         }
         return resultados;
     }
 
-    public static ArrayList<Produto> exibirProdutosDisco() {
-        ArrayList<Produto> resultados = new ArrayList<>();
+    //Usado para exibir discos
+    public static ArrayList<Disco> exibirProdutosDisco() {
+        ArrayList<Disco> resultados = new ArrayList<>();
 
         for (Produto p : banco.getArrayProduto()) {
             if((p instanceof Disco) ){
-                resultados.add(p);
+                resultados.add((Disco) p);
             }
         }
         return resultados;
     }
 
-    public static boolean existeDisco(String cantor, String titulo, EstadoConservacao estado, int ano, FormatoDisco formato) {
-        for(Produto produto : banco.getArrayProduto()){
-            if(produto instanceof Disco disco){
-                boolean eqCantor = disco.getAutorCantor().equals(cantor);
-                boolean eqTitulo = disco.getTitulo().equals(titulo);
-                boolean eqEstado = disco.getEstadoConservacao() == estado;
-                boolean eqAno = disco.getAnoGravacao() == ano;
-                boolean eqFormato = disco.getFormato() == formato;
-                if(eqCantor && eqTitulo && eqEstado && eqAno && eqFormato){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
+    //Usado para remover disco
     public static boolean removeDisco(String cantor, String titulo, String estado_, int ano, String formato_) {
         Produto toRemove = null;
         EstadoConservacao estado = EstadoConservacao.valueOf(estado_);
@@ -142,6 +135,7 @@ public class Operacoes {
         return banco.getArrayProduto().remove(toRemove);
     }
 
+    //Usado para remover livro
     public static boolean removeLivro(String autor, String titulo, String estado_, int ano, String editora) {
         Produto toRemove = null;
         EstadoConservacao estado = EstadoConservacao.valueOf(estado_);
@@ -159,28 +153,6 @@ public class Operacoes {
         }
         return banco.getArrayProduto().remove(toRemove);
     }
-
-
-    /*//Usado para verificar se um livro existe
-    public static boolean existeLivro(String autor_, String titulo_, String estado_, String ano_, String editora_ ) {
-        boolean encontrado = false;
-        EstadoConservacao estadoConservacao = tratamentoConservacao(estado_);
-
-        for(Produto p : banco.getArrayProduto()){
-            if(p.getAutorCantor().equals(autor_)){
-                if(p.getTitulo().equals(titulo_)){
-                    if(p.getEstadoConservacao().equals(estadoConservacao)){
-                        if(p.getTitulo().equals(titulo_)){
-                            if(p.getAutorCantor().equals(titulo_)){
-                                encontrado = true;
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }*/
 
 
 

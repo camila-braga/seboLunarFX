@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import java.util.ArrayList;
 
 public class ExibirAutorController extends MenuController{
-
     @FXML
     private Label lbMsgErro;
 
@@ -24,18 +23,17 @@ public class ExibirAutorController extends MenuController{
 
     private ObservableList<String> items;
 
-    @FXML
-    protected void initialize(){
-        btnBuscarAutor.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
-        items = FXCollections.observableArrayList();
-        listViewAutor.setItems(items);
+    public boolean validarDados(){
+        String autor = txtAutor.getText();
+
+        return !autor.isBlank();
     }
 
     public boolean atualizarDados() {
         String autor;
         autor = txtAutor.getText();
 
-        ArrayList<Produto> encontrados = Operacoes.exibirPorAutorCantor(autor);
+        ArrayList<Produto> encontrados = Operacoes.exibirPorAutor(autor);
 
         items.clear();
         if (encontrados.isEmpty()) {
@@ -50,24 +48,32 @@ public class ExibirAutorController extends MenuController{
 
     @FXML
     protected void btnBuscarAutorClick(){
-        String autor;
-
-        autor = txtAutor.getText();
-
-        if(!autor.isEmpty()){
-            if(!atualizarDados()){
-                lbMsgErro.setText("Produto não encontrado!");
-            } else{
-                lbMsgErro.setText("");
-            }
-            //Reseta o campo
-            txtAutor.setText("");
-
-        } else{
+        if(!validarDados()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção!");
             alert.setHeaderText("Preencha o campo!");
             alert.showAndWait();
+        }else{
+            if(!atualizarDados()){
+                lbMsgErro.setText("Produto não encontrado!");
+            } else {
+                lbMsgErro.setText("");
+            }
+            //Reseta o campo
+            txtAutor.setText("");
         }
+    }
+
+    @FXML
+    protected void initialize(){
+        menu.toFront();
+        btnBuscarAutor.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
+        items = FXCollections.observableArrayList();
+        listViewAutor.setItems(items);
+    }
+
+    @FXML
+    public void limparCampos(){
+        lbMsgErro.setText("");
     }
 }

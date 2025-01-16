@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import java.util.ArrayList;
 
 public class ExibirCantorController extends MenuController{
-
     @FXML
     private Label lbMsgErro;
 
@@ -24,8 +23,15 @@ public class ExibirCantorController extends MenuController{
 
     private ObservableList<String> items;
 
+    public boolean validarDados(){
+        String cantor = txtCantor.getText();
+
+        return !cantor.isBlank();
+    }
+
     @FXML
     protected void initialize(){
+        menu.toFront();
         btnBuscarCantor.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
         items = FXCollections.observableArrayList();
         listViewCantor.setItems(items);
@@ -35,7 +41,7 @@ public class ExibirCantorController extends MenuController{
         String cantor;
         cantor = txtCantor.getText();
 
-        ArrayList<Produto> encontrados = Operacoes.exibirPorAutorCantor(cantor);
+        ArrayList<Produto> encontrados = Operacoes.exibirPorCantor(cantor);
 
         items.clear();
         if (encontrados.isEmpty()) {
@@ -50,11 +56,12 @@ public class ExibirCantorController extends MenuController{
 
     @FXML
     protected void btnBuscarCantorClick(){
-        String cantor;
-
-        cantor = txtCantor.getText();
-
-        if(!cantor.isEmpty()){
+        if(!validarDados()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atenção!");
+            alert.setHeaderText("Preencha o campo!");
+            alert.showAndWait();
+        }else{
             if(!atualizarDados()){
                 lbMsgErro.setText("Produto não encontrado!");
             } else {
@@ -62,12 +69,11 @@ public class ExibirCantorController extends MenuController{
             }
             //Reseta o campo
             txtCantor.setText("");
-
-        }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Atenção!");
-            alert.setHeaderText("Preencha o campo!");
-            alert.showAndWait();
         }
+    }
+
+    @FXML
+    public void limparCampos(){
+        lbMsgErro.setText("");
     }
 }

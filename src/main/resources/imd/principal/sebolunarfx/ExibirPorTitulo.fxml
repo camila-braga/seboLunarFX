@@ -13,59 +13,65 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.ExibirPorTituloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.ExibirPorTituloController">
     <top>
-        <MenuBar fx:id="menuBar" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="1026.0" BorderPane.alignment="CENTER">
-            <menus>
-                <Menu fx:id="menuCadastrar" mnemonicParsing="false" text="Cadastrar">
-                    <items>
-                        <MenuItem fx:id="menuItemCadLivro" mnemonicParsing="false" onAction="#onCadLivroClick" text="Livro" />
-                        <MenuItem fx:id="menuItemCadDisco" mnemonicParsing="false" onAction="#onCadDiscoClick" text="Disco" />
-                    </items>
-                </Menu>
-                <Menu fx:id="menuExibir" mnemonicParsing="false" text="Exibir">
-                    <items>
-                        <Menu fx:id="menuTipo" mnemonicParsing="false" text="Por tipo">
-                            <items>
-                                <MenuItem fx:id="menuItemExTipoLivro" mnemonicParsing="false" onAction="#onExTipoLivroClick" text="Livro" />
-                                <MenuItem fx:id="menuItemExTipoDisco" mnemonicParsing="false" onAction="#onExTipoDiscoClick" text="Disco" />
-                            </items>
-                        </Menu>
-                        <MenuItem fx:id="menuItemExAutor" mnemonicParsing="false" onAction="#onExAutorClick" text="Por autor" />
-                        <MenuItem fx:id="menuItemExCantor" mnemonicParsing="false" onAction="#onExCantorClick" text="Por cantor" />
-                        <MenuItem fx:id="menuItemExTitulo" mnemonicParsing="false" onAction="#onExTituloClick" text="Por título" />
-                    </items>
-                </Menu>
-                <Menu fx:id="menuRemover" mnemonicParsing="false" text="Remover">
-                    <items>
-                        <MenuItem fx:id="menuItemRemoverLivro" mnemonicParsing="false" onAction="#onRemoverLivroClick" text="Livro" />
-                        <MenuItem fx:id="menuItemRemoverDisco" mnemonicParsing="false" onAction="#onRemoverDiscoClick" text="Disco" />
-                    </items></Menu>
-                <Menu fx:id="menuFrete" mnemonicParsing="false" text="Frete">
-                    <items>
-                        <MenuItem fx:id="menuItemFreteLivro" mnemonicParsing="false" onAction="#onFreteLivroClick" text="Livro" />
-                        <MenuItem fx:id="menuItemFreteDisco" mnemonicParsing="false" onAction="#onFreteDiscoClick" text="Disco" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
+      <Pane BorderPane.alignment="CENTER">
+         <children>
+              <MenuBar fx:id="menu" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="1026.0">
+                  <menus>
+                      <Menu mnemonicParsing="false" text="Cadastrar">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#onCadLivroClick" text="Livro" />
+                              <MenuItem mnemonicParsing="false" onAction="#onCadDiscoClick" text="Disco" />
+                          </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Exibir">
+                          <items>
+                              <Menu mnemonicParsing="false" text="Por tipo">
+                                  <items>
+                                      <MenuItem mnemonicParsing="false" onAction="#onExTipoLivroClick" text="Livro" />
+                                      <MenuItem mnemonicParsing="false" onAction="#onExTipoDiscoClick" text="Disco" />
+                                  </items>
+                              </Menu>
+                              <MenuItem mnemonicParsing="false" onAction="#onExAutorClick" text="Por autor" />
+                              <MenuItem mnemonicParsing="false" onAction="#onExCantorClick" text="Por cantor" />
+                              <MenuItem mnemonicParsing="false" onAction="#onExTituloClick" text="Por título" />
+                          </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Remover">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#onRemoverLivroClick" text="Livro" />
+                              <MenuItem mnemonicParsing="false" onAction="#onRemoverDiscoClick" text="Disco" />
+                          </items>
+                  </Menu>
+                      <Menu mnemonicParsing="false" text="Frete">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#onFreteLivroClick" text="Livro" />
+                              <MenuItem mnemonicParsing="false" onAction="#onFreteDiscoClick" text="Disco" />
+                          </items>
+                      </Menu>
+                  </menus>
+              </MenuBar>
+         </children>
+      </Pane>
     </top>
     <center>
-        <ScrollPane fx:id="scrollPane" fitToWidth="true" hvalue="0.4" prefHeight="592.0" prefWidth="624.0" vvalue="0.4">
+        <ScrollPane fitToWidth="true" hvalue="0.4" prefHeight="592.0" prefWidth="624.0" vvalue="0.4">
             <content>
-                <VBox fx:id="vBox3" alignment="CENTER" prefHeight="592.0" prefWidth="608.0">
+                <VBox alignment="CENTER" prefHeight="581.0" prefWidth="622.0">
                <children>
-                  <HBox fx:id="hBox2" alignment="CENTER" prefHeight="176.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER" prefHeight="176.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <VBox fx:id="vBox4" alignment="CENTER" HBox.hgrow="ALWAYS">
+                        <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label fx:id="lbExibirPorTitulo" alignment="CENTER" contentDisplay="CENTER" text="Exibir produtos por título" textAlignment="CENTER" textFill="#e4a069" wrapText="true" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Exibir produtos por título" textAlignment="CENTER" textFill="#e4a069" wrapText="true" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Book Antiqua" size="18.0" />
                                  </font>
@@ -73,7 +79,7 @@
                                     <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="lbPorTitulo" alignment="CENTER" contentDisplay="CENTER" text="Qual o título?" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Qual o título?" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -81,7 +87,7 @@
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <HBox fx:id="hBox3" alignment="CENTER" prefHeight="65.0" prefWidth="609.0" spacing="50.0" VBox.vgrow="ALWAYS">
+                              <HBox alignment="CENTER" prefHeight="65.0" prefWidth="609.0" spacing="50.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <TextField fx:id="txtPorTitulo" promptText="Título" HBox.hgrow="ALWAYS">
                                        <font>
@@ -122,11 +128,11 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox fx:id="hBox4" alignment="CENTER" prefHeight="494.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER" prefHeight="494.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox fx:id="vBox5" alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
+                        <VBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label fx:id="lbListaPorTitulo" alignment="CENTER" contentDisplay="CENTER" text="Lista de produtos cadastrados" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Lista de produtos cadastrados" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -152,9 +158,9 @@
         </ScrollPane>
     </center>
     <left>
-        <VBox fx:id="vBox1" alignment="CENTER" prefHeight="587.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="587.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fx:id="luaLeftPic" fitHeight="587.0" fitWidth="200.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
+                <ImageView fitHeight="587.0" fitWidth="200.0" VBox.vgrow="ALWAYS">
                     <image>
                         <Image url="@../../../luaLeft200por587.png" />
                     </image>
@@ -162,9 +168,9 @@
             </children></VBox>
     </left>
     <right>
-        <VBox fx:id="vBox2" alignment="CENTER" prefHeight="587.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="587.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fx:id="luaRightPic" fitHeight="587.0" fitWidth="200.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
+                <ImageView fitHeight="587.0" fitWidth="200.0" VBox.vgrow="ALWAYS">
                     <image>
                         <Image url="@../../../luaRight200por587.png" />
                     </image>
@@ -172,9 +178,9 @@
             </children></VBox>
     </right>
     <bottom>
-        <HBox fx:id="hBox1" prefHeight="29.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+        <HBox prefHeight="29.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fx:id="luaBottomPic" fitHeight="29.0" fitWidth="1024.0" pickOnBounds="true" HBox.hgrow="ALWAYS">
+                <ImageView fitHeight="29.0" fitWidth="1024.0" HBox.hgrow="ALWAYS">
                     <image>
                         <Image url="@../../../luaBottom1024por29.png" />
                     </image>

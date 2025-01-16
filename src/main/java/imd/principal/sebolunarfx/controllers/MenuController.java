@@ -3,8 +3,18 @@ package imd.principal.sebolunarfx.controllers;
 import imd.principal.sebolunarfx.MainApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuBar;
 
 public class MenuController {
+
+    @FXML
+    protected MenuBar menu;
+
+    @FXML
+    protected void initialize() {
+        menu.toFront();
+    }
+
     @FXML
     protected void onCadLivroClick(ActionEvent e){ MainApplication.mudarScene(1); }
 

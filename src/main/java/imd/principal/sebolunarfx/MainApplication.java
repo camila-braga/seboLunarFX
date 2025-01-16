@@ -1,11 +1,7 @@
 package imd.principal.sebolunarfx;
 
 import imd.principal.sebolunarfx.DAO.BancoDAO;
-import imd.principal.sebolunarfx.controllers.ExibirAutorController;
-import imd.principal.sebolunarfx.controllers.ExibirCantorController;
-import imd.principal.sebolunarfx.controllers.ExibirTipoDiscoController;
-import imd.principal.sebolunarfx.controllers.ExibirTipoLivroController;
-import imd.principal.sebolunarfx.controllers.ExibirPorTituloController;
+import imd.principal.sebolunarfx.controllers.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -55,22 +51,41 @@ public class MainApplication extends Application {
 
         //Criação das cenas
         Parent parentIntro = intro.load();
+
         Parent parentCadLivro = cadLivro.load();
+        parentCadLivro.setUserData(cadLivro);
+
         Parent parentCadDisco = cadDisco.load();
+        parentCadDisco.setUserData(cadDisco);
+
         Parent parentExTipoLivro = exTipoLivro.load();
         parentExTipoLivro.setUserData(exTipoLivro);
+
         Parent parentExTipoDisco = exTipoDisco.load();
         parentExTipoDisco.setUserData(exTipoDisco);
+
         Parent parentExAutor = exAutor.load();
         parentExAutor.setUserData(exAutor);
+
         Parent parentExCantor = exCantor.load();
         parentExCantor.setUserData(exCantor);
+
         Parent parentExTitulo = exTitulo.load();
         parentExTitulo.setUserData(exTitulo);
+
         Parent parentExFreteLivro = exFreteLivro.load();
+        parentExFreteLivro.setUserData(exFreteLivro);
+
         Parent parentExFreteDisco = exFreteDisco.load();
+        parentExFreteDisco.setUserData(exFreteDisco);
+
         Parent parentRemoverLivro = removerLivro.load();
+        parentRemoverLivro.setUserData(removerLivro);
+
         Parent parentRemoverDisco = removerDisco.load();
+        parentRemoverDisco.setUserData(removerDisco);
+
+
 
         Scene sceneIntro = new Scene(parentIntro, 800, 600);
         sceneCadLivro = new Scene(parentCadLivro, 1024, 640);
@@ -86,7 +101,6 @@ public class MainApplication extends Application {
         sceneRemoverDisco = new Scene(parentRemoverDisco, 1024, 640);
 
 
-
         primaryStage.setScene(sceneIntro);
         primaryStage.centerOnScreen();
         primaryStage.show();
@@ -98,71 +112,102 @@ public class MainApplication extends Application {
         FXMLLoader loader;
         switch (opcao){
             case 1:
+                loader = (FXMLLoader) sceneCadLivro.getRoot().getUserData();
+                CadastroLivroController controllerCadastroLivro= loader.getController();
+                controllerCadastroLivro.limparCampos();
                 primaryStage.setScene(sceneCadLivro);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Cadastro de livro");
                 break;
             case 2:
+                loader = (FXMLLoader) sceneCadDisco.getRoot().getUserData();
+                CadastroDiscoController controllerCadastroDisco= loader.getController();
+                controllerCadastroDisco.limparCampos();
                 primaryStage.setScene(sceneCadDisco);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Cadastro de disco");
                 break;
             case 3:
                 loader = (FXMLLoader) sceneExibirTipoLivro.getRoot().getUserData();
-                ExibirTipoLivroController controllerLivro= loader.getController();
-                controllerLivro.atualizarDados();
+                ExibirTipoLivroController controllerExibirLivro= loader.getController();
+                controllerExibirLivro.atualizarDados();
+                controllerExibirLivro.limparCampos();
                 primaryStage.setScene(sceneExibirTipoLivro);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Exibir por tipo - livro");
                 break;
             case 4:
                 loader = (FXMLLoader) sceneExibirTipoDisco.getRoot().getUserData();
-                ExibirTipoDiscoController controllerDisco = loader.getController();
-                controllerDisco.atualizarDados();
+                ExibirTipoDiscoController controllerExibirDisco = loader.getController();
+                controllerExibirDisco.atualizarDados();
+                controllerExibirDisco.limparCampos();
                 primaryStage.setScene(sceneExibirTipoDisco);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Exibir por tipo - disco");
                 break;
             case 5:
                 loader = (FXMLLoader) sceneExibirAutor.getRoot().getUserData();
-                ExibirAutorController controllerAutor = loader.getController();
-                controllerAutor.atualizarDados();
+                ExibirAutorController controllerExibirAutor = loader.getController();
+                controllerExibirAutor.atualizarDados();
+                controllerExibirAutor.limparCampos();
                 primaryStage.setScene(sceneExibirAutor);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Exibir por autor");
                 break;
             case 6:
                 loader = (FXMLLoader) sceneExibirCantor.getRoot().getUserData();
-                ExibirCantorController controllerCantor = loader.getController();
-                controllerCantor.atualizarDados();
+                ExibirCantorController controllerExibirCantor = loader.getController();
+                controllerExibirCantor.atualizarDados();
+                controllerExibirCantor.limparCampos();
                 primaryStage.setScene(sceneExibirCantor);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Exibir por cantor");
                 break;
             case 7:
                 loader = (FXMLLoader) sceneExibirTitulo.getRoot().getUserData();
-                ExibirPorTituloController controllerPorTitulo = loader.getController();
-                controllerPorTitulo.atualizarDados();
+                ExibirPorTituloController controllerExibirTitulo = loader.getController();
+                controllerExibirTitulo.atualizarDados();
+                controllerExibirTitulo.limparCampos();
                 primaryStage.setScene(sceneExibirTitulo);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Exibir por título");
                 break;
             case 8:
+                loader = (FXMLLoader) sceneExibirFreteLivro.getRoot().getUserData();
+                ExibirFreteLivroController controllerFreteLivro = loader.getController();
+                controllerFreteLivro.limparCampos();
+                controllerFreteLivro.atualizarDados();
+
                 primaryStage.setScene(sceneExibirFreteLivro);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Frete de livro");
                 break;
             case 9:
+                loader = (FXMLLoader) sceneExibirFreteDisco.getRoot().getUserData();
+                ExibirFreteLivroController controllerFreteDisco = loader.getController();
+                controllerFreteDisco.limparCampos();
+                controllerFreteDisco.atualizarDados();
+
                 primaryStage.setScene(sceneExibirFreteDisco);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Frete de disco");
                 break;
             case 10:
+                loader = (FXMLLoader) sceneRemoverLivro.getRoot().getUserData();
+                ExibirPorTituloController controllerRemoverLivro = loader.getController();
+                controllerRemoverLivro.limparCampos();
+                controllerRemoverLivro.atualizarDados();
+
                 primaryStage.setScene(sceneRemoverLivro);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Remover Livro");
                 break;
             case 11:
+                loader = (FXMLLoader) sceneRemoverDisco.getRoot().getUserData();
+                ExibirPorTituloController controllerRemoverDisco = loader.getController();
+                controllerRemoverDisco.limparCampos();
+                controllerRemoverDisco.atualizarDados();
+
                 primaryStage.setScene(sceneRemoverDisco);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Remover Disco");
@@ -192,7 +237,6 @@ public class MainApplication extends Application {
                 BancoDAO.banco = (BancoDAO) input.readObject();
 
             } catch (IOException | ClassNotFoundException e) {
-                //e.printStackTrace();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Atenção!");
                 alert.setHeaderText("Banco de dados não pôde ser carregado.");
@@ -204,7 +248,6 @@ public class MainApplication extends Application {
         } catch (FileNotFoundException e) {
             // cria um banco de dados vazio
         } catch (IOException e) {
-            //e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção!");
             alert.setHeaderText("Banco de dados não pôde ser carregado.");
@@ -229,7 +272,6 @@ public class MainApplication extends Application {
                 output = new ObjectOutputStream(fluxoDados);
                 output.writeObject(BancoDAO.banco);
             } catch (IOException e) {
-                //e.printStackTrace();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Atenção!");
                 alert.setHeaderText("Banco de dados não pôde ser gravado.");
@@ -239,7 +281,6 @@ public class MainApplication extends Application {
             }
 
         } catch (IOException e) {
-            //e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção!");
             alert.setHeaderText("Banco de dados não pôde ser fechado.");

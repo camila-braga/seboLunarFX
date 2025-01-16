@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -10,45 +12,57 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.MenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.MenuController">
       <top>
-            <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="1026.0" BorderPane.alignment="CENTER">
-                <menus>
-                    <Menu mnemonicParsing="false" text="Cadastrar">
-                        <items>
-                            <MenuItem mnemonicParsing="false" onAction="#onCadLivroClick" text="Livro" />
-                            <MenuItem mnemonicParsing="false" onAction="#onCadDiscoClick" text="Disco" />
-                        </items>
-                    </Menu>
-                    <Menu mnemonicParsing="false" text="Exibir">
-                        <items>
-                            <Menu mnemonicParsing="false" text="Por tipo">
-                                <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#onExTipoLivroClick" text="Livro" />
-                                    <MenuItem mnemonicParsing="false" onAction="#onExTipoDiscoClick" text="Disco" />
-                                </items>
-                            </Menu>
-                            <MenuItem mnemonicParsing="false" onAction="#onExAutorClick" text="Por autor" />
-                            <MenuItem mnemonicParsing="false" onAction="#onExCantorClick" text="Por cantor" />
-                            <MenuItem mnemonicParsing="false" onAction="#onExTituloClick" text="Por título" />
-                        </items>
-                    </Menu>
-                    <Menu mnemonicParsing="false" text="Remover">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#onRemoverLivroClick" text="Livro" />
-                  <MenuItem mnemonicParsing="false" onAction="#onRemoverDiscoClick" text="Disco" />
-               </items></Menu>
-                    <Menu mnemonicParsing="false" text="Frete">
-                        <items>
-                            <MenuItem mnemonicParsing="false" onAction="#onFreteLivroClick" text="Livro" />
-                            <MenuItem mnemonicParsing="false" onAction="#onFreteDiscoClick" text="Disco" />
-                        </items>
-                    </Menu>
-                </menus>
-            </MenuBar>
+      <Pane BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+                  <MenuBar fx:id="menu" cacheShape="false" centerShape="false" maxHeight="25.0" minHeight="25.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="1026.0">
+                      <menus>
+                          <Menu mnemonicParsing="false" text="Cadastrar">
+                              <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#onCadLivroClick" text="Livro" />
+                                  <MenuItem mnemonicParsing="false" onAction="#onCadDiscoClick" text="Disco" />
+                              </items>
+                          </Menu>
+                          <Menu mnemonicParsing="false" text="Exibir">
+                              <items>
+                                  <Menu mnemonicParsing="false" text="Por tipo">
+                                      <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#onExTipoLivroClick" text="Livro" />
+                                          <MenuItem mnemonicParsing="false" onAction="#onExTipoDiscoClick" text="Disco" />
+                                      </items>
+                                  </Menu>
+                                  <MenuItem mnemonicParsing="false" onAction="#onExAutorClick" text="Por autor" />
+                                  <MenuItem mnemonicParsing="false" onAction="#onExCantorClick" text="Por cantor" />
+                                  <MenuItem mnemonicParsing="false" onAction="#onExTituloClick" text="Por título" />
+                              </items>
+                          </Menu>
+                          <Menu mnemonicParsing="false" text="Remover">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onRemoverLivroClick" text="Livro" />
+                        <MenuItem mnemonicParsing="false" onAction="#onRemoverDiscoClick" text="Disco" />
+                     </items>
+                  </Menu>
+                          <Menu mnemonicParsing="false" text="Frete">
+                              <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#onFreteLivroClick" text="Livro" />
+                                  <MenuItem mnemonicParsing="false" onAction="#onFreteDiscoClick" text="Disco" />
+                              </items>
+                          </Menu>
+                      </menus>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+                  </MenuBar>
+         </children>
+      </Pane>
       </top>
       <center>
             <ScrollPane fitToWidth="true" hvalue="0.4" prefHeight="592.0" prefWidth="624.0" vvalue="0.4">
@@ -66,33 +80,48 @@
             </ScrollPane>
       </center>
    <left>
-      <VBox alignment="CENTER" prefHeight="587.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" fillWidth="false" maxHeight="1.7976931348623157E308" prefHeight="718.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="luaLeftPic" fitHeight="587.0" fitWidth="200.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
-               <image>
-                  <Image url="@../../../luaLeft200por587.png" />
-               </image>
-            </ImageView>
+            <Pane>
+               <children>
+                  <ImageView fitHeight="768.0" fitWidth="200.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../luaLeft200por768.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children></VBox>
    </left>
    <right>
-      <VBox alignment="CENTER" prefHeight="587.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" fillWidth="false" maxWidth="200.0" prefHeight="587.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="luaRightPic" fitHeight="587.0" fitWidth="200.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
-               <image>
-                  <Image url="@../../../luaRight200por587.png" />
-               </image>
-            </ImageView>
+            <Pane>
+               <children>
+                  <ImageView fitHeight="768.0" fitWidth="200.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../luaRight200por768.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children></VBox>
    </right>
    <bottom>
-      <HBox prefHeight="29.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" cacheShape="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="29.0">
          <children>
-            <ImageView fx:id="luaBottomPic" fitHeight="29.0" fitWidth="1024.0" pickOnBounds="true" HBox.hgrow="ALWAYS">
-               <image>
-                  <Image url="@../../../luaBottom1024por29.png" />
-               </image>
-            </ImageView>
+            <Pane prefHeight="200.0">
+               <children>
+                  <ImageView preserveRatio="true">
+                     <image>
+                        <Image url="@../../../luaBottom1366por29.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </HBox>
    </bottom>
