@@ -73,7 +73,6 @@ public class Livro extends Produto {
         return precoFinal;
     }
 
-
     /***
      * Método para listar todos os atributos separados por "=" e vírgula.
      *

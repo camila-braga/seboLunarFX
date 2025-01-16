@@ -1,5 +1,6 @@
 package imd.principal.sebolunarfx.DAO;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -7,7 +8,6 @@ import imd.principal.sebolunarfx.model.Produto;
 
 /***
  * Classe que representa o banco de dados do sebo Lunar.
- *
  * Implementado usando singleton, ou seja, o construtor deve ser privado para
  * evitar a instanciação de novos objetos. Dessa forma, existirá apenas um único
  * banco de dados.
@@ -16,9 +16,10 @@ import imd.principal.sebolunarfx.model.Produto;
  */
 public class BancoDAO implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
-    private ArrayList<Produto> produtos;
+    private final ArrayList<Produto> produtos;
     public static BancoDAO banco;
 
     private BancoDAO() {

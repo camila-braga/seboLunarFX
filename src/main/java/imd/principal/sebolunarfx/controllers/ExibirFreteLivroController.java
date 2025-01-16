@@ -87,6 +87,7 @@ public class ExibirFreteLivroController extends MenuController{
         txtTituloFrete.setText("");
         cboxZona.setValue("");
         lbMsgErro.setText("");
+        items.clear();
     }
 
     @FXML

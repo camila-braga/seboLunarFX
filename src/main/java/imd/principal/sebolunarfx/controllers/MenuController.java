@@ -1,7 +1,6 @@
 package imd.principal.sebolunarfx.controllers;
 
 import imd.principal.sebolunarfx.MainApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuBar;
 
@@ -16,45 +15,45 @@ public class MenuController {
     }
 
     @FXML
-    protected void onCadLivroClick(ActionEvent e){ MainApplication.mudarScene(1); }
+    protected void onCadLivroClick(){ MainApplication.mudarScene(1); }
 
     @FXML
-    protected void onCadDiscoClick(ActionEvent e){ MainApplication.mudarScene(2); }
+    protected void onCadDiscoClick(){ MainApplication.mudarScene(2); }
 
     @FXML
-    protected void onExTipoLivroClick(ActionEvent e){ MainApplication.mudarScene(3); }
+    protected void onExTipoLivroClick(){ MainApplication.mudarScene(3); }
 
     @FXML
-    protected void onExTipoDiscoClick(ActionEvent e){ MainApplication.mudarScene(4);}
+    protected void onExTipoDiscoClick(){ MainApplication.mudarScene(4);}
 
     @FXML
-    protected void onExAutorClick(ActionEvent e){ MainApplication.mudarScene(5); }
+    protected void onExAutorClick(){ MainApplication.mudarScene(5); }
 
     @FXML
-    protected void onExCantorClick(ActionEvent e){ MainApplication.mudarScene(6); }
+    protected void onExCantorClick(){ MainApplication.mudarScene(6); }
 
     @FXML
-    protected void onExTituloClick(ActionEvent e){
+    protected void onExTituloClick(){
         MainApplication.mudarScene(7);
     }
 
     @FXML
-    protected void onRemoverLivroClick(ActionEvent e){
+    protected void onRemoverLivroClick(){
         MainApplication.mudarScene(10);
     }
 
     @FXML
-    protected void onRemoverDiscoClick(ActionEvent e){
+    protected void onRemoverDiscoClick(){
         MainApplication.mudarScene(11);
     }
 
     @FXML
-    protected void onFreteLivroClick(ActionEvent e){
+    protected void onFreteLivroClick(){
         MainApplication.mudarScene(8);
     }
 
     @FXML
-    protected void onFreteDiscoClick(ActionEvent e){
+    protected void onFreteDiscoClick(){
         MainApplication.mudarScene(9);
     }
 }

@@ -68,7 +68,6 @@ public class Disco extends Produto {
 
     /***
      * Método para listar todos os atributos separados por "=" e vírgula.
-     *
      */
     @Override
     public String toString() {
@@ -94,6 +93,4 @@ public class Disco extends Produto {
         builder.append("]");
         return builder.toString();
     }
-
-
 }

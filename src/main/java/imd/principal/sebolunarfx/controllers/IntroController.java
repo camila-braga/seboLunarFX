@@ -1,7 +1,6 @@
 package imd.principal.sebolunarfx.controllers;
 
 import imd.principal.sebolunarfx.MainApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,7 +20,7 @@ public class IntroController {
     private Button introButton;
 
     @FXML
-    protected void onIntroButton(ActionEvent event) throws IOException  {
+    protected void onIntroButton() throws IOException  {
         //Carrega o tela do menu
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Menu.fxml"));
 

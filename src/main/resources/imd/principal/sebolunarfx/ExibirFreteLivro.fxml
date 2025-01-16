@@ -134,7 +134,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="348.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
                             <children>
-                                <ListView fx:id="listFreteLivro" fixedCellSize="10.0" prefHeight="330.0" prefWidth="609.0" HBox.hgrow="ALWAYS">
+                                <ListView fx:id="listFreteLivro" fixedCellSize="30.0" prefHeight="330.0" prefWidth="609.0" HBox.hgrow="ALWAYS">
                                     <HBox.margin>
                                         <Insets bottom="10.0" left="10.0" right="10.0" />
                                     </HBox.margin>

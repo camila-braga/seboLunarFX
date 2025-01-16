@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.ExibirPorTituloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.ExibirPorTituloController">
     <top>
       <Pane BorderPane.alignment="CENTER">
          <children>
@@ -162,7 +162,7 @@
             <children>
                 <ImageView fitHeight="587.0" fitWidth="200.0" VBox.vgrow="ALWAYS">
                     <image>
-                        <Image url="@../../../luaLeft200por587.png" />
+                        <Image url="@../../../luaLeft200por768.png" />
                     </image>
                 </ImageView>
             </children></VBox>
@@ -172,7 +172,7 @@
             <children>
                 <ImageView fitHeight="587.0" fitWidth="200.0" VBox.vgrow="ALWAYS">
                     <image>
-                        <Image url="@../../../luaRight200por587.png" />
+                        <Image url="@../../../luaRight200por768.png" />
                     </image>
                 </ImageView>
             </children></VBox>
@@ -182,7 +182,7 @@
             <children>
                 <ImageView fitHeight="29.0" fitWidth="1024.0" HBox.hgrow="ALWAYS">
                     <image>
-                        <Image url="@../../../luaBottom1024por29.png" />
+                        <Image url="@../../../luaBottom1366por29.png" />
                     </image>
                 </ImageView>
             </children>

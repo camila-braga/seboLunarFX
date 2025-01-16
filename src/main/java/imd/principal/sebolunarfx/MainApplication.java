@@ -184,7 +184,7 @@ public class MainApplication extends Application {
                 break;
             case 9:
                 loader = (FXMLLoader) sceneExibirFreteDisco.getRoot().getUserData();
-                ExibirFreteLivroController controllerFreteDisco = loader.getController();
+                ExibirFreteDiscoController controllerFreteDisco = loader.getController();
                 controllerFreteDisco.limparCampos();
                 controllerFreteDisco.atualizarDados();
 
@@ -194,9 +194,8 @@ public class MainApplication extends Application {
                 break;
             case 10:
                 loader = (FXMLLoader) sceneRemoverLivro.getRoot().getUserData();
-                ExibirPorTituloController controllerRemoverLivro = loader.getController();
+                RemoverLivroController controllerRemoverLivro = loader.getController();
                 controllerRemoverLivro.limparCampos();
-                controllerRemoverLivro.atualizarDados();
 
                 primaryStage.setScene(sceneRemoverLivro);
                 primaryStage.centerOnScreen();
@@ -204,9 +203,8 @@ public class MainApplication extends Application {
                 break;
             case 11:
                 loader = (FXMLLoader) sceneRemoverDisco.getRoot().getUserData();
-                ExibirPorTituloController controllerRemoverDisco = loader.getController();
+                RemoverDiscoController controllerRemoverDisco = loader.getController();
                 controllerRemoverDisco.limparCampos();
-                controllerRemoverDisco.atualizarDados();
 
                 primaryStage.setScene(sceneRemoverDisco);
                 primaryStage.centerOnScreen();
