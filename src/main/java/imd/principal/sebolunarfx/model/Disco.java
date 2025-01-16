@@ -1,5 +1,6 @@
 package imd.principal.sebolunarfx.model;
 
+import java.io.Serial;
 import java.text.DecimalFormat;
 
 /**
@@ -10,15 +11,16 @@ import java.text.DecimalFormat;
  **/
 public class Disco extends Produto {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
-    private String numeroFaixas;
-    private String anoGravacao;
+    private Integer numeroFaixas;
+    private Integer anoGravacao;
     private FormatoDisco formato;
 
     // Construtor parametrizado
     public Disco(String autorCantor, String titulo, PesoProduto peso, EstadoConservacao estadoConservacao,
-                 String numeroFaixas, String anoGravacao, FormatoDisco formato) {
+                 int numeroFaixas, int anoGravacao, FormatoDisco formato) {
         super(autorCantor, titulo, peso, estadoConservacao, 10.0);
         this.numeroFaixas = numeroFaixas;
         this.anoGravacao = anoGravacao;
@@ -27,19 +29,19 @@ public class Disco extends Produto {
     }
 
     // Métodos get/set
-    public String getNumeroFaixas() {
+    public int getNumeroFaixas() {
         return numeroFaixas;
     }
 
-    public void setNumeroFaixas(String numeroFaixas) {
+    public void setNumeroFaixas(int numeroFaixas) {
         this.numeroFaixas = numeroFaixas;
     }
 
-    public String getAnoGravacao() {
+    public int getAnoGravacao() {
         return anoGravacao;
     }
 
-    public void setAnoGravacao(String anoGravacao) {
+    public void setAnoGravacao(int anoGravacao) {
         this.anoGravacao = anoGravacao;
     }
 

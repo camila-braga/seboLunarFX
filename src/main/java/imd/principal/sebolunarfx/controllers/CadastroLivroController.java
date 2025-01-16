@@ -1,52 +1,41 @@
 package imd.principal.sebolunarfx.controllers;
 
 import imd.principal.sebolunarfx.utils.Operacoes;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-
-import java.io.IOException;
 
 public class CadastroLivroController extends MenuController {
+    @FXML
+    private Label  lbMensagemSucesso;
 
     @FXML
-    private VBox vBox4, vBox5, vBox6, vBox7, vBox8, vBox9;
-
-    @FXML
-    private HBox hBox2, hBox3, hBox4, hBox5, hBox6, hBox7, hBox8, hBox9, hBox10, hBox11;
-
-    @FXML
-    private Label lbCadLivro, lbAutor, lbTitulo, lbPeso, lbConservacao, lbEditora, lbPaginas, lbAnoPublicacao, lbGeneroLiterario, lbMensagemSucesso;
-
-    @FXML
-    private TextField txtAutor, txtTitulo, txtEditora, txtPaginas, txtAnoPublicacao, txtGeneroLiterario;
+    private TextField txtAutor, txtTitulo, txtEditora, txtGeneroLiterario;
 
     @FXML
     private ChoiceBox<String> cboxPeso, cboxEstado;
 
     @FXML
+    private Spinner<Integer> numPaginas, anoPublicacao;
+
+    @FXML
     private Button btnCadastrarLivro;
 
     @FXML
-    protected void onBtnCadastrarLivro() throws IOException {
-        String autor, titulo, editora, genero, conservacao, paginas, anoPublicacao, peso;
+    protected void onBtnCadastrarLivro() {
+        String autor, titulo, editora, genero, conservacao, peso;
 
         autor = txtAutor.getText();
         titulo = txtTitulo.getText();
         peso = cboxPeso.getSelectionModel().getSelectedItem();
         conservacao = cboxEstado.getSelectionModel().getSelectedItem();
         editora = txtEditora.getText();
-        paginas = txtPaginas.getText();
-        anoPublicacao = txtAnoPublicacao.getText();
         genero = txtGeneroLiterario.getText();
+        Integer paginas = numPaginas.getValue();
+        int ano =  anoPublicacao.getValue();
 
-        boolean check = checagem(autor, titulo, peso, conservacao, editora, paginas, anoPublicacao, genero);
-
-        if(check){
+        if(!autor.isEmpty() && !titulo.isEmpty() && !editora.isEmpty() && !genero.isEmpty()){
             //Faz o cadastro
-            Operacoes.cadastrarLivro(autor, titulo, peso, conservacao, editora, paginas, anoPublicacao, genero);
+            Operacoes.cadastrarLivro(autor, titulo, peso, conservacao, paginas, ano, editora, genero);
 
             //Limpa os campos de preenchimento:
             limparCampos();
@@ -60,41 +49,17 @@ public class CadastroLivroController extends MenuController {
             alert.setHeaderText("Preencha todos os campos!");
             alert.showAndWait();
         }
-
-    }
-
-    @FXML
-    protected boolean checagem( String autor, String titulo, String peso, String conservacao, String editora, String paginas, String anoPublicacao, String genero){
-        boolean resultado = false;
-        if(!autor.isEmpty()){
-            if(!titulo.isEmpty()){
-                if(!peso.isEmpty()){
-                    if(!conservacao.isEmpty()){
-                        if(!editora.isEmpty()){
-                            if(!paginas.isEmpty()){
-                                if(!anoPublicacao.isEmpty()){
-                                    if(!genero.isEmpty()){
-                                        resultado = true;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return resultado;
     }
 
     @FXML
     protected void limparCampos(){
         txtAutor.setText("");
         txtTitulo.setText("");
-       // cboxPeso.setText("");
-        //cboxEstado.setText("");
+        cboxPeso.setValue("");
+        cboxEstado.setValue("");
         txtEditora.setText("");
-        txtPaginas.setText("");
-        txtAnoPublicacao.setText("");
+        numPaginas.getValueFactory().setValue(1);
+        anoPublicacao.getValueFactory().setValue(2025);
         txtGeneroLiterario.setText("");
     }
 

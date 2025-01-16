@@ -1,5 +1,6 @@
 package imd.principal.sebolunarfx.utils;
 
+import java.text.Format;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -20,70 +21,28 @@ public class Operacoes {
     private static BancoDAO banco = BancoDAO.getInstance();
 
     //Usado no cadastro de produto
-    public static PesoProduto tratamentoPeso(String peso){
-        PesoProduto pesoProduto = PesoProduto.A;
-        pesoProduto = switch (peso) {
-            case "B" -> PesoProduto.B;
-            case "C" -> PesoProduto.C;
-            case "D" -> PesoProduto.D;
-            case "E" -> PesoProduto.E;
-            case "F" -> PesoProduto.F;
-            default -> pesoProduto;
-        };
-        return pesoProduto;
-    }
-
-    //Usado no cadastro de produto
-    public static EstadoConservacao tratamentoConservacao(String conservacao){
-        EstadoConservacao estado = EstadoConservacao.NOVO;
-        estado = switch (conservacao) {
-            case "SEMINOVO" -> EstadoConservacao.SEMINOVO;
-            case "USADO" -> EstadoConservacao.USADO;
-            default -> estado;
-        };
-        return estado;
-    }
-
-    //Usado no cadastro de produto
-    public static FormatoDisco tratamentoFormato(String formato){
-        FormatoDisco formatoDisco = FormatoDisco.LP;
-        formatoDisco = switch (formato) {
-            case "EP" -> FormatoDisco.EP;
-            case "SINGLE" -> FormatoDisco.SINGLE;
-            default -> formatoDisco;
-        };
-        return formatoDisco;
-    }
-
-    //Usado no frete
-    public static Zona tratamentoZona(String zona_){
-        Zona zona = Zona.SUL;
-        zona = switch (zona_) {
-            case "NORTE" -> Zona.NORTE;
-            default -> zona;
-        };
-        return zona;
-    }
-
-    //Usado no cadastro de produto
-    public static Disco cadastrarDisco(String cantor_, String titulo_, String peso_, String estado_, String faixas_, String ano_, String formato_ ) {
-        PesoProduto peso = tratamentoPeso(peso_);
-        EstadoConservacao estadoConservacao = tratamentoConservacao(estado_);
-        FormatoDisco formato = tratamentoFormato(formato_);
+    public static Disco cadastrarDisco(String cantor_, String titulo_, String peso_, String estado_, int faixas_, int ano_, String formato_ ) {
+        PesoProduto peso = PesoProduto.valueOf(peso_);
+        EstadoConservacao estadoConservacao = EstadoConservacao.valueOf(estado_);
+        FormatoDisco formato = FormatoDisco.valueOf(formato_);
 
         Disco novoDisco = new Disco(cantor_, titulo_, peso, estadoConservacao,
                 faixas_, ano_, formato);
+
+        banco.getArrayProduto().add(novoDisco);
 
         return novoDisco;
     }
 
     //Usado no cadastro de produto
-    public static Livro cadastrarLivro(String autor_, String titulo_, String peso_, String estado_, String paginas_, String ano_, String editora_, String genero_ ) {
-        PesoProduto peso = tratamentoPeso(peso_);
-        EstadoConservacao estadoConservacao = tratamentoConservacao(estado_);
+    public static Livro cadastrarLivro(String autor_, String titulo_, String peso_, String estado_, int paginas_, int ano_, String editora_, String genero_ ) {
+        PesoProduto peso = PesoProduto.valueOf(peso_);
+        EstadoConservacao estadoConservacao = EstadoConservacao.valueOf(estado_);
 
         Livro novoLivro = new Livro(autor_, titulo_, peso, estadoConservacao,
                 paginas_, editora_, ano_, genero_);
+
+        banco.getArrayProduto().add(novoLivro);
 
         return novoLivro;
     }
@@ -120,7 +79,83 @@ public class Operacoes {
         return resultados;
     }
 
-    //Usado para verificar se um livro existe
+    public static ArrayList<Produto> exibirProdutosLivro() {
+        ArrayList<Produto> resultados = new ArrayList<>();
+
+        for (Produto p : banco.getArrayProduto()) {
+            if ((p instanceof Livro)) {
+                resultados.add(p);
+            }
+        }
+        return resultados;
+    }
+
+    public static ArrayList<Produto> exibirProdutosDisco() {
+        ArrayList<Produto> resultados = new ArrayList<>();
+
+        for (Produto p : banco.getArrayProduto()) {
+            if((p instanceof Disco) ){
+                resultados.add(p);
+            }
+        }
+        return resultados;
+    }
+
+    public static boolean existeDisco(String cantor, String titulo, EstadoConservacao estado, int ano, FormatoDisco formato) {
+        for(Produto produto : banco.getArrayProduto()){
+            if(produto instanceof Disco disco){
+                boolean eqCantor = disco.getAutorCantor().equals(cantor);
+                boolean eqTitulo = disco.getTitulo().equals(titulo);
+                boolean eqEstado = disco.getEstadoConservacao() == estado;
+                boolean eqAno = disco.getAnoGravacao() == ano;
+                boolean eqFormato = disco.getFormato() == formato;
+                if(eqCantor && eqTitulo && eqEstado && eqAno && eqFormato){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean removeDisco(String cantor, String titulo, String estado_, int ano, String formato_) {
+        Produto toRemove = null;
+        EstadoConservacao estado = EstadoConservacao.valueOf(estado_);
+        FormatoDisco formato = FormatoDisco.valueOf(formato_);
+        for(Produto produto : banco.getArrayProduto()){
+            if(produto instanceof Disco disco){
+                boolean eqCantor = disco.getAutorCantor().equals(cantor);
+                boolean eqTitulo = disco.getTitulo().equals(titulo);
+                boolean eqEstado = disco.getEstadoConservacao() == estado;
+                boolean eqAno = disco.getAnoGravacao() == ano;
+                boolean eqFormato = disco.getFormato() == formato;
+                if(eqCantor && eqTitulo && eqEstado && eqAno && eqFormato){
+                    toRemove = produto;
+                }
+            }
+        }
+        return banco.getArrayProduto().remove(toRemove);
+    }
+
+    public static boolean removeLivro(String autor, String titulo, String estado_, int ano, String editora) {
+        Produto toRemove = null;
+        EstadoConservacao estado = EstadoConservacao.valueOf(estado_);
+        for(Produto produto : banco.getArrayProduto()){
+            if(produto instanceof Livro livro){
+                boolean eqCantor = livro.getAutorCantor().equals(autor);
+                boolean eqTitulo = livro.getTitulo().equals(titulo);
+                boolean eqEstado = livro.getEstadoConservacao() == estado;
+                boolean eqAno = livro.getAnoPublicacao() == ano;
+                boolean eqEditora = livro.getEditora().equals(editora);
+                if(eqCantor && eqTitulo && eqEstado && eqAno && eqEditora){
+                    toRemove = produto;
+                }
+            }
+        }
+        return banco.getArrayProduto().remove(toRemove);
+    }
+
+
+    /*//Usado para verificar se um livro existe
     public static boolean existeLivro(String autor_, String titulo_, String estado_, String ano_, String editora_ ) {
         boolean encontrado = false;
         EstadoConservacao estadoConservacao = tratamentoConservacao(estado_);
@@ -138,7 +173,7 @@ public class Operacoes {
                 }
             }
         }
-    }
+    }*/
 
 
 

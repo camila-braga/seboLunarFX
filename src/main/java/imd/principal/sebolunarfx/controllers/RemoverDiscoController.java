@@ -3,24 +3,13 @@ package imd.principal.sebolunarfx.controllers;
 import imd.principal.sebolunarfx.utils.Operacoes;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-
-import java.io.IOException;
 
 public class RemoverDiscoController extends MenuController{
+    @FXML
+    private TextField txtCantor, txtTitulo;
 
     @FXML
-    private Label lbRemoverDisco, lbCantor, lbTitulo, lbConservacao, lbAnoGravacao, lbFormato, lbMsgErro;
-
-    @FXML
-    private HBox hBox2, hBox3, hBox4, hBox5, hBox6, hBox7, hBox8;
-
-    @FXML
-    private VBox vBox4, vBox5, vBox6;
-
-    @FXML
-    private TextField txtCantor, txtTitulo, txtAnoGravacao;
+    private Spinner<Integer> anoGravacao;
 
     @FXML
     private ChoiceBox<String> cboxEstado, cboxFormato;
@@ -29,39 +18,43 @@ public class RemoverDiscoController extends MenuController{
     private Button btnRemoverDisco;
 
     @FXML
-    protected void onBtnRemoverDisco() throws IOException {
-        String cantor, titulo, editora, ano, conservacao, formato;
+    private Label lbMsg;
+
+    @FXML
+    protected void onBtnRemoverDisco() {
+        String cantor, titulo, conservacao, formato;
+        int ano;
 
         cantor = txtCantor.getText();
         titulo = txtTitulo.getText();
         conservacao = cboxEstado.getSelectionModel().getSelectedItem();
-        ano = txtAnoGravacao.getText();
+        ano = anoGravacao.getValue();
         formato = cboxFormato.getSelectionModel().getSelectedItem();
 
-        /*if(){
-            //Faz o cadastro
-
-            //Limpa os campos de preenchimento:
-            limparCampos();
-
-            //Mensagem de erro
-            lbMsgErro.setText("Produto não encontrado!");
-
-        }else{
+        if(cantor.isEmpty() || titulo.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção!");
             alert.setHeaderText("Preencha todos os campos!");
             alert.showAndWait();
-        }*/
+        } else {
+            boolean result = Operacoes.removeDisco(cantor, titulo, conservacao, ano, formato);
+            limparCampos();
+            if(result){
+                lbMsg.setText("Produto removido!");
+
+            }else{
+                lbMsg.setText("Produto inexistente!");
+            }
+        }
     }
 
     @FXML
     protected void limparCampos(){
         txtCantor.setText("");
         txtTitulo.setText("");
-        //cboxEstado.setText("");
-        txtAnoGravacao.setText("");
-        //cboxFormato.setText("");
+        cboxEstado.setValue("");
+        anoGravacao.getValueFactory().setValue(2025);
+        cboxFormato.setValue("");
     }
 
     @FXML
@@ -70,5 +63,4 @@ public class RemoverDiscoController extends MenuController{
         cboxEstado.getItems().addAll("NOVO", "SEMINOVO", "USADO");
         cboxFormato.getItems().addAll("LP", "EP", "SINGLE");
     }
-
 }

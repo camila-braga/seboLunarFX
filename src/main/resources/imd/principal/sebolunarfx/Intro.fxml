@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vBox1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.IntroController">
+<VBox fx:id="vBox1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.IntroController">
    <children>
-      <HBox fx:id="hBox2" alignment="TOP_CENTER" prefHeight="330.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="TOP_CENTER" prefHeight="330.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
-            <Label fx:id="introText" alignment="TOP_CENTER" contentDisplay="CENTER" text="Bem-vindo ao Sebo Lunar! " textAlignment="CENTER" textFill="#fae461" wrapText="true" HBox.hgrow="ALWAYS">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Bem-vindo ao Sebo Lunar! " textAlignment="CENTER" textFill="#fae461" wrapText="true" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Leelawadee UI" size="38.0" />
                </font>
@@ -20,7 +20,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </HBox.margin>
                <effect>
                   <Glow />
@@ -28,7 +28,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox fx:id="hBox3" alignment="CENTER" prefHeight="110.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="110.0" prefWidth="600.0">
          <children>
             <Button fx:id="introButton" alignment="CENTER" mnemonicParsing="false" onAction="#onIntroButton" text="Acessar" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
                <font>

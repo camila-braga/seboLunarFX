@@ -1,7 +1,6 @@
 package imd.principal.sebolunarfx.model;
 
 import java.text.DecimalFormat;
-import java.util.Objects;
 
 /**
  * Classe que representa um livro vendido no sebo.
@@ -13,13 +12,13 @@ public class Livro extends Produto {
 
     private static final long serialVersionUID = 1L;
 
-    private String numeroPaginas;
+    private Integer numeroPaginas;
     private String editora;
-    private String anoPublicacao;
+    private Integer anoPublicacao;
     private String generoLiterario;
 
     public Livro(String autorCantor, String titulo, PesoProduto peso, EstadoConservacao estadoConservacao,
-                 String numeroPaginas, String editora, String anoPublicacao, String generoLiterario) {
+                 Integer numeroPaginas, String editora, Integer anoPublicacao, String generoLiterario) {
         super(autorCantor, titulo, peso, estadoConservacao, 10.0);
         this.numeroPaginas = numeroPaginas;
         this.editora = editora;
@@ -28,11 +27,11 @@ public class Livro extends Produto {
         setPrecoBase(calculaPreco());
     }
 
-    public String getNumeroPaginas() {
+    public Integer getNumeroPaginas() {
         return numeroPaginas;
     }
 
-    public void setNumeroPaginas(String numeroPaginas) {
+    public void setNumeroPaginas(Integer numeroPaginas) {
         this.numeroPaginas = numeroPaginas;
     }
 
@@ -44,11 +43,11 @@ public class Livro extends Produto {
         this.editora = editora;
     }
 
-    public String getAnoPublicacao() {
+    public Integer getAnoPublicacao() {
         return anoPublicacao;
     }
 
-    public void setAnoPublicacao(String anoPublicacao) {
+    public void setAnoPublicacao(Integer anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
     }
 
@@ -102,17 +101,5 @@ public class Livro extends Produto {
         builder.append(df.format(getPrecoBase()));
         builder.append("]");
         return builder.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Livro livro = (Livro) o;
-        return Objects.equals(getNumeroPaginas(), livro.getNumeroPaginas()) && Objects.equals(getEditora(), livro.getEditora()) && Objects.equals(getAnoPublicacao(), livro.getAnoPublicacao()) && Objects.equals(getGeneroLiterario(), livro.getGeneroLiterario());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getNumeroPaginas(), getEditora(), getAnoPublicacao(), getGeneroLiterario());
     }
 }

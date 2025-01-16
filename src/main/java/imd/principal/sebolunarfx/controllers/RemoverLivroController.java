@@ -3,65 +3,59 @@ package imd.principal.sebolunarfx.controllers;
 import imd.principal.sebolunarfx.utils.Operacoes;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-
-import java.io.IOException;
 
 public class RemoverLivroController extends MenuController{
 
     @FXML
-    private Label lbRemoverLivro, lbAutor, lbTitulo, lbConservacao, lbEditora, lbAnoPublicacao, lbMsgErro;
+    private Label lbMsg;
 
     @FXML
-    private HBox hBox2, hBox3, hBox4, hBox5, hBox6, hBox7, hBox8;
-
-    @FXML
-    private VBox vBox4, vBox5, vBox6, vBox7;
-
-    @FXML
-    private TextField txtAutor, txtTitulo, txtEditora, txtAnoPublicacao;
+    private TextField txtAutor, txtTitulo, txtEditora;
 
     @FXML
     private ChoiceBox<String> cboxEstado;
 
     @FXML
+    private Spinner<Integer> anoPublicacao;
+
+    @FXML
     private Button btnRemoverLivro;
 
     @FXML
-    protected void onBtnRemoverLivro() throws IOException {
-        String autor, titulo, editora, ano, conservacao;
+    protected void onBtnRemoverLivro(){
+        String autor, titulo, conservacao, editora;
+        int ano;
 
         autor = txtAutor.getText();
         titulo = txtTitulo.getText();
         conservacao = cboxEstado.getSelectionModel().getSelectedItem();
+        ano = anoPublicacao.getValue();
         editora = txtEditora.getText();
-        ano = txtAnoPublicacao.getText();
 
-        /*if(){
-            //Faz o cadastro
-
-            //Limpa os campos de preenchimento:
-            limparCampos();
-
-            //Mensagem de erro
-            lbMsgErro.setText("Produto não encontrado!");
-
-        }else{
+        if(autor.isEmpty() || titulo.isEmpty() || editora.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção!");
             alert.setHeaderText("Preencha todos os campos!");
             alert.showAndWait();
-        }*/
+        } else {
+            boolean result = Operacoes.removeLivro(autor, titulo, conservacao, ano, editora);
+            limparCampos();
+            if(result){
+                lbMsg.setText("Produto removido!");
+
+            }else{
+                lbMsg.setText("Produto inexistente!");
+            }
+        }
     }
 
     @FXML
     protected void limparCampos(){
         txtAutor.setText("");
         txtTitulo.setText("");
-        //cboxEstado.setText("");
+        cboxEstado.setValue("");
         txtEditora.setText("");
-        txtAnoPublicacao.setText("");
+        anoPublicacao.getValueFactory().setValue(2025);
     }
 
     @FXML
@@ -69,5 +63,4 @@ public class RemoverLivroController extends MenuController{
         btnRemoverLivro.setStyle("-fx-border-color: #40a1da; -fx-background-color: #6cb0da;");
         cboxEstado.getItems().addAll("NOVO", "SEMINOVO", "USADO");
     }
-
 }
