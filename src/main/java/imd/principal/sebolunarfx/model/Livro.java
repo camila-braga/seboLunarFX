@@ -1,5 +1,6 @@
 package imd.principal.sebolunarfx.model;
 
+import java.io.Serial;
 import java.text.DecimalFormat;
 
 /**
@@ -10,6 +11,7 @@ import java.text.DecimalFormat;
  **/
 public class Livro extends Produto {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private Integer numeroPaginas;

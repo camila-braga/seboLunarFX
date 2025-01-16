@@ -15,5 +15,5 @@ public interface Frete extends Serializable {
      * @param zona A zona da cidade onde será feita a entrega (sul ou norte).
      * @return O valor total do frete.
      */
-    public double calcularFrete(Zona zona);
+    double calcularFrete(Zona zona);
 }

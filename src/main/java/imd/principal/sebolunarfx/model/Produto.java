@@ -1,5 +1,6 @@
 package imd.principal.sebolunarfx.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 
@@ -11,6 +12,7 @@ import java.text.DecimalFormat;
  **/
 public abstract class Produto implements Serializable, Frete {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private String autorCantor;

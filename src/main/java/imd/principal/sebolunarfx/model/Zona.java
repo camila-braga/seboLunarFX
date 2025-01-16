@@ -12,7 +12,7 @@ public enum Zona implements Serializable {
     SUL(5.0),
     NORTE(10.0);
 
-    protected final Double percent;
+    private final Double percent;
 
     Zona(Double percent) {
         this.percent = percent;

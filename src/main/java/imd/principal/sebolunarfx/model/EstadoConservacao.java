@@ -13,7 +13,7 @@ public enum EstadoConservacao implements Serializable {
     SEMINOVO(0.4),
     USADO(0.2);
 
-    protected final Double percent;
+    private final Double percent;
 
     EstadoConservacao(Double percent) {
         this.percent = percent;
