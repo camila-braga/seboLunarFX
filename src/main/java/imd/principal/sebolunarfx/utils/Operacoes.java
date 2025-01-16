@@ -164,8 +164,9 @@ public class Operacoes {
             if(p.getAutorCantor().equals(autor_)){
                 if(p.getTitulo().equals(titulo_)){
                     if(p.getEstadoConservacao().equals(estadoConservacao)){
-                        if(p.get.equals(titulo_)){
+                        if(p.getTitulo().equals(titulo_)){
                             if(p.getAutorCantor().equals(titulo_)){
+                                encontrado = true;
 
                             }
                         }
@@ -567,6 +568,7 @@ public class Operacoes {
         if(!existeAlgumProduto) {
             System.out.println("Não existem discos cadastrados!");
         }
+        //return encontrado;
     }
 
     /***

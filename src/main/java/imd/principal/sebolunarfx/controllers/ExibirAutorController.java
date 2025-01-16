@@ -5,8 +5,6 @@ import imd.principal.sebolunarfx.utils.Operacoes;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,13 +12,7 @@ import java.util.ArrayList;
 public class ExibirAutorController extends MenuController{
 
     @FXML
-    private HBox hBox2, hBox3, hBox4;
-
-    @FXML
-    private VBox vBox4, vBox5;
-
-    @FXML
-    private Label lbExibirAutor, lbAutor, lbListaAutor, lbMsgErro;
+    private Label lbMsgErro;
 
     @FXML
     private TextField txtAutor;

@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="imd.principal.sebolunarfx.controllers.ExibirCantorController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.ExibirCantorController">
     <top>
         <MenuBar fx:id="menuBar" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="1026.0" BorderPane.alignment="CENTER">
             <menus>
@@ -58,14 +58,14 @@
             <content>
                 <VBox fx:id="vBox3" alignment="CENTER" prefHeight="592.0" prefWidth="608.0">
                <children>
-                  <HBox fx:id="hBox2" alignment="CENTER" prefHeight="176.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER" prefHeight="176.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <VBox fx:id="vBox4" alignment="CENTER" HBox.hgrow="ALWAYS">
+                        <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label fx:id="lbExibirCantor" alignment="CENTER" contentDisplay="CENTER" text="Exibir produtos por cantor" textAlignment="CENTER" textFill="#e4a069" wrapText="true" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Exibir produtos por cantor" textAlignment="CENTER" textFill="#e4a069" wrapText="true" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Book Antiqua" size="18.0" />
                                  </font>
@@ -73,7 +73,7 @@
                                     <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="lbCantor" alignment="CENTER" contentDisplay="CENTER" text="Qual o cantor?" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Qual o cantor?" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -81,7 +81,7 @@
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <HBox fx:id="hBox3" alignment="CENTER" prefHeight="65.0" prefWidth="609.0" spacing="50.0" VBox.vgrow="ALWAYS">
+                              <HBox alignment="CENTER" prefHeight="65.0" prefWidth="609.0" spacing="50.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <TextField fx:id="txtCantor" promptText="Cantor" HBox.hgrow="ALWAYS">
                                        <font>
@@ -122,11 +122,11 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox fx:id="hBox4" alignment="CENTER" prefHeight="494.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER" prefHeight="494.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox fx:id="vBox5" alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
+                        <VBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label fx:id="lbListaCantor" alignment="CENTER" contentDisplay="CENTER" text="Lista de discos cadastrados" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Lista de discos cadastrados" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>

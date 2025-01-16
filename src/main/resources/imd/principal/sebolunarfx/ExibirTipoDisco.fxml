@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.ExibirTipoDiscoController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.ExibirTipoDiscoController">
     <top>
         <MenuBar fx:id="menuBar" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="1026.0" BorderPane.alignment="CENTER">
             <menus>
@@ -56,9 +56,9 @@
             <content>
                 <VBox fx:id="vBox3" alignment="CENTER" prefHeight="592.0" prefWidth="608.0">
                     <children>
-                        <HBox fx:id="hBox3" alignment="CENTER" prefHeight="63.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER" prefHeight="63.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
                             <children>
-                                <Label fx:id="lbDiscoCadastrados" alignment="CENTER" contentDisplay="CENTER" text="Discos Cadastrados" textAlignment="CENTER" textFill="#e4a069" HBox.hgrow="ALWAYS">
+                                <Label alignment="CENTER" contentDisplay="CENTER" text="Discos Cadastrados" textAlignment="CENTER" textFill="#e4a069" HBox.hgrow="ALWAYS">
                                     <font>
                                         <Font name="Book Antiqua" size="18.0" />
                                     </font>
@@ -71,7 +71,7 @@
                                 <Insets bottom="10.0" top="10.0" />
                             </padding>
                         </HBox>
-                        <HBox fx:id="hBox4" alignment="CENTER" prefHeight="532.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER" prefHeight="532.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
                             <children>
                                 <VBox fx:id="vBox1" alignment="CENTER" prefHeight="490.0" prefWidth="589.0" spacing="5.0" HBox.hgrow="ALWAYS">
                                     <HBox.margin>

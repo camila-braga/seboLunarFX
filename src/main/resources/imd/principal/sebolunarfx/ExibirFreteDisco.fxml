@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="imd.principal.sebolunarfx.controllers.ExibirFreteDiscoController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imd.principal.sebolunarfx.controllers.ExibirFreteDiscoController">
     <top>
         <MenuBar fx:id="menuBar" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="1026.0" BorderPane.alignment="CENTER">
             <menus>
@@ -59,14 +59,14 @@
             <content>
                 <VBox fx:id="vBox3" alignment="CENTER" prefHeight="592.0" prefWidth="608.0">
                <children>
-                  <HBox fx:id="hBox2" alignment="CENTER" prefHeight="265.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER" prefHeight="265.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <VBox fx:id="vBox4" alignment="CENTER" prefHeight="233.0" prefWidth="609.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                        <VBox alignment="CENTER" prefHeight="233.0" prefWidth="609.0" spacing="5.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label fx:id="lbValorFrete" alignment="CENTER" contentDisplay="CENTER" text="Valor do frete" textAlignment="CENTER" textFill="#e4a069" wrapText="true" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Valor do frete" textAlignment="CENTER" textFill="#e4a069" wrapText="true" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Book Antiqua" size="18.0" />
                                  </font>
@@ -74,7 +74,7 @@
                                     <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="lbTituloFrete" alignment="CENTER" contentDisplay="CENTER" text="Qual o título?" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Qual o título?" textAlignment="CENTER" textFill="#2f80b5" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -90,12 +90,12 @@
                                     <Insets left="110.0" right="110.0" />
                                  </VBox.margin>
                               </TextField>
-                              <HBox fx:id="hBox3" alignment="CENTER" prefHeight="65.0" prefWidth="609.0" spacing="50.0" VBox.vgrow="ALWAYS">
+                              <HBox alignment="CENTER" prefHeight="65.0" prefWidth="609.0" spacing="50.0" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
                                  <children>
-                                    <Label fx:id="lbZona" alignment="CENTER" contentDisplay="CENTER" text="Informe a zona a ser entregue:" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" text="Informe a zona a ser entregue:" textAlignment="CENTER" textFill="#2f80b5" wrapText="true" HBox.hgrow="ALWAYS">
                                        <font>
                                           <Font name="Book Antiqua" size="14.0" />
                                        </font>
@@ -126,7 +126,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox fx:id="hBox4" alignment="CENTER" prefHeight="348.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER" prefHeight="348.0" prefWidth="609.0" VBox.vgrow="ALWAYS">
                      <children>
                         <ListView fx:id="listFreteDisco" fixedCellSize="10.0" prefHeight="330.0" prefWidth="609.0" HBox.hgrow="ALWAYS">
                            <HBox.margin>
