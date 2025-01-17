@@ -25,3 +25,4 @@ Na aplicação principal, temos a abertura e fechamento do arquivo do banco de d
 
 O controller mais importante é a do menu principal, que faz uso do método da aplicação para alternar as outras telas. Além disso, todos os outros controllers herdam dele.
 
+Para a execução, executar a aplicação MainApplication.
